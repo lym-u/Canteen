@@ -1,5 +1,6 @@
 package com.canteen.service.impl;
 
+import com.canteen.bean.Dish;
 import com.canteen.bean.Dishes;
 import com.canteen.dao.DishMapper;
 import com.canteen.service.DishService;
@@ -45,8 +46,8 @@ public class DishServiceImpl implements DishService {
      * @return
      */
     @Override
-    public Integer addDish(Dishes dish) {
-        Integer total=studentMapper.insert(student);
+    public Integer addDish(Dish dish) {
+        Integer total=dishMapper.insert(dish);
         return total;
     }
 

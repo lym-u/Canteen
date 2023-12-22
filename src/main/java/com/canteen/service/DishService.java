@@ -1,6 +1,7 @@
 package com.canteen.service;
 
 
+import com.canteen.bean.Dish;
 import com.canteen.bean.Dishes;
 import com.canteen.bean.TStudent;
 import com.github.pagehelper.PageInfo;
@@ -25,7 +26,7 @@ public interface DishService {
      * @param dish
      * @return
      */
-    Integer addDish(Dishes dish);
+    Integer addDish(Dish dish);
 
     /**
      * 删除菜品信息
@@ -39,5 +40,5 @@ public interface DishService {
      * @param dish
      * @return
      */
-    Integer updateDish(Dishes dish);
+    Integer updateDish(Dish dish);
 }

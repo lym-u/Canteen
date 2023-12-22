@@ -216,4 +216,5 @@ public class Communitypost implements Serializable {
     public void setContent(String content) {
         this.content = content;
     }
+
 }

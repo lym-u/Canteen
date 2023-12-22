@@ -182,4 +182,5 @@ public class Canteenmanager implements Serializable {
     public void setCanteenid(Integer canteenid) {
         this.canteenid = canteenid;
     }
+
 }
