@@ -101,4 +101,6 @@ public interface CanteenMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(Canteen record);
+
+    List<Canteen> getAllCanteens();
 }

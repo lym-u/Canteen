@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.canteen.bean.User;
-import com.canteen.dao.UserDao;
+import com.canteen.dao.UserMapper;
 import com.canteen.service.IUserService;
 
 /**
@@ -19,7 +19,7 @@ import com.canteen.service.IUserService;
 public class UserServiceImpl implements IUserService {
 	//注入数据层接口
 	@Autowired
-	private UserDao userDao;
+	private IUserService userDao;
 	
 	public List<User> getUser(User user) {
 		return userDao.getUser(user);

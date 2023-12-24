@@ -16,27 +16,32 @@ public class CanteenServiceImpl implements CanteenService {
 
     @Override
     public Canteen getCanteenById(int id) {
-        return canteenMapper.getCanteenById(id);
+//        return canteenMapper.getCanteenById(id);
+        return canteenMapper.selectByPrimaryKey(id);
     }
 
     @Override
     public List<Canteen> getAllCanteens() {
+//        return canteenMapper.getAllCanteens();
         return canteenMapper.getAllCanteens();
     }
 
     @Override
     public Integer addCanteen(Canteen canteen) {
-        return canteenMapper.addCanteen(canteen);
+//        return canteenMapper.addCanteen(canteen);
+        return canteenMapper.insert(canteen);
     }
 
     @Override
     public Integer updateCanteen(Canteen canteen) {
-        return canteenMapper.updateCanteen(canteen);
+//        return canteenMapper.updateCanteen(canteen);
+        return canteenMapper.updateByPrimaryKey(canteen);
     }
 
     @Override
     public Integer deleteCanteen(int id) {
-        return canteenMapper.deleteCanteen(id);
+//        return canteenMapper.deleteCanteen(id);
+        return canteenMapper.deleteByPrimaryKey(id);
     }
 
 }

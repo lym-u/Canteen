@@ -17,14 +17,14 @@ public class FilterConfig {
         return registration;
     }
 
-    @Bean
-    public FilterRegistrationBean wordsFilterRegistration() {
-        FilterRegistrationBean registration = new FilterRegistrationBean();
-        registration.setFilter(new SensitiveWordFilter());
-        registration.addUrlPatterns("/*");
-        registration.setName("wordsFilter");
-        registration.setOrder(2);
-        return registration;
-    }
+//    @Bean
+//    public FilterRegistrationBean wordsFilterRegistration() {
+//        FilterRegistrationBean registration = new FilterRegistrationBean();
+//        registration.setFilter(new SensitiveWordFilter());
+//        registration.addUrlPatterns("/*");
+//        registration.setName("wordsFilter");
+//        registration.setOrder(2);
+//        return registration;
+//    }
  
 }
