@@ -5,6 +5,7 @@ import com.canteen.bean.ResultObject;
 import com.canteen.service.CanteenService;
 import com.canteen.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,47 +41,48 @@ public class CanteenController {
     private CanteenService canteenService;
 
     //标识请求地址
-    @RequestMapping("/getAllCanteen")
-    public ResultObject<List<Canteen>> getAllCanteen(Canteen canteen, HttpServletRequest request) {
-        ResultObject<List<Canteen>> rs=new ResultObject<List<Canteen>>();
-        return rs;
-    }
-    @RequestMapping("/getAllCanteens")
-    public ResultObject<List<Canteen>> getAllCanteens() {
-        ResultObject<List<Canteen>> result = new ResultObject<>();
-        List<Canteen> canteens = canteenService.getAllCanteens();
-
-        result.setCode(Constant.SUCCESS_RETUEN_CODE);
-        result.setMsg("查询成功");
-        result.setData(canteens);
-        int total=canteens.size();
-        Long a=Long.parseLong(String.valueOf(total));
-        result.setCount(a);
-        return result;
-    }
-
-    @RequestMapping("/getCanteenById")
-    public ResultObject<Canteen> getCanteenById(@RequestParam("id") int id) {
-        ResultObject<Canteen> result = new ResultObject<>();
-        Canteen canteen = canteenService.getCanteenById(id);
-
-        if (canteen != null) {
-            result.setCode(Constant.SUCCESS_RETUEN_CODE);
-            result.setMsg("查询成功");
-            result.setData(canteen);
-        } else {
-            result.setCode(Constant.FAILURE_RETUEN_CODE);
-            result.setMsg("未找到对应的食堂");
-        }
-
-        return result;
-    }
+//    @RequestMapping("/getAllCanteen")
+//    public ResultObject<List<Canteen>> getAllCanteen(Canteen canteen, HttpServletRequest request) {
+//        ResultObject<List<Canteen>> rs=new ResultObject<List<Canteen>>();
+//        return rs;
+//    }
+//    @RequestMapping("/getAllCanteens")
+//    public ResultObject<List<Canteen>> getAllCanteens() {
+//        ResultObject<List<Canteen>> result = new ResultObject<>();
+//
+//        List<Canteen> canteens = canteenService.getAllCanteens();
+//
+//        result.setCode(Constant.SUCCESS_RETUEN_CODE);
+//        result.setMsg("查询成功");
+//        result.setData(canteens);
+//        int total=canteens.size();
+//        Long a=Long.parseLong(String.valueOf(total));
+//        result.setCount(a);
+//        return result;
+//    }
+//
+//    @RequestMapping("/getCanteenById")
+//    public ResultObject<Canteen> getCanteenById(@RequestParam("id") int id) {
+//        ResultObject<Canteen> result = new ResultObject<>();
+//        Canteen canteen = canteenService.getCanteenById(id);
+//
+//        if (canteen != null) {
+//            result.setCode(Constant.SUCCESS_RETUEN_CODE);
+//            result.setMsg("查询成功");
+//            result.setData(canteen);
+//        } else {
+//            result.setCode(Constant.FAILURE_RETUEN_CODE);
+//            result.setMsg("未找到对应的食堂");
+//        }
+//
+//        return result;
+//    }
 
     @RequestMapping("/addCanteen")
-    public ResultObject<Object> addCanteen(Canteen canteen) {
+    public ResultObject<Object> addCanteen(@RequestBody Canteen canteen) {
         ResultObject<Object> result = new ResultObject<>();
 
-        Integer id = canteenService.addCanteen(canteen);
+        Integer id = canteenService.insert(canteen);
 
         if (id != null) {
             result.setCode(Constant.SUCCESS_RETUEN_CODE);
@@ -93,37 +95,39 @@ public class CanteenController {
         return result;
     }
 
-    @RequestMapping("/updateCanteen")
-    public ResultObject<Object> updateCanteen(Canteen canteen) {
-        ResultObject<Object> result = new ResultObject<>();
-
-        Integer rows = canteenService.updateCanteen(canteen);
-
-        if (rows != null && rows > 0) {
-            result.setCode(Constant.SUCCESS_RETUEN_CODE);
-            result.setMsg("修改食堂信息成功");
-        } else {
-            result.setCode(Constant.FAILURE_RETUEN_CODE);
-            result.setMsg("修改食堂信息失败");
-        }
-
-        return result;
-    }
-
-    @RequestMapping("/deleteCanteen")
-    public ResultObject<Object> deleteCanteen(@RequestParam("id") int id) {
-        ResultObject<Object> result = new ResultObject<>();
-
-        Integer rows = canteenService.deleteCanteen(id);
-
-        if (rows != null && rows > 0) {
-            result.setCode(Constant.SUCCESS_RETUEN_CODE);
-            result.setMsg("删除食堂成功");
-        } else {
-            result.setCode(Constant.FAILURE_RETUEN_CODE);
-            result.setMsg("删除食堂失败");
-        }
-
-        return result;
-    }
+//    @RequestMapping("/updateCanteen")
+//    public ResultObject<Object> updateCanteen(Canteen canteen) {
+//        ResultObject<Object> result = new ResultObject<>();
+//
+//        Integer rows = canteenService.updateCanteen(canteen);
+//
+//        if (rows != null && rows > 0) {
+//            result.setCode(Constant.SUCCESS_RETUEN_CODE);
+//            result.setMsg("修改食堂信息成功");
+//        } else {
+//            result.setCode(Constant.FAILURE_RETUEN_CODE);
+//            result.setMsg("修改食堂信息失败");
+//        }
+//
+//        return result;
+//    }
+//
+//    @RequestMapping("/deleteCanteen")
+//    public ResultObject<Object> deleteCanteen(@RequestParam("id") int id) {
+//        ResultObject<Object> result = new ResultObject<>();
+//
+//        Integer rows = canteenService.deleteCanteen(id);
+//
+//        if (rows != null && rows > 0) {
+//            result.setCode(Constant.SUCCESS_RETUEN_CODE);
+//            result.setMsg("删除食堂成功");
+//        } else {
+//            result.setCode(Constant.FAILURE_RETUEN_CODE);
+//            result.setMsg("删除食堂失败");
+//        }
+//
+//        return result;
+//    }
 }
+
+
