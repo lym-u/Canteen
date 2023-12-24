@@ -12,6 +12,8 @@ public class CanteenExample {
      *
      * @mbg.generated
      */
+    /*用途：存储 SQL 中的 ORDER BY 子句
+    作用：指定查询结果的排序方式*/
     protected String orderByClause;
 
     /**
@@ -20,6 +22,8 @@ public class CanteenExample {
      *
      * @mbg.generated
      */
+    /*用途：标识查询结果是否需要去重
+作用：如果设置为 true，则查询结果会去除重复的记录*/
     protected boolean distinct;
 
     /**
@@ -28,6 +32,8 @@ public class CanteenExample {
      *
      * @mbg.generated
      */
+    /*用途：存储多组查询条件
+作用：可以存储多组查询条件，实现复杂的查询逻辑，比如使用 OR 连接不同的查询条件*/
     protected List<Criteria> oredCriteria;
 
     /**
@@ -36,6 +42,7 @@ public class CanteenExample {
      *
      * @mbg.generated
      */
+
     public CanteenExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
@@ -96,6 +103,9 @@ public class CanteenExample {
      *
      * @mbg.generated
      */
+    /*
+    向 oredCriteria 列表中添加一个 Criteria 对象，表示 OR 连接
+     */
     public void or(Criteria criteria) {
         oredCriteria.add(criteria);
     }
@@ -106,6 +116,7 @@ public class CanteenExample {
      *
      * @mbg.generated
      */
+    /*作用：创建一个新的 Criteria 对象并添加到 oredCriteria 列表中，表示 OR 连接*/
     public Criteria or() {
         Criteria criteria = createCriteriaInternal();
         oredCriteria.add(criteria);
@@ -143,6 +154,7 @@ public class CanteenExample {
      *
      * @mbg.generated
      */
+    /*清空所有的查询条件，包括 orderByClause、distinct 和 oredCriteria*/
     public void clear() {
         oredCriteria.clear();
         orderByClause = null;
@@ -155,6 +167,7 @@ public class CanteenExample {
      *
      * @mbg.generated
      */
+    /*静态内部类 GeneratedCriteria，用于生成 SQL 查询语句中的 WHERE 子句的条件。*/
     protected abstract static class GeneratedCriteria {
         protected List<Criterion> criteria;
 
@@ -549,6 +562,7 @@ public class CanteenExample {
      *
      * @mbg.generated do_not_delete_during_merge
      */
+    /*Criteria 类继承了 GeneratedCriteria 类，用于生成 SQL 查询语句中的 WHERE 子句的条件。*/
     public static class Criteria extends GeneratedCriteria {
 
         protected Criteria() {
@@ -617,7 +631,7 @@ public class CanteenExample {
             this.typeHandler = null;
             this.noValue = true;
         }
-
+        /*Criterion 类则用于表示一个查询条件，包含了查询条件的类型、值等信息。*/
         protected Criterion(String condition, Object value, String typeHandler) {
             super();
             this.condition = condition;
@@ -648,3 +662,6 @@ public class CanteenExample {
         }
     }
 }
+
+
+
