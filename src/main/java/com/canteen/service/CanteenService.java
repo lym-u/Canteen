@@ -5,6 +5,7 @@ import com.canteen.bean.Canteen;
 
 import java.util.List;
 
+
 public interface CanteenService {
     Canteen getCanteenById(int id);
     List<Canteen> getAllCanteens();
