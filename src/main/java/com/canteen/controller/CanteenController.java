@@ -107,9 +107,9 @@ public class CanteenController {
     @RequestMapping("/addCanteen")
     public ResultObject<Object> addCanteen(@RequestBody Canteen canteen) {
         ResultObject<Object> result = new ResultObject<>();
-
         Integer id = canteenService.insert(canteen);
-
+//        String a=canteen.getDescription();
+//        System.out.println(a);
         if (id != null) {
             result.setCode(Constant.SUCCESS_RETUEN_CODE);
             result.setMsg("增加食堂信息成功");
@@ -133,14 +133,12 @@ public class CanteenController {
             result.setCode(Constant.FAILURE_RETUEN_CODE);
             result.setMsg("修改食堂信息失败");
         }
-
         return result;
     }
-
+    //按食堂id删除
     @RequestMapping("/deleteCanteen")
     public ResultObject<Object> deleteCanteen(@RequestParam("id") int id) {
         ResultObject<Object> result = new ResultObject<>();
-        //按食堂id删除
         Integer rows = canteenService.deleteByPrimaryKey(id);
 //        Integer rows = canteenService.deleteCanteen(id);
         if (rows != null && rows > 0) {
