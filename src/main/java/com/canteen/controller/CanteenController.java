@@ -38,7 +38,7 @@ import java.util.List;
 @RequestMapping("/canteen")
 @RestController //标识为返回类型为Json的控制器
 public class CanteenController {
-    //自动注入服务类
+
     @Autowired
     private CanteenService canteenService;
 
@@ -64,6 +64,7 @@ public class CanteenController {
 //        result.setCount(a);
 //        return result;
 //    }
+    //自动注入服务类
     @RequestMapping("/getAllCanteens")
 //查询全部食堂（按食堂ID升序）
     public ResultObject<List<Canteen>> getAllCanteens() {
@@ -86,23 +87,29 @@ public class CanteenController {
 
         return result;
     }
+    //根据食堂id查询食堂信息
+    @RequestMapping("/getCanteenById")
+    public ResultObject<Canteen> getCanteenById(@RequestParam("id") int id) {
+        ResultObject<Canteen> result = new ResultObject<>();
+// 创建 CanteenExample 实例
+        CanteenExample example = new CanteenExample();
+// 创建 Criteria 对象，表示查询条件
+        CanteenExample.Criteria criteria = example.createCriteria();
+        criteria.andCanteenidEqualTo(id);
+        List<Canteen> canteens = canteenService.selectByExample(example);
+        if (canteens != null) {
+            result.setCode(Constant.SUCCESS_RETUEN_CODE);
+            result.setMsg("查询成功");
+            for (Canteen canteen : canteens) {
+                result.setData(canteen);
+            }
+        } else {
+            result.setCode(Constant.FAILURE_RETUEN_CODE);
+            result.setMsg("未找到对应的食堂");
+        }
 
-//    @RequestMapping("/getCanteenById")
-//    public ResultObject<Canteen> getCanteenById(@RequestParam("id") int id) {
-//        ResultObject<Canteen> result = new ResultObject<>();
-//        Canteen canteen = canteenService.getCanteenById(id);
-//
-//        if (canteen != null) {
-//            result.setCode(Constant.SUCCESS_RETUEN_CODE);
-//            result.setMsg("查询成功");
-//            result.setData(canteen);
-//        } else {
-//            result.setCode(Constant.FAILURE_RETUEN_CODE);
-//            result.setMsg("未找到对应的食堂");
-//        }
-//
-//        return result;
-//    }
+        return result;
+    }
 
     @RequestMapping("/addCanteen")
     public ResultObject<Object> addCanteen(@RequestBody Canteen canteen) {
