@@ -72,19 +72,8 @@
 //自定义验证规则
     form.verify({
       canteenId: function(value) {
-
-        if (value.length > 5) {
-          return '食堂编号长度不能超过5个字符';
-        }
-      },
-      canteenName: function(value) {
-        if (value.length > 10) {
-          return '食堂名称长度不能超过10个字符';
-        }
-      },
-      canteenAddress: function(value) {
-        if (value.length > 20) {
-          return '食堂地址长度不能超过20个字符';
+        if (!/^\d{3}$/.test(value)) {
+          return '食堂编号必须为3位数字';
         }
       },
       startTime: function(value) {
@@ -98,7 +87,6 @@
         }
       }
     });
-
     form.on('submit(addCanteen)', function(data) {
       var str = JSON.stringify(data.field);
       var param = JSON.parse(str);
