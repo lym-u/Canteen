@@ -15,7 +15,7 @@
 
 <body>
 	<div class="page-content-wrap" id="studentSearch">
-	<h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">学生成绩信息管理界面</h5>
+	<h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">食堂基本信息管理</h5>
 		<hr>
 		<div class="layui-form-item">
 			<div class="layui-inline tool-btn">
@@ -30,7 +30,7 @@
 				</button> -->
 			</div>
 			<div class="layui-inline">
-				<input type="text" id="studentNameSearch" placeholder="请输入学生姓名"
+				<input type="text" id="studentNameSearch" placeholder="请输入食堂名称"
 					autocomplete="off" class="layui-input">
 			</div>
 			<button class="layui-btn layui-btn-normal site-demo-active"
@@ -41,10 +41,11 @@
 				<thead>
 					<tr>
 						<th lay-data="{type:'checkbox', }"></th>
-						<th lay-data="{field:'scoreId',sort: true}">成绩编号</th>
-						<th lay-data="{field:'studentName'}">姓名</th>
-						<th lay-data="{field:'scoreTypeName'}">考试类型</th>
-						<th lay-data="{field:'scoreValue'}">成绩</th>
+						<th lay-data="{field:'canteenId',sort: true}">食堂编号</th>
+						<th lay-data="{field:'canteenName'}">食堂名称</th>
+						<th lay-data="{field:'canteenLocation'}">食堂地点</th>
+						<th lay-data="{field:'canteenstarttime'}">开始营业时间</th>
+						<th lay-data="{field:'canteenendtime'}">结束营业时间</th>
 						<th
 							lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}"></th>
 					</tr>
@@ -59,7 +60,7 @@
   <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">删除</a>
 	</script>
 		<hr></hr>
-		<h5 style="text-align: center;">@2018.学生单科成绩管理系统</h5>
+		<h5 style="text-align: center;">@2023.食堂交流社区</h5>
 	</div>
 	<script src="assets/admin/layui/layui.all.js" type="text/javascript"
 		charset="utf-8"></script>
@@ -87,7 +88,7 @@
 				            body.find("#scoreType").text(data.scoreTypeName);
 				            body.find("#scoreValue").text(data.scoreValue);
 				        }});
-				} 
+				}
 				if (obj.event === 'del') {
 					layer.confirm('真的删除成绩信息吗？', function(index) {
 						var data = obj.data;
@@ -115,7 +116,7 @@
 			                    }
 			                });
 					});
-				} 
+				}
 				if (obj.event === 'edit') {
 					var editFrom = layui.layer.open({
 				        title : "编辑学生成绩信息",
@@ -139,17 +140,17 @@
 			//触发事件
 			var active = {
 				tabAdd : function() {
-					
+
 					layer.open({
 					      type: 2,
-					      title: '添加学生成绩信息',
+					      title: '添加食堂信息',
 					      shadeClose: true,
 					      shade: false,
 					   /*    maxmin: true,  *///开启最大化最小化按钮
 					      area: ['800px', '400px'],
-					      content: '/score-add.html'
+					      content: '/canteen-add.html'
 					    });
-				
+
 				},search:function(){
 					var name=$("#studentNameSearch").val();
 					table.reload('scoreTest',{
@@ -157,7 +158,7 @@
 						 , where: {"studentName":name},page: {
 						    curr: 1 //重新从第 1 页开始
 						  }
-						 
+
 						})
 				}
 			};
