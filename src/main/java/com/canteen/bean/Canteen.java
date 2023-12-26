@@ -1,5 +1,7 @@
 package com.canteen.bean;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -45,6 +47,7 @@ public class Canteen implements Serializable {
      *
      * @mbg.generated
      */
+    @JsonFormat(pattern="HH:mm:ss",timezone="GMT+8")
     private Date starttime;
 
     /**
@@ -54,6 +57,7 @@ public class Canteen implements Serializable {
      *
      * @mbg.generated
      */
+    @JsonFormat(pattern="HH:mm:ss",timezone="GMT+8")
     private Date endtime;
 
     /**
@@ -157,6 +161,7 @@ public class Canteen implements Serializable {
      *
      * @mbg.generated
      */
+
     public Date getStarttime() {
         return starttime;
     }
