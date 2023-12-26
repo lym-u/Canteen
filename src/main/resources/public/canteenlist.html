@@ -30,7 +30,7 @@
                             </button> -->
         </div>
         <div class="layui-inline">
-            <input type="text" id="studentNameSearch" placeholder="请输入食堂名称"
+            <input type="text" id="canteenNameSearch" placeholder="请输入食堂名称"
                    autocomplete="off" class="layui-input">
         </div>
         <button class="layui-btn layui-btn-normal site-demo-active"
@@ -44,6 +44,7 @@
                 <th lay-data="{field:'canteenNo',sort: true}">食堂编号</th>
                 <th lay-data="{field:'canteenName'}">食堂名称</th>
                 <th lay-data="{field:'canteenAddress'}">食堂地址</th>
+                <th lay-data="{field:'canteenProfile'}">食堂简介</th>
                 <th lay-data="{field:'canteentStart'}">食堂开始营业时间</th>
                 <th lay-data="{field:'canteenEnd'}">食堂结束营业时间</th>
                 <th
@@ -86,6 +87,7 @@
                         body.find("#canteenNo").text(data.canteenNo);
                         body.find("#canteenName").text(data.canteenName);
                         body.find("#canteenAddress").text(data.canteenAddress);
+                        body.find("#canteentProfile").text(data.canteentProfile);
                         body.find("#canteentStart").text(data.canteentStart);
                         body.find("#canteentEnd").text(data.canteentEnd);
                     }});
