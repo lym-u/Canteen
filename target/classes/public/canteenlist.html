@@ -30,13 +30,13 @@
                             </button> -->
         </div>
         <div class="layui-inline">
-            <input type="text" id="studentNameSearch" placeholder="请输入食堂名称"
+            <input type="text" id="canteenNameSearch" placeholder="请输入食堂名称"
                    autocomplete="off" class="layui-input">
         </div>
         <button class="layui-btn layui-btn-normal site-demo-active"
                 data-type="search" id="searchCanteen">搜索</button>
         <table class="layui-table"
-               lay-data="{ url:'/student/getAllStudent', page:true, id:'idTest'}"
+               lay-data="{ url:'/canteen/getAllCanteens', page:true, id:'idTest'}"
                lay-filter="demo">
             <thead>
             <tr>
@@ -44,6 +44,7 @@
                 <th lay-data="{field:'canteenNo',sort: true}">食堂编号</th>
                 <th lay-data="{field:'canteenName'}">食堂名称</th>
                 <th lay-data="{field:'canteenAddress'}">食堂地址</th>
+                <th lay-data="{field:'canteenProfile'}">食堂简介</th>
                 <th lay-data="{field:'canteentStart'}">食堂开始营业时间</th>
                 <th lay-data="{field:'canteenEnd'}">食堂结束营业时间</th>
                 <th
@@ -60,7 +61,7 @@
         <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">删除</a>
     </script>
     <hr></hr>
-    <h5 style="text-align: center;">@2023.食堂信息管理系统</h5>
+    <h5 style="text-align: center;">@2023.首页</h5>
 </div>
 <script src="assets/admin/layui/layui.all.js" type="text/javascript"
         charset="utf-8"></script>
@@ -83,11 +84,12 @@
                     area: ['500px', '200px'],
                     success : function(layero, index){
                         var body = layui.layer.getChildFrame('body', index);
-                        body.find("#canteenNo").text(data.canteenNo);
-                        body.find("#canteenName").text(data.canteenName);
-                        body.find("#canteenAddress").text(data.canteenAddress);
-                        body.find("#canteentStart").text(data.canteentStart);
-                        body.find("#canteentEnd").text(data.canteentEnd);
+                        body.find("#canteenNo").text(data.canteenid);
+                        body.find("#canteenName").text(data.canteenname);
+                        body.find("#canteenAddress").text(data.location);
+                        body.find("#canteentProfile").text(data.description);
+                        body.find("#canteentStart").text(data.starttime);
+                        body.find("#canteentEnd").text(data.endtime);
                     }});
             }
             if (obj.event === 'del') {
@@ -98,7 +100,7 @@
                         type: "POST",//方法类型
                         dataType: "json",//预期服务器返回的数据类型
                         url: "/canteen/deleteCanteen",//url
-                        data: data,
+                        data: { id: data.canteenid },
                         success: function (result) {
                             if (result.code == "0") {
                                 layer.close(index);
