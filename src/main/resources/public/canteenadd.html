@@ -20,29 +20,29 @@
     <div class="layui-form-item">
       <label class="layui-form-label">食堂编号</label>
       <div class="layui-input-block">
-        <input type="text" name="canteenId" lay-verify="required|canteenId" placeholder="请输入食堂编号" autocomplete="off" class="layui-input">
+        <input type="text" name="canteenid" lay-verify="required|canteenId" placeholder="请输入食堂编号" autocomplete="off" class="layui-input">
       </div>
     </div>
     <div class="layui-form-item">
       <label class="layui-form-label">食堂名称</label>
       <div class="layui-input-block">
-        <input type="text" name="canteenName" lay-verify="required|canteenName" placeholder="请输入食堂名称" autocomplete="off" class="layui-input">
+        <input type="text" name="canteenname" lay-verify="required|canteenName" placeholder="请输入食堂名称" autocomplete="off" class="layui-input">
       </div>
     </div>
     <div class="layui-form-item">
       <label class="layui-form-label">食堂地址</label>
       <div class="layui-input-block">
-        <input type="text" name="canteenAddress" lay-verify="required|canteenAddress" placeholder="请输入食堂地址" autocomplete="off" class="layui-input">
+        <input type="text" name="location" lay-verify="required|canteenAddress" placeholder="请输入食堂地址" autocomplete="off" class="layui-input">
       </div>
     </div>
     <div class="layui-form-item">
       <label class="layui-form-label">营业时间</label>
       <div class="layui-input-inline">
-        <input type="text" name="startTime" lay-verify="required|startTime" placeholder="开始时间: 00:00" autocomplete="off" class="layui-input">
+        <input type="text" name="starttime" lay-verify="required|startTime" placeholder="开始时间: 00:00" autocomplete="off" class="layui-input">
       </div>
       <div class="layui-form-mid">-</div>
       <div class="layui-input-inline">
-        <input type="text" name="endTime" lay-verify="required|endTime" placeholder="结束时间: 23:59" autocomplete="off" class="layui-input">
+        <input type="text" name="endtime" lay-verify="required|endTime" placeholder="结束时间: 23:59" autocomplete="off" class="layui-input">
       </div>
     </div>
     <div class="layui-form-item m-login-btn" style="text-align:center">
@@ -106,7 +106,8 @@
         type: "POST",
         dataType: "json",
         url: "/canteen/addCanteen",
-        data: param,
+        data: JSON.stringify(param),  // 将参数转为 JSON 字符串
+        contentType: "application/json",  // 设置请求头为 application/json
         success: function(result) {
           if (result.code == "0") {
             var index = parent.layer.getFrameIndex(window.name);
@@ -123,14 +124,10 @@
             });
           }
         },
-        error: function() {
-          layer.msg('服务器错误', {
-            icon: 5
-          });
+        error: function(xhr, status, error) {  // 处理请求错误
+          console.error(error);
         }
       });
-
-      return false;
     });
 
     var active = {
