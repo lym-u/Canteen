@@ -72,6 +72,7 @@
 //自定义验证规则
     form.verify({
       canteenId: function(value) {
+
         if (value.length > 5) {
           return '食堂编号长度不能超过5个字符';
         }

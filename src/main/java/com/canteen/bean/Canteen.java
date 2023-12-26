@@ -47,7 +47,7 @@ public class Canteen implements Serializable {
      *
      * @mbg.generated
      */
-    @JsonFormat(pattern="HH:mm:ss",timezone="GMT+8")
+    @JsonFormat(pattern="HH:mm",timezone="GMT+8")
     private Date starttime;
 
     /**
@@ -57,7 +57,7 @@ public class Canteen implements Serializable {
      *
      * @mbg.generated
      */
-    @JsonFormat(pattern="HH:mm:ss",timezone="GMT+8")
+    @JsonFormat(pattern="HH:mm",timezone="GMT+8")
     private Date endtime;
 
     /**
