@@ -11,7 +11,26 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * 所有用户：
+ *   查看食堂评价（getCanteenCmt）
+ *   查看菜品评价（getDishCmt）
+ *
+ * 系统管理员：
+ *   删除食堂评价（deleteCanteenCmt）
+ *   删除菜品评价（deleteDishCmt）
+ *
+ * 食堂管理员：
+ *   回复食堂评价（replyCanteenCmt）
+ *   回复菜品评价（replyDishCmt）
+ *
+ * 师生用户：
+ *   评价食堂（addCanteenCmt）
+ *   评价菜品（addDishCmt）
+ *   删除食堂评价（deleteCanteenCmt）
+ *   删除菜品评价（deleteDishCmt）
+ *
+ */
 @RequestMapping("/canteenreview")
 @RestController
 public class CanteenReviewController {
