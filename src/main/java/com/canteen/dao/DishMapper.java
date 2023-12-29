@@ -101,4 +101,6 @@ public interface DishMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(Dish record);
+
+    List<Dish> getAllDish(Dish dish);
 }
