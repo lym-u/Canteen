@@ -23,12 +23,12 @@ public class UserController {
         UserExample example = new UserExample();
         UserExample.Criteria criteria = example.createCriteria();
         criteria.andUseridEqualTo(userId);
-//        criteria.andUsernameEqualTo(user.getUsername());
         criteria.andPasswordEqualTo(pwd);
         List<User> users = userService.selectByExample(example);
-        if (users != null){
+        if (!users.isEmpty()){
                 result.setCode(Constant.SUCCESS_RETUEN_CODE);
                 result.setMsg("用户登录成功");
+
         }else{
             result.setCode(Constant.FAILURE_RETUEN_CODE);
             result.setMsg("用户登录失败");

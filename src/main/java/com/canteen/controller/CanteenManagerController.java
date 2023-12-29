@@ -15,6 +15,26 @@ public class CanteenManagerController {
     @Autowired
     private CanteenManagerService canteenManagerService;
 
+    //食堂管理员登录功能
+    @RequestMapping("/canteenmanagerLogin")
+    public ResultObject<Object> loginManager(@RequestParam("userName") Integer userId,
+                                          @RequestParam("password") String pwd) {
+        ResultObject<Object> result = new ResultObject<>();
+        CanteenmanagerExample example = new CanteenmanagerExample();
+        CanteenmanagerExample.Criteria criteria = example.createCriteria();
+        criteria.andManageridEqualTo(userId);
+//        criteria.andUsernameEqualTo(user.getUsername());
+        criteria.andManagerpasswordEqualTo(pwd);
+        List<Canteenmanager> users = canteenManagerService.selectByExample(example);
+        if (!users.isEmpty()){
+            result.setCode(Constant.SUCCESS_RETUEN_CODE);
+            result.setMsg("用户登录成功");
+        }else{
+            result.setCode(Constant.FAILURE_RETUEN_CODE);
+            result.setMsg("用户登录失败");
+        }
+        return result;
+    }
     @RequestMapping("/getAllCanteenManagers")
     //查询全部食堂管理员
     public ResultObject<List<Canteenmanager>> getAllCanteenManagers() {
