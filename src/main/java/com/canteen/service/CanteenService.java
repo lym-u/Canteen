@@ -1,9 +1,9 @@
 package com.canteen.service;
 
-        import com.canteen.bean.Canteen;
-        import com.canteen.bean.CanteenExample;
+import com.canteen.bean.Canteen;
+import com.canteen.bean.CanteenExample;
 
-        import java.util.List;
+import java.util.List;
 
 public interface CanteenService {
 //    Canteen getCanteenById(int id);
