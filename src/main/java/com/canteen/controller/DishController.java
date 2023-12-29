@@ -47,24 +47,19 @@ public class DishController {
     }
 
     @RequestMapping("/serchDish")
-    public ResultObject<List<Dish>> serchDish() {
-        ResultObject<List<Dish>> rs=new ResultObject<List<Dish>>();
-        List<Dish> list=dishService.serchDish();
+    public ResultObject<Dish> serchDish(@RequestParam("dishID") int dishID) {
+        ResultObject<Dish> rs=new ResultObject<Dish>();
+        Dish dish=dishService.serchDishByNo(dishID);
         rs.setCode(Constant.SUCCESS_RETUEN_CODE);
         rs.setMsg("查询成功");
-        rs.setData(list);
-        int total=list.size();
-        Long a=Long.parseLong(String.valueOf(total));
-        rs.setCount(a);
+        rs.setData(dish);
         return rs;
     }
 
     @RequestMapping("/addDish")
     public ResultObject<Object> addDish(Dish dish) {
         ResultObject<Object> rs = new ResultObject<>();
-
         Integer id = dishService.addDish(dish);
-
         if (id != null) {
             rs.setCode(Constant.SUCCESS_RETUEN_CODE);
             rs.setMsg("增加菜品信息成功");
@@ -102,6 +97,23 @@ public class DishController {
             rs.setCode(Constant.SUCCESS_RETUEN_CODE);
             rs.setMsg("修改菜品信息成功");
         }
+        return rs;
+    }
+
+    /**
+     * 获取菜品下拉框
+     * @return
+     */
+    @RequestMapping("/dishSelect")
+    public ResultObject<List<Dish>> dishSelect() {
+        ResultObject<List<Dish>> rs=new ResultObject<List<Dish>>();
+        List<Dish> list=dishService.selectAllDish();
+        rs.setCode(Constant.SUCCESS_RETUEN_CODE);
+        rs.setMsg("查询成功");
+        rs.setData(list);
+        int total=list.size();
+        Long a=Long.parseLong(String.valueOf(total));
+        rs.setCount(a);
         return rs;
     }
 
