@@ -15,6 +15,26 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+    //师生用户登录
+    @RequestMapping("/TstudentLogin")
+    public ResultObject<Object> loginUser(@RequestParam("userName") Integer userId,
+                                          @RequestParam("password") String pwd) {
+        ResultObject<Object> result = new ResultObject<>();
+        UserExample example = new UserExample();
+        UserExample.Criteria criteria = example.createCriteria();
+        criteria.andUseridEqualTo(userId);
+//        criteria.andUsernameEqualTo(user.getUsername());
+        criteria.andPasswordEqualTo(pwd);
+        List<User> users = userService.selectByExample(example);
+        if (users != null){
+                result.setCode(Constant.SUCCESS_RETUEN_CODE);
+                result.setMsg("用户登录成功");
+        }else{
+            result.setCode(Constant.FAILURE_RETUEN_CODE);
+            result.setMsg("用户登录失败");
+        }
+        return result;
+    }
     //注册功能，添加用户
     @RequestMapping("/addUser")
     public ResultObject<Object> addUser(@RequestBody User user) {
