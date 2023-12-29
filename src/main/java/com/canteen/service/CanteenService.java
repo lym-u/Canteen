@@ -2,6 +2,7 @@ package com.canteen.service;
 
 import com.canteen.bean.Canteen;
 import com.canteen.bean.CanteenExample;
+import com.github.pagehelper.PageInfo;
 
 import java.util.List;
 
@@ -11,6 +12,9 @@ public interface CanteenService {
 //    Integer addCanteen(Canteen canteen);
 //    Integer updateCanteen(Canteen canteen);
 //    Integer deleteCanteen(int id);
+
+    PageInfo<Canteen> getAll(CanteenExample example, int page, int size);
+
     //根据指定的条件统计符合条件的食堂数量。
     long countByExample(CanteenExample example);
 

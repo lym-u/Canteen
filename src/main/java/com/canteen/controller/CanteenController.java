@@ -5,6 +5,7 @@ import com.canteen.bean.CanteenExample;
 import com.canteen.bean.ResultObject;
 import com.canteen.service.CanteenService;
 import com.canteen.util.Constant;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -64,7 +65,19 @@ public class CanteenController {
 //        result.setCount(a);
 //        return result;
 //    }
-    //自动注入服务类
+
+    @RequestMapping("/getAllCanteen")
+    public ResultObject<List<Canteen>> getUsers(CanteenExample example,@RequestParam("limit") int limit,@RequestParam("page") int page) {
+        System.out.println(example);
+        PageInfo<Canteen> pageInfo=canteenService.getAll(example, page, limit);
+        ResultObject<List<Canteen>> rs=new ResultObject<List<Canteen>>();
+        rs.setCode(Constant.SUCCESS_RETUEN_CODE);
+        rs.setMsg("查询成功");
+        rs.setData(pageInfo.getList());
+        rs.setCount(pageInfo.getTotal());
+        return rs;
+    }
+
     @RequestMapping("/getAllCanteens")
 //查询全部食堂（按食堂ID升序）
     public ResultObject<List<Canteen>> getAllCanteens() {

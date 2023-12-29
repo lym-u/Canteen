@@ -10,6 +10,8 @@ import com.canteen.bean.Canteen;
 import com.canteen.bean.CanteenExample;
 import com.canteen.dao.CanteenMapper;
 import com.canteen.service.CanteenService;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +51,16 @@ public class CanteenServiceImpl implements CanteenService {
 //    public Integer deleteCanteen(int id) {
 //        return canteenMapper.deleteCanteen(id);
 //    }
-
+    @Override
+    public PageInfo<Canteen> getAll(CanteenExample example, int page, int size) {
+        // 首先开启PageHelper的分页
+        PageHelper.startPage(page, size);
+        // 查询分页信息 调用方式与普通方式一致
+        List<Canteen> list = canteenMapper.selectByExample(example);
+        //生成PageInfo对象
+        PageInfo<Canteen> pageInfo=new PageInfo<Canteen>(list);
+        return pageInfo;
+    }
     @Override
     public long countByExample(CanteenExample example) {
         return canteenMapper.countByExample(example);
