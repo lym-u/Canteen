@@ -12,12 +12,12 @@ public class ActivityAnnouncement implements Serializable {
         // Default constructor
     }
 
-    public ActivityAnnouncement(int announcementID, int managerID, String activityType, String content) {
-        this.announcementID = announcementID;
-        this.managerID = managerID;
-        this.activityType = activityType;
-        this.content = content;
-    }
+//    public ActivityAnnouncement(int announcementID, int managerID, String activityType, String content) {
+//        this.announcementID = announcementID;
+//        this.managerID = managerID;
+//        this.activityType = activityType;
+//        this.content = content;
+//    }
 
     public int getAnnouncementID() {
         return announcementID;
