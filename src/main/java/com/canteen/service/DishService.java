@@ -17,7 +17,7 @@ public interface DishService {
      *查询是否存在
      * @return
      */
-    List<Dish> serchDish();
+    Dish serchDishByNo(int dishID);
 
     /**
      * 增加菜品信息
@@ -39,4 +39,6 @@ public interface DishService {
      * @return
      */
     Integer updateDish(Dish dish);
+
+    List<Dish> selectAllDish();
 }
