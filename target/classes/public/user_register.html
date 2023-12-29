@@ -18,7 +18,11 @@
     <div class="m-login-warp">
       <form class="layui-form">
         <div class="layui-form-item">
-          <input type="text" name="userName" required lay-verify="required" placeholder="用户名"
+          <input type="text" name="userid" required lay-verify="required" placeholder="用户id"
+                 autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-form-item">
+          <input type="text" name="username" required lay-verify="required" placeholder="用户名"
                  autocomplete="off" class="layui-input">
         </div>
         <div class="layui-form-item">
@@ -67,12 +71,26 @@
         });
         return false;
       }
+      // 获取表单数据
+      var userId = $('input[name="userid"]').val();
+      var username = $('input[name="username"]').val();
+      var password = $('input[name="password"]').val();
+
+      // 组装参数
+      var param = {
+        userid: userId,
+        username: username,
+        password: password
+      };
+
       $.ajax({
         //几个参数需要注意一下
+        contentType: 'application/json',
         type: "POST",//方法类型
         dataType: "json",//预期服务器返回的数据类型
-        url: "/user/register",//url
-        data: param,
+
+        url: "/user/addUser",//url
+        data: JSON.stringify(param),
         success: function (result) {
           if (result.code == "0") {
             location.href = "/login.html";
@@ -82,11 +100,18 @@
             });
           }
         },
-        error: function () {
-          layer.msg('服务器错误', {
+        // error: function () {
+        //   layer.msg('服务器错误', {
+        //     icon: 5
+        //   });
+        // }
+        error: function (xhr, status, error) {
+          var responseText = JSON.parse(xhr.responseText);
+          layer.msg('服务器错误：' + responseText.message, {
             icon: 5
           });
         }
+
       });
       return false;
     });

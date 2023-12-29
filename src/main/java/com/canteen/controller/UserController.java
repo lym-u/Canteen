@@ -24,7 +24,7 @@ public class UserController {
         criteria.andUseridEqualTo(user.getUserid());
         List<User> users = userService.selectByExample(example);
         if (users != null){
-            Integer id = userService.insert(user);
+            Integer id = userService.updateByPrimaryKey(user);
             if (id != null) {
                 result.setCode(Constant.SUCCESS_RETUEN_CODE);
                 result.setMsg("注册用户成功");
