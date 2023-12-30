@@ -73,7 +73,7 @@
 				var detailFrom = layui.layer.open({
 					title : "查看账户信息",
 					type : 2,
-					content : "/canteenmanagerDetail.html",//弹出层页面
+					content : "/SM-canteenmanagerDetail.html",//弹出层页面
 					area: ['500px', '200px'],
 					success : function(layero, index){
 						var body = layui.layer.getChildFrame('body', index);
@@ -115,7 +115,7 @@
 				var editFrom = layui.layer.open({
 					title : "编辑学生信息",
 					type : 2,
-					content : "/studentEdit.html",//弹出层页面
+					content : "/SM-CMEdit.html",//弹出层页面
 					area: ['800px', '400px'],
 					success : function(layero, index){
 						var body = layui.layer.getChildFrame('body', index);
@@ -141,7 +141,7 @@
 					shade: false,
 					/*    maxmin: true,  *///开启最大化最小化按钮
 					area: ['800px', '400px'],
-					content: '/canteenmanageradd.html'
+					content: '/SM-canteenmanageradd.html'
 				});
 
 			},search:function(){
