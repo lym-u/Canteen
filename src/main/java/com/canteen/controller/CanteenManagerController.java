@@ -110,7 +110,7 @@ public class CanteenManagerController {
         criteria.andManageridEqualTo(id);
         List<Canteenmanager>canteenManager = canteenManagerService.selectByExample(example);
 
-        if (canteenManager != null) {
+        if (!canteenManager.isEmpty()) {
             result.setCode(Constant.SUCCESS_RETUEN_CODE);
             result.setMsg("查询成功");
             for (Canteenmanager canteenmanager : canteenManager) {
