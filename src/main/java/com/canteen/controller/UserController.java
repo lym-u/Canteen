@@ -43,7 +43,7 @@ public class UserController {
         UserExample.Criteria criteria = example.createCriteria();
         criteria.andUseridEqualTo(user.getUserid());
         List<User> users = userService.selectByExample(example);
-        if (users != null){
+        if (!users.isEmpty()){
             Integer id = userService.updateByPrimaryKey(user);
             if (id != null) {
                 result.setCode(Constant.SUCCESS_RETUEN_CODE);
@@ -69,7 +69,7 @@ public class UserController {
         criteria.andUsernameEqualTo(user.getUsername());
         criteria.andPasswordEqualTo(user.getPassword());
         List<User> users = userService.selectByExample(example);
-        if (users != null){
+        if (!users.isEmpty()){
             User updateuser=new User();
             updateuser.setUserid(user.getUserid());
             updateuser.setPassword(pwd);

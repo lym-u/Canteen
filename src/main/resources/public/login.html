@@ -71,12 +71,17 @@
 				                    data: param,
 				                    success: function (result) {
 				                    	if (result.code == "0") {
-						                       location.href="/index.html";
-						                    } else {
-						                        layer.msg('用户名密码错误', {
-						                            icon: 5
-						                        });
-						                    }
+											layer.msg('登录成功', {
+												icon: 6
+											});
+											setTimeout(function() {
+												location.href = "/index.html";
+											}, 2000); // 延迟 2 秒执行页面重定向
+										} else {
+											layer.msg('用户名密码错误', {
+												icon: 5
+											});
+										}
 				                    },
 				                    error : function() {
 				                    	layer.msg('服务器错误', {
@@ -102,13 +107,17 @@
 					                    data: param,
 					                    success: function (result) {
 					                    	if (result.code == "0") {
-												//登录成功后跳转到哪个页面
-							                       location.href="/Tstudent-index.html";
-							                    } else {
-							                        layer.msg('用户名密码错误', {
-							                            icon: 5
-							                        });
-							                    }
+												layer.msg('登录成功', {
+													icon: 6
+												});
+												setTimeout(function() {
+													location.href = "/TS-index.html";
+												}, 2000); // 延迟 2 秒执行页面重定向
+											} else {
+												layer.msg('用户名密码错误', {
+													icon: 5
+												});
+											}
 					                    },
 					                    error : function() {
 					                    	layer.msg('服务器错误', {
@@ -139,7 +148,12 @@
 									data: param,
 									success: function (result) {
 										if (result.code == "0") {
-											location.href="/canteenmanager-index.html";
+											layer.msg('登录成功', {
+												icon: 6
+											});
+											setTimeout(function() {
+												location.href = "/CM-index.html";
+											}, 2000); // 延迟 2 秒执行页面重定向
 										} else {
 											layer.msg('用户名密码错误', {
 												icon: 5

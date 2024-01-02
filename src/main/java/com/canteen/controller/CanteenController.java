@@ -110,7 +110,7 @@ public class CanteenController {
         CanteenExample.Criteria criteria = example.createCriteria();
         criteria.andCanteenidEqualTo(id);
         List<Canteen> canteens = canteenService.selectByExample(example);
-        if (canteens != null) {
+        if (canteens != null&& !canteens.isEmpty()) {
             result.setCode(Constant.SUCCESS_RETUEN_CODE);
             result.setMsg("查询成功");
             for (Canteen canteen : canteens) {
@@ -170,6 +170,8 @@ public class CanteenController {
         }
         return result;
     }
+
+
 }
 
 

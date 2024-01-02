@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<div class="page-content-wrap" id="dishSearch">
+<div class="page-content-wrap" id="canteenSearch">
     <h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">菜品管理</h5>
     <hr>
     <div class="layui-form-item">
@@ -44,7 +44,6 @@
                 <th lay-data="{field:'canteenid'}">所属食堂ID</th>
                 <th lay-data="{field:'description'}">简介</th>
                 <th lay-data="{field:'imagefilename'}">图片文件名</th>
-                <th lay-data="{field:'ifrecommend'}">是否推荐</th>
                 <th
                         lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}"></th>
             </tr>
@@ -111,15 +110,9 @@
                         var body = layui.layer.getChildFrame('body', index);
                         //获取窗口对象
                         var iframeWindow = layero.find('iframe')[0].contentWindow;
-                        body.find("#dishid").val(data.dishid);
-                        body.find("#dishname").val(data.dishname);
-                        body.find("#price").val(data.price);
-                        body.find("#promoteprice").val(data.promoteprice);
-                        body.find("#dishstyle").val(data.dishstyle);
-                        body.find("#canteenid").val(data.canteenid);
-                        body.find("#description").val(data.description);
-                        body.find("#imagefilename").val(data.imagefilename);
-                        body.find("#ifrecommend").val(data.ifrecommend);
+                        body.find("#studentNo").val(data.studentNo);
+                        body.find("#studentName").val(data.studentName);
+                        body.find(".studentSex option[value="+data.studentSex+"]").attr("selected","selected");
                         iframeWindow.layui.form.render();
                         iframeWindow.layui.form.render('select');
                     }});
@@ -141,7 +134,7 @@
                 });
 
             },search:function(){
-                var name=$("#dishSearch").val();
+                var name=$("#canteenNameSearch").val();
                 table.reload('idTest',{
                     method: 'POST'
                     , where: {"canteenName":name},page: {
@@ -152,7 +145,7 @@
             }
         };
 
-        $('#dishSearch .layui-btn').on('click', function() {
+        $('#canteenSearch .layui-btn').on('click', function() {
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });

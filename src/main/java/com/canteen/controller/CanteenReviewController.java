@@ -68,7 +68,7 @@ public class CanteenReviewController {
         criteria.andCanteenreviewidEqualTo(id);
         List<Canteenreview> reviews = canteenReviewService.selectByExample(example);
 
-        if (reviews != null) {
+        if (reviews != null&&!reviews.isEmpty()) {
             result.setCode(Constant.SUCCESS_RETUEN_CODE);
             result.setMsg("查询成功");
             for (Canteenreview review : reviews) {
