@@ -41,14 +41,14 @@
             <thead>
             <tr>
                 <th lay-data="{type:'checkbox', }"></th>
-                <th lay-data="{field:'CanteenReviewID',sort: true}">评价编号</th>
-                <th lay-data="{field:'UserID'}">评价人ID</th>
-                <th lay-data="{field:'CanteenID'}">食堂ID</th>
+                <th lay-data="{field:'canteenreviewid',sort: true}">评价编号</th>
+                <th lay-data="{field:'userid'}">评价人ID</th>
+                <th lay-data="{field:'canteenid'}">食堂ID</th>
                 <th lay-data="{field:'Title'}">评价标题</th>
-                <th lay-data="{field:'Content'}">评价内容</th>
-                <th lay-data="{field:'ImageURL'}">图片</th>
-                <th lay-data="{field:'ReviewTime'}">评价时间</th>
-                <th lay-data="{field:'Rating'}">评分</th>
+                <th lay-data="{field:'content'}">评价内容</th>
+                <th lay-data="{field:'imageurl'}">图片</th>
+                <th lay-data="{field:'reviewtime'}">评价时间</th>
+                <th lay-data="{field:'rating'}">评分</th>
                 <th
                         lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}"></th>
             </tr>
@@ -86,14 +86,14 @@
                     area: ['500px', '200px'],
                     success : function(layero, index){
                         var body = layui.layer.getChildFrame('body', index);
-                        body.find("#CanteenReviewID").text(data.canteenreviewid);
-                        body.find("#UserID").text(data.userid);
-                        body.find("#CanteenID").text(data.canteenid);
-                        body.find("#Title").text(data.title);
-                        body.find("#Content").text(data.content);
-                        body.find("#ImageURL").text(data.imageUrl);
-                        body.find("#ReviewTime").text(data.reviewtime);
-                        body.find("#Rating").text(data.rating);
+                        body.find("#canteenreviewid").text(data.canteenreviewid);
+                        body.find("#userid").text(data.userid);
+                        body.find("#canteenid").text(data.canteenid);
+                        body.find("#title").text(data.title);
+                        body.find("#content").text(data.content);
+                        body.find("#imageurl").text(data.imageUrl);
+                        body.find("#reviewtime").text(data.reviewtime);
+                        body.find("#rating").text(data.rating);
                     }});
             }
             if (obj.event === 'del') {
