@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="layui-form-item">
-            <label class="layui-form-label">食堂名称</label>
+            <label class="layui-form-label">菜品名称</label>
             <div class="layui-input-block">
                 <input type="text" name="dishname" lay-verify="required|dishName" placeholder="请输入菜品名称" autocomplete="off" class="layui-input">
             </div>
@@ -148,7 +148,7 @@
             $.ajax({
                 type: "POST",
                 dataType: "json",
-                url: "/canteen/addCanteen",
+                url: "/dish/addDish",
                 data: JSON.stringify(param),  // 将参数转为 JSON 字符串
                 contentType: "application/json",  // 设置请求头为 application/json
                 success: function(result) {
@@ -156,7 +156,7 @@
                         var index = parent.layer.getFrameIndex(window.name);
                         parent.layer.close(index);
                         parent.layer.msg('添加菜品成功');
-                        parent.layui.table.reload('canteenTable', {
+                        parent.layui.table.reload('dishTable', {
                             page: {
                                 curr: 1
                             }

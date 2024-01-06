@@ -66,17 +66,17 @@ public class CanteenController {
 //        return result;
 //    }
 
-    @RequestMapping("/getAllCanteen")
-    public ResultObject<List<Canteen>> getUsers(CanteenExample example,@RequestParam("limit") int limit,@RequestParam("page") int page) {
-        System.out.println(example);
-        PageInfo<Canteen> pageInfo=canteenService.getAll(example, page, limit);
-        ResultObject<List<Canteen>> rs=new ResultObject<List<Canteen>>();
-        rs.setCode(Constant.SUCCESS_RETUEN_CODE);
-        rs.setMsg("查询成功");
-        rs.setData(pageInfo.getList());
-        rs.setCount(pageInfo.getTotal());
-        return rs;
-    }
+//    @RequestMapping("/getAllCanteen")
+//    public ResultObject<List<Canteen>> getUsers(CanteenExample example,@RequestParam("limit") int limit,@RequestParam("page") int page) {
+//        System.out.println(example);
+//        PageInfo<Canteen> pageInfo=canteenService.getAll(example, page, limit);
+//        ResultObject<List<Canteen>> rs=new ResultObject<List<Canteen>>();
+//        rs.setCode(Constant.SUCCESS_RETUEN_CODE);
+//        rs.setMsg("查询成功");
+//        rs.setData(pageInfo.getList());
+//        rs.setCount(pageInfo.getTotal());
+//        return rs;
+//    }
 
     @RequestMapping("/getAllCanteens")
 //查询全部食堂（按食堂ID升序）
