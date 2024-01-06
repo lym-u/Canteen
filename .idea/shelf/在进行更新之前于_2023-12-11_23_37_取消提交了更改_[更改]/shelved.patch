@@ -1,0 +1,15 @@
+Index: target/classes/application-dev.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># ????????\r\nspring.datasource.type=com.alibaba.druid.pool.DruidDataSource\r\nspring.datasource.platform=mysql\r\n# ?????\r\nspring.datasource.url=jdbc:mysql://10.100.164.21:3306/score?characterEncoding=utf8\r\nspring.datasource.username=usst\r\nspring.datasource.password=usstusst\r\nspring.datasource.driver-class-name=com.mysql.jdbc.Driver\r\n# Mybatis??\r\n# ???????\r\nmybatis.typeAliasesPackage=com.score.bean\r\n# ?????????\r\nmybatis.mapperLocations=classpath:mapper/*.xml\r\n#mybatis.configLocation=classpath:mybatis-config.xml\r\nserver.port=8088\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/target/classes/application-dev.properties b/target/classes/application-dev.properties
+--- a/target/classes/application-dev.properties	(revision d590f0dc50bf4f51f5cbe02cca887ce67fd031ea)
++++ b/target/classes/application-dev.properties	(date 1702308497881)
+@@ -13,3 +13,4 @@
+ mybatis.mapperLocations=classpath:mapper/*.xml
+ #mybatis.configLocation=classpath:mybatis-config.xml
+ server.port=8088
++
