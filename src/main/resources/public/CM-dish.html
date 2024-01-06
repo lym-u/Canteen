@@ -139,11 +139,12 @@
                     content: '/CM-dishAdd.html'
                 });
 
-            },search:function(){
-                var name=$("#dishSearch").val();
+            },
+            search:function(){
+                var name=$("#searchDish").val();
                 table.reload('idTest',{
                     method: 'POST'
-                    , where: {"canteenName":name},page: {
+                    , where: {"dishname":name},page: {
                         curr: 1 //重新从第 1 页开始
                     }
 
@@ -151,7 +152,7 @@
             }
         };
 
-        $('#dishSearch .layui-btn').on('click', function() {
+        $('#searchDish .layui-btn').on('click', function() {
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });

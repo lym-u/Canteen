@@ -4,23 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db805a19-2802-40c2-8f8a-0ded9246114f" name="更改" comment="登录全连上了">
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/canteen/controller/CanteenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/canteen/controller/CanteenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/canteen/controller/DishController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/canteen/controller/DishController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/canteen/service/DishService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/canteen/service/DishService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/canteen/service/impl/DishServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/canteen/service/impl/DishServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/DishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/DishMapper.xml" afterDir="false" />
+    <list default="true" id="db805a19-2802-40c2-8f8a-0ded9246114f" name="更改" comment="菜品后端">
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/CM-dish.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/CM-dish.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/CM-dishAdd.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/CM-dishAdd.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/CM-dishEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/CM-dishEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/CanteenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/CanteenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/DishController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/DishController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/DishService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/DishService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/DishServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/DishServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/CM-dish.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/CM-dish.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/CM-dishAdd.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/CM-dishAdd.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/CM-dishEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/CM-dishEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/DishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/DishMapper.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +134,7 @@
       <workItem from="1702127710300" duration="135000" />
       <workItem from="1702128086446" duration="48713000" />
       <workItem from="1703042995854" duration="23494000" />
-      <workItem from="1703421100457" duration="52129000" />
+      <workItem from="1703421100457" duration="53194000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <option name="closed" value="true" />
@@ -318,7 +304,15 @@
       <option name="project" value="LOCAL" />
       <updated>1703926308465</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="菜品后端">
+      <option name="closed" value="true" />
+      <created>1704570543414</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1704570543414</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,12 +357,12 @@
     <MESSAGE value="前端" />
     <MESSAGE value="前后端数据传递" />
     <MESSAGE value="添加和删除食堂数据传递" />
-    <MESSAGE value="菜品后端" />
     <MESSAGE value="后端更新" />
     <MESSAGE value="前端显示" />
     <MESSAGE value="显示界面" />
     <MESSAGE value="登录全连上了" />
-    <option name="LAST_COMMIT_MESSAGE" value="登录全连上了" />
+    <MESSAGE value="菜品后端" />
+    <option name="LAST_COMMIT_MESSAGE" value="菜品后端" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>
