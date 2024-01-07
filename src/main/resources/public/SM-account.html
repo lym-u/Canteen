@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<div class="page-content-wrap" id="canteenSearch">
+<div class="page-content-wrap" id="canteenManagerSearch">
 	<h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">食堂管理员账号管理</h5>
 	<hr>
 	<div class="layui-form-item">
@@ -31,15 +31,15 @@
 		<button class="layui-btn layui-btn-normal site-demo-active"
 				data-type="search" id="searchCanteenmanager">搜索</button>
 		<table class="layui-table"
-			   lay-data="{ url:'/student/getAllStudent', page:true, id:'idTest'}"
+			   lay-data="{ url:'/canteenmanager/getAllCanteenManagers', page:true, id:'idTest'}"
 			   lay-filter="demo">
 			<thead>
 			<tr>
 				<th lay-data="{type:'checkbox', }"></th>
-				<th lay-data="{field:'canteenmanagerNo',sort: true}">工号</th>
-				<th lay-data="{field:'canteenmanagerName'}">姓名</th>
-				<th lay-data="{field:'canteenmanagerSex'}">性别</th>
-				<th lay-data="{field:'canteenID'}">管理食堂ID</th>
+				<th lay-data="{field:'managerid',sort: true}">工号</th>
+				<th lay-data="{field:'managername'}">姓名</th>
+				<th lay-data="{field:'gender'}">性别</th>
+				<th lay-data="{field:'canteenid'}">管理食堂ID</th>
 				<th
 						lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}"></th>
 			</tr>
@@ -77,10 +77,10 @@
 					area: ['500px', '200px'],
 					success : function(layero, index){
 						var body = layui.layer.getChildFrame('body', index);
-						body.find("#canteenmanagerNo").text(data.canteenmanagerNo);
-						body.find("#canteenmanagerName").text(data.canteenmanagerName);
-						body.find("#canteenmanagerSex").text(data.canteenmanagerSex);
-						body.find("#canteenID").text(data.canteenID);
+						body.find("#managerid").text(data.managerid);
+						body.find("#managername").text(data.managername);
+						body.find("#gender").text(data.gender);
+						body.find("#canteenid").text(data.canteenid);
 					}});
 			}
 			if (obj.event === 'del') {
@@ -90,7 +90,7 @@
 						//几个参数需要注意一下
 						type: "POST",//方法类型
 						dataType: "json",//预期服务器返回的数据类型
-						url: "/student/deleteStudent",//url
+						url: "/user/deleteUser",//url
 						data: data,
 						success: function (result) {
 							if (result.code == "0") {
@@ -121,9 +121,10 @@
 						var body = layui.layer.getChildFrame('body', index);
 						//获取窗口对象
 						var iframeWindow = layero.find('iframe')[0].contentWindow;
-						body.find("#studentNo").val(data.studentNo);
-						body.find("#studentName").val(data.studentName);
-						body.find(".studentSex option[value="+data.studentSex+"]").attr("selected","selected");
+						body.find("#managerid").val(data.managerid);
+						body.find("#managername").val(data.managername);
+						body.find("#gender").val(data.gender);
+						body.find("#canteenid").val(data.canteenid);
 						iframeWindow.layui.form.render();
 						iframeWindow.layui.form.render('select');
 					}});
@@ -145,10 +146,10 @@
 				});
 
 			},search:function(){
-				var name=$("#canteenNameSearch").val();
+				var name=$("#searchCanteenmanager").val();
 				table.reload('idTest',{
 					method: 'POST'
-					, where: {"canteenName":name},page: {
+					, where: {"managername":name},page: {
 						curr: 1 //重新从第 1 页开始
 					}
 
@@ -156,7 +157,7 @@
 			}
 		};
 
-		$('#canteenSearch .layui-btn').on('click', function() {
+		$('#canteenmanagerSearch .layui-btn').on('click', function() {
 			var type = $(this).data('type');
 			active[type] ? active[type].call(this) : '';
 		});

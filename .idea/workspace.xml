@@ -4,152 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db805a19-2802-40c2-8f8a-0ded9246114f" name="更改" comment="菜品后端">
+    <list default="true" id="db805a19-2802-40c2-8f8a-0ded9246114f" name="更改" comment="菜品评价后端">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/35ce001c-fa55-4fab-b49a-4ff6d1e156b1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/35ce001c-fa55-4fab-b49a-4ff6d1e156b1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/_2023-12-22_10_47____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2023-12-22_10_47____.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2023-12-30_16_07____.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2023-12-30_16_52____.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_1_26____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_1_26____.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2023-12-30_16_07_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2023-12-30_16_52_取消提交了更改_[更改]/ActivityAnnouncement.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2023-12-30_16_52_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/CM-appraise.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/CM-appraise.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/CM-appraiseDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/CM-appraiseDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/CM-appraiseEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/CM-appraiseEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/SM-appraise.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/SM-appraise.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/SM-appraiseDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/SM-appraiseDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ActivityDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ActivityDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/ActivityAnnouncement.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/ActivityAnnouncement.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/ActivityAnnouncementExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/ActivityAnnouncementExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/ActivityAnnouncementExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/ActivityAnnouncementExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/ActivityAnnouncementExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/ActivityAnnouncementExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/Canteen.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/Canteen.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenAdmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenAdmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenEvaluation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenEvaluation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/Canteenmanager.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/Canteenmanager.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenmanagerExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenmanagerExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenmanagerExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenmanagerExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenmanagerExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenmanagerExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenmanagerExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenmanagerExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/Canteenreview.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/Canteenreview.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenreviewExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenreviewExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenreviewExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenreviewExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenreviewExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenreviewExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenreviewExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenreviewExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/Canteenreviewreply.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/Canteenreviewreply.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenreviewreplyExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenreviewreplyExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenreviewreplyExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenreviewreplyExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenreviewreplyExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenreviewreplyExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenreviewreplyExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CanteenreviewreplyExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/Communitypost.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/Communitypost.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CommunitypostExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CommunitypostExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CommunitypostExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CommunitypostExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CommunitypostExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CommunitypostExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/CommunitypostExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/CommunitypostExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/Complaint.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/Complaint.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/Dish.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/Dish.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishEvaluation.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishEvaluation.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/Dishes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/Dishes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/Dishreview.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/Dishreview.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishreviewExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishreviewExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishreviewExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishreviewExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishreviewExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishreviewExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishreviewExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/DishreviewExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/Like.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/Like.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/Postlikes.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/Postlikes.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/PostlikesExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/PostlikesExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/PostlikesExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/PostlikesExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/PostlikesExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/PostlikesExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/PostlikesExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/PostlikesExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/Postreply.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/Postreply.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/PostreplyExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/PostreplyExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/PostreplyExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/PostreplyExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/PostreplyExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/PostreplyExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/PostreplyExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/PostreplyExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/Reply.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/Reply.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/ResultObject.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/ResultObject.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/Systemadmin.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/Systemadmin.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/SystemadminExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/SystemadminExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/SystemadminExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/SystemadminExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/SystemadminExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/SystemadminExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/SystemadminExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/SystemadminExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/User.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/UserExample$Criteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/UserExample$Criteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/UserExample$Criterion.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/UserExample$Criterion.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/UserExample$GeneratedCriteria.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/UserExample$GeneratedCriteria.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/bean/UserExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/bean/UserExample.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/boot/StartApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/boot/StartApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/ActivityAnnouncementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/ActivityAnnouncementController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/CanteenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/CanteenController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/CanteenManagerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/CanteenManagerController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/CanteenReviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/CanteenReviewController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/CommentController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/CommentController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/CommunityController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/CommunityController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/CommunityPostController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/CommunityPostController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/ComplaintController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/ComplaintController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/DishController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/DishController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/PostlikesController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/PostlikesController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/SystemAdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/SystemAdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/SM-CMEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/SM-CMEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/SM-account.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/SM-account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/SM-canteenEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/SM-canteenEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/SM-canteenmanageradd.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/SM-canteenmanageradd.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/dao/AccountDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/dao/AccountDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/dao/ActivityAnnouncementMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/dao/ActivityAnnouncementMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/dao/CanteenMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/dao/CanteenMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/dao/CanteenmanagerMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/dao/CanteenmanagerMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/dao/CanteenreviewMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/dao/CanteenreviewMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/dao/CanteenreviewreplyMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/dao/CanteenreviewreplyMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/dao/CommentDao.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/dao/CommentDao.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/dao/CommunitypostMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/dao/CommunitypostMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/dao/ComplaintMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/dao/ComplaintMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/dao/DishMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/dao/DishMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/dao/DishreviewMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/dao/DishreviewMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/dao/PostlikesMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/dao/PostlikesMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/dao/PostreplyMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/dao/PostreplyMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/dao/SystemadminMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/dao/SystemadminMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/dao/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/dao/UserMapper.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/interceptor/ErrorInterceptor.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/interceptor/ErrorInterceptor.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/interceptor/FilterConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/interceptor/FilterConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/interceptor/LoginFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/interceptor/LoginFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/interceptor/MyWebAppConfigurer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/interceptor/MyWebAppConfigurer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/interceptor/SensitiveWordFilter.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/interceptor/SensitiveWordFilter.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/AccountService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/AccountService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/ActivityAnnouncementService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/ActivityAnnouncementService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/ActivityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/ActivityService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/CanteenManagerService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/CanteenManagerService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/CanteenReviewService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/CanteenReviewService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/CanteenService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/CanteenService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/CommentService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/CommentService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/CommunityService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/CommunityService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/CommunitypostService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/CommunitypostService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/ComplaintService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/ComplaintService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/DishService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/DishService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/IUserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/IUserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/PostlikesService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/PostlikesService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/SystemAdminService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/SystemAdminService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/UserService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/ActivityAnnouncementServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/ActivityAnnouncementServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/CanteenManagerServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/CanteenManagerServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/CanteenReviewServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/CanteenReviewServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/CanteenServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/CanteenServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/CommentServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/CommentServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/CommunitypostServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/CommunitypostServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/DishServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/DishServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/PostlikesServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/PostlikesServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/SystemAdAccountServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/SystemAdAccountServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/SystemAdminServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/SystemAdminServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/util/Constant.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/util/Constant.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/TS-dish.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/TS-dish.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/assets/admin/css/admin.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/assets/admin/css/admin.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-CMEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-CMEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-account.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-canteenEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-canteenEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-canteenmanageradd.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-canteenmanageradd.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,6 +35,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -210,40 +81,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelOrder2": "2",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RequestMappingsPanelWidth2": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "D:/A学习资料/IdealU/Project/test_web/StudentScore",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "模块",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "configurable.group.appearance",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelOrder2&quot;: &quot;2&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth2&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/A学习资料/IdealU/Project/test_web/StudentScore&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "mysql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;mysql&quot;
     ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言": [
-      "MySQL"
+    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言&quot;: [
+      &quot;MySQL&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\A学习资料\IdealU\Project\test_web\Canteen\src\main\resources" />
@@ -256,8 +127,8 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="canteen" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <option name="ALTERNATIVE_JRE_PATH" value="corretto-1.8" />
+    <configuration name="StartApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <option name="ALTERNATIVE_JRE_PATH" value="1.8" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <module name="Canteen" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.canteen.boot.StartApplication" />
@@ -277,7 +148,9 @@
       <workItem from="1702127710300" duration="135000" />
       <workItem from="1702128086446" duration="48713000" />
       <workItem from="1703042995854" duration="23494000" />
-      <workItem from="1703421100457" duration="53194000" />
+      <workItem from="1703421100457" duration="58718000" />
+      <workItem from="1704617352093" duration="35000" />
+      <workItem from="1704617492272" duration="381000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <option name="closed" value="true" />
@@ -455,7 +328,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704570543414</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="菜品评价后端">
+      <option name="closed" value="true" />
+      <created>1704574936712</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1704574936712</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -472,7 +353,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="master" />
+                        <option value="origin/master" />
                       </list>
                     </value>
                   </entry>
@@ -505,7 +386,12 @@
     <MESSAGE value="显示界面" />
     <MESSAGE value="登录全连上了" />
     <MESSAGE value="菜品后端" />
-    <option name="LAST_COMMIT_MESSAGE" value="菜品后端" />
+    <MESSAGE value="菜品评价后端" />
+    <option name="LAST_COMMIT_MESSAGE" value="菜品评价后端" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

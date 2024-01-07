@@ -98,20 +98,21 @@ public class UserController {
         }
         return result;
     }
+
     //注销账户
-//    @RequestMapping("/deleteUser")
-//    public ResultObject<Object> deleteUser(@RequestParam("id") int id) {
-//        ResultObject<Object> result = new ResultObject<>();
-//        boolean success = userService.deleteUser(id);
-//        if (success) {
-//            result.setCode(Constant.SUCCESS_RETUEN_CODE);
-//            result.setMsg("注销用户成功");
-//        } else {
-//            result.setCode(Constant.FAILURE_RETUEN_CODE);
-//            result.setMsg("注销用户失败");
-//        }
-//        return result;
-//    }
+    @RequestMapping("/deleteUser")
+    public ResultObject<Object> deleteUser(@RequestParam("id") int id) {
+        ResultObject<Object> result = new ResultObject<>();
+        Integer rows = userService.deleteByPrimaryKey(id);
+        if (rows != null && rows > 0) {
+            result.setCode(Constant.SUCCESS_RETUEN_CODE);
+            result.setMsg("注销用户成功");
+        } else {
+            result.setCode(Constant.FAILURE_RETUEN_CODE);
+            result.setMsg("注销用户失败");
+        }
+        return result;
+     }
 
 //    @RequestMapping("/getAllUsers")
 //    public ResultObject<List<User>> getAllUsers() {
