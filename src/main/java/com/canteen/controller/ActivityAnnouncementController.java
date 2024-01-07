@@ -1,9 +1,9 @@
 package com.canteen.controller;
 
-import com.canteen.bean.ActivityAnnouncement;
-import com.canteen.bean.ActivityAnnouncementExample;
-import com.canteen.bean.ResultObject;
+import com.canteen.bean.*;
 import com.canteen.service.ActivityAnnouncementService;
+import com.canteen.service.CanteenManagerService;
+import com.canteen.service.CanteenService;
 import com.canteen.util.Constant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +16,9 @@ public class ActivityAnnouncementController {
 
     @Autowired
     private ActivityAnnouncementService announcementService;
+
+    @Autowired
+    private CanteenManagerService canteenManagerService;
 
     @PostMapping("/addAm")
     public ResultObject<Object> addAnnouncement(@RequestBody ActivityAnnouncement announcement) {
@@ -81,6 +84,41 @@ public class ActivityAnnouncementController {
             result.setCode(Constant.FAILURE_RETUEN_CODE);
             result.setMsg("Failed to delete announcement");
         }
+        return result;
+    }
+    //按照食堂id查询公告信息
+    @RequestMapping("/getCanteenId")
+    public ResultObject<List<ActivityAnnouncement>> getActivity(@RequestParam("canteenid") int canteenid) {
+        int canteenmid=0;
+        ResultObject<List<ActivityAnnouncement>> result = new ResultObject<>();
+        CanteenmanagerExample example1=new CanteenmanagerExample();
+        CanteenmanagerExample.Criteria criteria1 = example1.createCriteria();
+        criteria1.andCanteenidEqualTo(canteenid);
+        List<Canteenmanager> canteenmanagers = canteenManagerService.selectByExample(example1);
+        //一个食堂应该对应一个食堂管理员
+        for (int i = 0; i < canteenmanagers.size(); i++) {
+            Canteenmanager canteenmanager = canteenmanagers.get(i);
+            if(canteenmanager.getManagerid()!=null&&canteenmanager.getManagerid().equals("")){
+                canteenmid=canteenmanager.getManagerid();
+            }
+            // 在这里对每个 canteenmanager 进行操作
+        }
+
+        ActivityAnnouncementExample example = new ActivityAnnouncementExample();
+        ActivityAnnouncementExample.Criteria criteria = example.createCriteria();
+        criteria.andManagerIdEqualTo(canteenmid);
+        List<ActivityAnnouncement> activityAnnouncements = announcementService.selectByExample(example);
+        if (activityAnnouncements != null&& !activityAnnouncements.isEmpty()) {
+            result.setCode(Constant.SUCCESS_RETUEN_CODE);
+            result.setMsg("查询成功");
+//            for (ActivityAnnouncement announcement : activityAnnouncements) {
+            result.setData(activityAnnouncements);
+//            }
+        } else {
+            result.setCode(Constant.FAILURE_RETUEN_CODE);
+            result.setMsg("未找到对应的活动公告");
+        }
+
         return result;
     }
 }

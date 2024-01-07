@@ -2,6 +2,8 @@ package com.canteen.service;
 
 import com.canteen.bean.ActivityAnnouncement;
 import com.canteen.bean.ActivityAnnouncementExample;
+import com.canteen.bean.Canteen;
+import com.canteen.bean.CanteenExample;
 
 import java.util.List;
 /**
@@ -18,4 +20,6 @@ public interface ActivityAnnouncementService {
     int updateAnnouncement(ActivityAnnouncement announcement);
 
     int deleteAnnouncement(int announcementId);
+
+    List<ActivityAnnouncement> selectByExample(ActivityAnnouncementExample example);
 }
