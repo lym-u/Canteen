@@ -48,4 +48,3 @@ public interface PostreplyService {
     // 根据主键更新回复
     int updateByPrimaryKey(Postreply record);
 }
-
