@@ -17,38 +17,56 @@
 <div class="page-content-wrap" id="canteenAdd">
 
 	<form class="layui-form" action="" id="">
+		<!--		<div class="layui-col-xs6">-->
+		<!--			<div class="grid-demo" id="canteenid"></div>-->
+		<!--		</div>-->
+		<!--		<div class="layui-form-item">-->
+		<!--			<label class="layui-form-label">食堂编号</label>-->
+		<!--			<div class="layui-input-block">-->
+		<!--				<input type="text" name="canteenid" readonly="readonly"  id="canteenid" lay-verify="canteenid"-->
+		<!--					   autocomplete="off" class="layui-input">-->
+		<!--			</div>-->
+		<!--		</div>-->
+		<div class="layui-row">
+			<div class="layui-col-xs6">
+				<div class="grid-demo grid-demo-bg1 lableInfo">食堂编号</div>
+			</div>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="canteenid">6/12</div>
+			</div>
+		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂名称</label>
 			<div class="layui-input-block">
-				<input type="text" name="canteenName"  id="canteenName" lay-verify="canteenName"
+				<input type="text" name="canteenname"  id="canteenname" lay-verify="canteenname"
 					   placeholder="请输入食堂名称" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂地址</label>
 			<div class="layui-input-block">
-				<input type="text" name="canteenAddress"  id="canteenAddress" lay-verify="canteenAddress"
+				<input type="text" name="location"  id="location" lay-verify="canteenAddress"
 					   placeholder="请输入食堂地址" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂简介</label>
 			<div class="layui-input-block">
-				<input type="text" name="canteentProfile"  id="canteentProfile" lay-verify="canteentProfile"
+				<input type="text" name="description"  id="description" lay-verify="canteentProfile"
 					   placeholder="请输入食堂简介" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂开始营业时间</label>
 			<div class="layui-input-block">
-				<input type="text" name="canteentStart"  id="canteentStart" lay-verify="canteentStart"
+				<input type="text" name="starttime"  id="starttime" lay-verify="canteentStart"
 					   placeholder="请输入开始营业时间" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂结束营业时间</label>
 			<div class="layui-input-block">
-				<input type="text" name="canteentEnd"  id="canteentEnd" lay-verify="canteentEnd"
+				<input type="text" name="endtime"  id="endtime" lay-verify="canteentEnd"
 					   placeholder="请输入结束营业时间" autocomplete="off" class="layui-input">
 			</div>
 		</div>
@@ -92,14 +110,21 @@
 			}
 		});
 		form.on('submit(editStudent)', function(data){
+			var canteenId = $("#canteenid").text(); // 获取食堂id的值
+
 			var str=JSON.stringify(data.field)
+			console.log(str)
 			var param = JSON.parse(str);
+			param.canteenid = canteenId; // 将食堂id添加到请求参数中
+
 			$.ajax({
 				//几个参数需要注意一下
 				type: "POST",//方法类型
 				dataType: "json",//预期服务器返回的数据类型
 				url: "/canteen/updateCanteen",//url
-				data: param,
+				// data: param,
+				data: JSON.stringify(param),
+				contentType: "application/json",
 				success: function (result) {
 					if (result.code == "0") {
 						var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
@@ -112,11 +137,17 @@
 						});
 					}
 				},
-				error : function() {
-					layer.msg('服务器错误', {
+				// error : function() {
+				// 	layer.msg('服务器错误', {
+				// 		icon: 5
+				// 	});
+				// }
+				error: function(xhr) {
+					layer.msg('服务器错误：' + xhr.responseText, {
 						icon: 5
 					});
 				}
+
 			});
 
 			return false;
@@ -129,7 +160,7 @@
 				parent.layer.msg('已取消操作');
 			}
 		};
-		$('#studentAdd .layui-btn').on('click', function() {
+		$('#canteenAdd .layui-btn').on('click', function() {
 			var type = $(this).data('type');
 			active[type] ? active[type].call(this) : '';
 		});
