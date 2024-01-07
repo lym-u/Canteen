@@ -51,14 +51,25 @@ public class UserController {
         criteria.andUseridEqualTo(user.getUserid());
         List<User> users = userService.selectByExample(example);
         if (!users.isEmpty()){
-            Integer id = userService.updateByPrimaryKey(user);
-            if (id != null) {
-                result.setCode(Constant.SUCCESS_RETUEN_CODE);
-                result.setMsg("注册用户成功");
-            } else {
-                result.setCode(Constant.FAILURE_RETUEN_CODE);
-                result.setMsg("注册用户失败");
+            for (User u:users
+                 ) {
+                if (u == null || u.getUsername() == null || u.getUsername().isEmpty()){
+                    Integer id = userService.updateByPrimaryKey(user);
+                    if (id != null) {
+                        result.setCode(Constant.SUCCESS_RETUEN_CODE);
+                        System.out.println("2");
+                        result.setMsg("注册用户成功");
+                        return result;
+                    } else {
+                        result.setCode(Constant.FAILURE_RETUEN_CODE);
+                        System.out.println("3");
+                        result.setMsg("注册用户失败");
+                        return result;
+                    }
+                }
             }
+                System.out.println("1");
+            result.setMsg("您已注册，请去登录界面登录");
         }else{
             result.setCode(Constant.FAILURE_RETUEN_CODE);
             result.setMsg("您的用户id不存在");
