@@ -18,6 +18,17 @@
     <h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">食堂基本信息管理</h5>
     <hr>
     <div class="layui-form-item">
+        <div class="layui-inline tool-btn">
+            <button class="layui-btn layui-btn-small site-demo-active"
+                    data-type="tabAdd">
+                <i class="layui-icon">&#xe654;</i>
+            </button>
+            <!-- 				<button
+                                class="layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs"
+                                data-url="/admin/category/listorderall.html">
+                                <i class="iconfont">&#xe656;</i>
+                            </button> -->
+        </div>
         <div class="layui-inline">
             <input type="text" id="canteenNameSearch" placeholder="请输入食堂名称"
                    autocomplete="off" class="layui-input">
@@ -36,11 +47,18 @@
                 <th lay-data="{field:'description'}">食堂简介</th>
                 <th lay-data="{field:'starttime'}">食堂开始营业时间</th>
                 <th lay-data="{field:'endtime'}">食堂结束营业时间</th>
+                <th
+                        lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}"></th>
             </tr>
             </thead>
         </table>
     </div>
 
+
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-normal layui-btn-sm" lay-event="detail">查看</a>
+
+    </script>
     <hr></hr>
     <h5 style="text-align: center;">@2023.食堂基本信息管理</h5>
 </div>
@@ -50,9 +68,45 @@
     layui.use('table', function() {
         var $ = layui.jquery
         var table = layui.table;
+        //监听表格复选框选择
+        table.on('checkbox(demo)', function(obj) {
+            console.log(obj)
+        });
+        //监听工具条
+        table.on('tool(demo)', function(obj) {
+            var data = obj.data;
+            if (obj.event === 'detail') {
+                var detailFrom = layui.layer.open({
+                    title : "查看食堂信息",
+                    type : 2,
+                    content : "/SM-canteenDetail.html",//弹出层页面
+                    area: ['500px', '200px'],
+                    success : function(layero, index){
+                        var body = layui.layer.getChildFrame('body', index);
+                        body.find("#canteenid").text(data.canteenid);
+                        body.find("#canteenname").text(data.canteenname);
+                        body.find("#location").text(data.location);
+                        body.find("#description").text(data.description);
+                        body.find("#starttime").text(data.starttime);
+                        body.find("#endtime").text(data.endtime);
+                    }
+                });
+            }
+        });
 
         //触发事件
         var active = {
+            tabAdd : function() {
+                layer.open({
+                    type: 2,
+                    title: '添加食堂信息',
+                    shadeClose: true,
+                    shade: false,
+                    /* maxmin: true, */ //开启最大化最小化按钮
+                    area: ['800px', '400px'],
+                    content: '/SM-canteenadd.html'
+                });
+            },
             search:function(){
                 var name=$("#canteenNameSearch").val();
                 table.reload('idTest',{
@@ -61,7 +115,7 @@
                     page: {
                         curr: 1 //重新从第 1 页开始
                     }
-                })
+                });
             }
         };
 
@@ -69,7 +123,6 @@
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
-
     });
 </script>
 </body>
