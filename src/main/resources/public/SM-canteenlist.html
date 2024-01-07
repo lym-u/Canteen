@@ -131,14 +131,12 @@
                         //获取窗口对象
                         var iframeWindow = layero.find('iframe')[0].contentWindow;
                         body.find("#canteenid").text(data.canteenid);
+                        // body.find("#canteenid").val(data.canteenid);
                         body.find("#canteenname").text(data.canteenname);
                         body.find("#location").text(data.location);
                         body.find("#description").text(data.description);
                         body.find("#starttime").text(data.starttime);
                         body.find("#endtime").text(data.endtime);
-                        // body.find("#studentNo").val(data.studentNo);
-                        // body.find("#studentName").val(data.studentName);
-                        // body.find(".studentSex option[value="+data.studentSex+"]").attr("selected","selected");
                         iframeWindow.layui.form.render();
                         iframeWindow.layui.form.render('select');
                     }});

@@ -17,16 +17,6 @@
 <div class="page-content-wrap" id="canteenAdd">
 
 	<form class="layui-form" action="" id="">
-		<!--		<div class="layui-col-xs6">-->
-		<!--			<div class="grid-demo" id="canteenid"></div>-->
-		<!--		</div>-->
-		<!--		<div class="layui-form-item">-->
-		<!--			<label class="layui-form-label">食堂编号</label>-->
-		<!--			<div class="layui-input-block">-->
-		<!--				<input type="text" name="canteenid" readonly="readonly"  id="canteenid" lay-verify="canteenid"-->
-		<!--					   autocomplete="off" class="layui-input">-->
-		<!--			</div>-->
-		<!--		</div>-->
 		<div class="layui-row">
 			<div class="layui-col-xs6">
 				<div class="grid-demo grid-demo-bg1 lableInfo">食堂编号</div>
@@ -37,36 +27,51 @@
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂名称</label>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="canteenname">6/12</div>
+			</div>
 			<div class="layui-input-block">
-				<input type="text" name="canteenname"  id="canteenname" lay-verify="canteenname"
+				<input type="text" name="canteenname"  id="canteennameInput" lay-verify="canteenname"
 					   placeholder="请输入食堂名称" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂地址</label>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="location">6/12</div>
+			</div>
 			<div class="layui-input-block">
-				<input type="text" name="location"  id="location" lay-verify="canteenAddress"
+				<input type="text" name="location"  id="locationInput" lay-verify="canteenAddress"
 					   placeholder="请输入食堂地址" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂简介</label>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="description">6/12</div>
+			</div>
 			<div class="layui-input-block">
-				<input type="text" name="description"  id="description" lay-verify="canteentProfile"
+				<input type="text" name="description"  id="descriptionInput" lay-verify="canteentProfile"
 					   placeholder="请输入食堂简介" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂开始营业时间</label>
+			<div class="layui-col-xs6">
+			<div class="grid-demo" id="starttime">6/12</div>
+		</div>
 			<div class="layui-input-block">
-				<input type="text" name="starttime"  id="starttime" lay-verify="canteentStart"
+				<input type="text" name="starttime"  id="starttimeInput" lay-verify="canteentStart"
 					   placeholder="请输入开始营业时间" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂结束营业时间</label>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="endtime">6/12</div>
+			</div>
 			<div class="layui-input-block">
-				<input type="text" name="endtime"  id="endtime" lay-verify="canteentEnd"
+				<input type="text" name="endtime"  id="endtimeInput" lay-verify="canteentEnd"
 					   placeholder="请输入结束营业时间" autocomplete="off" class="layui-input">
 			</div>
 		</div>
@@ -95,13 +100,17 @@
 		var editIndex = layedit.build('LAY_demo_editor');
 		//自定义验证规则
 		form.verify({
-			startTime: function(value) {
-				if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
+			startTimeInput: function(value) {
+				if (value === "") {
+
+				} else if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
 					return '请输入正确的时间格式（HH:mm）';
 				}
 			},
-			endTime: function(value) {
-				if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
+			endTimeInput: function(value) {
+				if (value === "") {
+
+				} else if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
 					return '请输入正确的时间格式（HH:mm）';
 				}
 			}
@@ -111,7 +120,7 @@
 		});
 		form.on('submit(editStudent)', function(data){
 			var canteenId = $("#canteenid").text(); // 获取食堂id的值
-
+			// var canteenId = $("#canteenidInput").text();
 			var str=JSON.stringify(data.field)
 			console.log(str)
 			var param = JSON.parse(str);
