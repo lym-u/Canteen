@@ -129,4 +129,37 @@ public class CanteenReviewController {
 
         return result;
     }
+
+    @RequestMapping("/getCanteenReviewsByCanteenId")
+    public ResultObject<List<Canteenreview>> getCanteenNames(@RequestParam("id") int id) {
+        ResultObject<List<Canteenreview>> result = new ResultObject<>();
+// 创建 CanteenExample 实例
+        CanteenreviewExample example = new CanteenreviewExample();
+// 创建 Criteria 对象，表示查询条件
+        CanteenreviewExample.Criteria criteria = example.createCriteria();
+        criteria.andCanteenidEqualTo(id);
+        List<Canteenreview> canteenreviews = canteenReviewService.selectByExample(example);
+        System.out.println(id);
+        for (Canteenreview c:canteenreviews
+        ) {
+            System.out.println("1");
+            System.out.println(c.getCanteenid());
+        }
+        if (canteenreviews != null&& !canteenreviews.isEmpty()) {
+            result.setCode(Constant.SUCCESS_RETUEN_CODE);
+            result.setMsg("查询成功");
+            for (Canteenreview  canteenreview : canteenreviews) {
+                result.setData(canteenreviews);
+            }
+        } else {
+            result.setCode(Constant.FAILURE_RETUEN_CODE);
+            result.setMsg("未找到对应的食堂");
+        }
+
+        return result;
+    }
+
+
+
+
 }
