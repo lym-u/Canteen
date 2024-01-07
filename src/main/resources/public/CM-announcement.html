@@ -1,10 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>公告管理系统</title>
+    <link rel="stylesheet" type="text/css" href="assets/admin/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="assets/admin/css/admin.css" />
 </head>
+
 <body>
+<div class="page-content-wrap" id="announcementSearch">
+    <h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">活动公告</h5>
+    <hr>
+    <div class="layui-form-item">
+        <div class="layui-inline tool-btn">
+            <button class="layui-btn layui-btn-small site-demo-active" data-type="tabAdd">
+                <i class="layui-icon">&#xe654;</i>
+            </button>
+        </div>
+        <div class="layui-inline">
+            <input type="text" id="announcementTitleSearch" placeholder="请输入公告标题" autocomplete="off" class="layui-input">
+        </div>
+        <button class="layui-btn layui-btn-normal site-demo-active" data-type="search" id="searchAnnouncement">搜索</button>
+        <table class="layui-table" lay-data="{ url:'/announcement/getAllAnnouncements', page:true, id:'idTest'}" lay-filter="demo">
+            <thead>
+            <tr>
+                <th lay-data="{type:'checkbox'}"></th>
+                <th lay-data="{field:'announcementid', sort: true}">公告编号</th>
+                <th lay-data="{field:'title'}">公告标题</th>
+                <th lay-data="{field:'date'}">发布日期</th>
+                <th lay-data="{field:'content'}">公告内容</th>
+                <th lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}"></th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+
+    <script type="text/html" id="barDemo">
+        <a class="layui-btn layui-btn-normal layui-btn-sm" lay-event="detail">查看</a>
+        <a class="layui-btn layui-btn-sm" lay-event="edit">编辑</a>
+        <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">删除</a>
+    </script>
+    <hr>
+    <h5 style="text-align: center;">@2023.食堂基本信息管理</h5>
+</div>
+
+<script src="assets/admin/layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+<script>
+    layui.use(['table', 'layer'], function() {
+        var $ = layui.jquery;
+        var table = layui.table;
+        var layer = layui.layer;
+
+        // 监听工具条
+        table.on('tool(demo)', function(obj) {
+            var data = obj.data;
+            if (obj.event === 'detail') {
+                // 查看公告详情
+            }
+            if (obj.event === 'del') {
+                // 删除公告
+            }
+            if (obj.event === 'edit') {
+                // 编辑公告
+            }
+        });
+
+        // 触发事件
+        var active = {
+            tabAdd: function() {
+                // 添加公告
+            },
+            search: function() {
+                // 搜索公告
+            }
+        };
+
+        $('#announcementSearch .layui-btn').on('click', function() {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+    });
+</script>
 
 </body>
 </html>
