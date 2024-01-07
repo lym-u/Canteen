@@ -57,7 +57,10 @@
     form.verify({
       userName: function (value) {
         if (value.length < 4) {
-          return '用户名至少4个字符';
+          layer.msg('用户名至少4个字符', {
+            icon: 5
+          });
+          return false;
         }
       },
       password: [/(.+){5,12}$/, '密码必须5到12位']
@@ -74,10 +77,10 @@
         //几个参数需要注意一下
         type: "POST",//方法类型
         dataType: "json",//预期服务器返回的数据类型
-        url: "/user/register",//url
+        url: "/user/addUser",//url
         data: param,
         success: function (result) {
-          if (result.code == "0") {
+          if (result.code === "0") {
             location.href = "/login.html";
           } else {
             layer.msg('注册失败', {

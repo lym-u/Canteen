@@ -18,11 +18,7 @@
     <div class="m-login-warp">
       <form class="layui-form">
         <div class="layui-form-item">
-          <input type="text" name="userid" required lay-verify="required" placeholder="用户id"
-                 autocomplete="off" class="layui-input">
-        </div>
-        <div class="layui-form-item">
-          <input type="text" name="username" required lay-verify="required" placeholder="用户名"
+          <input type="text" name="userName" required lay-verify="required" placeholder="用户名"
                  autocomplete="off" class="layui-input">
         </div>
         <div class="layui-form-item">
@@ -32,6 +28,9 @@
         <div class="layui-form-item">
           <input type="password" name="repassword" id="repassword" required lay-verify="required"
                  placeholder="确认密码" autocomplete="off" class="layui-input">
+        </div>
+        <div class="layui-form-item">
+          <a style="color: #1E9FFF" href="login.html">已经有账号？去登录</a>
         </div>
         <div class="layui-form-item m-login-btn">
           <div class="layui-inline">
@@ -58,7 +57,10 @@
     form.verify({
       userName: function (value) {
         if (value.length < 4) {
-          return '用户名至少4个字符';
+          layer.msg('用户名至少4个字符', {
+            icon: 5
+          });
+          return false;
         }
       },
       password: [/(.+){5,12}$/, '密码必须5到12位']
@@ -71,28 +73,14 @@
         });
         return false;
       }
-      // 获取表单数据
-      var userId = $('input[name="userid"]').val();
-      var username = $('input[name="username"]').val();
-      var password = $('input[name="password"]').val();
-
-      // 组装参数
-      var param = {
-        userid: userId,
-        username: username,
-        password: password
-      };
-
       $.ajax({
         //几个参数需要注意一下
-        contentType: 'application/json',
         type: "POST",//方法类型
         dataType: "json",//预期服务器返回的数据类型
-
         url: "/user/addUser",//url
-        data: JSON.stringify(param),
+        data: param,
         success: function (result) {
-          if (result.code == "0") {
+          if (result.code === "0") {
             location.href = "/login.html";
           } else {
             layer.msg('注册失败', {
@@ -100,18 +88,11 @@
             });
           }
         },
-        // error: function () {
-        //   layer.msg('服务器错误', {
-        //     icon: 5
-        //   });
-        // }
-        error: function (xhr, status, error) {
-          var responseText = JSON.parse(xhr.responseText);
-          layer.msg('服务器错误：' + responseText.message, {
+        error: function () {
+          layer.msg('服务器错误', {
             icon: 5
           });
         }
-
       });
       return false;
     });
