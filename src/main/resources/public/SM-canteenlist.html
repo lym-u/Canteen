@@ -93,7 +93,7 @@
                     }});
             }
             if (obj.event === 'del') {
-                layer.confirm('真的删除该食堂吗？', function(index) {
+                layer.confirm('真的删除该评价吗？', function(index) {
                     var data = obj.data;
                     $.ajax({
                         //几个参数需要注意一下
@@ -122,7 +122,7 @@
             }
             if (obj.event === 'edit') {
                 var editFrom = layui.layer.open({
-                    title : "编辑学生信息",
+                    title : "编辑食堂信息",
                     type : 2,
                     content : "/SM-canteenEdit.html",//弹出层页面
                     area: ['800px', '400px'],

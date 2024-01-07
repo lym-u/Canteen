@@ -1,0 +1,30 @@
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"MavenProjectsManager\">\r\n    <option name=\"originalFiles\">\r\n      <list>\r\n        <option value=\"$PROJECT_DIR$/pom.xml\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" default=\"true\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/out\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision f273956de8aae3f0d8d690484f958a2719406ef0)
++++ b/.idea/misc.xml	(date 1703042986161)
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="MavenProjectsManager">
+Index: target/classes/application-dev.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># ????????\r\nspring.datasource.type=com.alibaba.druid.pool.DruidDataSource\r\nspring.datasource.platform=mysql\r\n# ?????\r\nspring.datasource.url=jdbc:mysql://10.100.164.21:3306/score?characterEncoding=utf8\r\nspring.datasource.username=usst\r\nspring.datasource.password=usstusst\r\nspring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver\r\n# Mybatis??\r\n# ???????\r\nmybatis.typeAliasesPackage=com.score.bean\r\n# ?????????\r\nmybatis.mapperLocations=classpath:mapper/*.xml\r\n#mybatis.configLocation=classpath:mybatis-config.xml\r\nserver.port=8088\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/target/classes/application-dev.properties b/target/classes/application-dev.properties
+--- a/target/classes/application-dev.properties	(revision f273956de8aae3f0d8d690484f958a2719406ef0)
++++ b/target/classes/application-dev.properties	(date 1702309061232)
+@@ -14,3 +14,4 @@
+ #mybatis.configLocation=classpath:mybatis-config.xml
+ server.port=8088
+ 
++

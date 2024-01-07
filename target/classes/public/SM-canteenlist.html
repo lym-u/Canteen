@@ -93,7 +93,7 @@
                     }});
             }
             if (obj.event === 'del') {
-                layer.confirm('真的删除该食堂吗？', function(index) {
+                layer.confirm('真的删除该评价吗？', function(index) {
                     var data = obj.data;
                     $.ajax({
                         //几个参数需要注意一下
@@ -130,11 +130,9 @@
                         var body = layui.layer.getChildFrame('body', index);
                         //获取窗口对象
                         var iframeWindow = layero.find('iframe')[0].contentWindow;
-                        body.find("#canteenName").val(data.canteenname);
-                        body.find("#canteenAddress").val(data.location);
-                        body.find("#canteentProfile").val(data.description);
-                        body.find("#canteentStart").val(data.starttime);
-                        body.find("#canteentEnd").val(data.endtime);
+                        body.find("#studentNo").val(data.studentNo);
+                        body.find("#studentName").val(data.studentName);
+                        body.find(".studentSex option[value="+data.studentSex+"]").attr("selected","selected");
                         iframeWindow.layui.form.render();
                         iframeWindow.layui.form.render('select');
                     }});

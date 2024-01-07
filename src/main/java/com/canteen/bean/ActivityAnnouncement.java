@@ -3,38 +3,36 @@ package com.canteen.bean;
 import java.io.Serializable;
 
 public class ActivityAnnouncement implements Serializable {
-    private int id;
-    private int userId;
+    private int announcementID;
+    private int managerID;
     private String activityType;
     private String content;
 
     public ActivityAnnouncement() {
-        // 默认构造函数
+        // Default constructor
     }
 
-    public ActivityAnnouncement(int id, int userId, String activityType, String content) {
-        this.id = id;
-        this.userId = userId;
-        this.activityType = activityType;
-        this.content = content;
+//    public ActivityAnnouncement(int announcementID, int managerID, String activityType, String content) {
+//        this.announcementID = announcementID;
+//        this.managerID = managerID;
+//        this.activityType = activityType;
+//        this.content = content;
+//    }
+
+    public int getAnnouncementID() {
+        return announcementID;
     }
 
-    // getter和setter方法
-
-    public int getId() {
-        return id;
+    public void setAnnouncementID(int announcementID) {
+        this.announcementID = announcementID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getManagerID() {
+        return managerID;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setManagerID(int managerID) {
+        this.managerID = managerID;
     }
 
     public String getActivityType() {
