@@ -17,7 +17,7 @@ public class ActivityAnnouncementController {
     @Autowired
     private ActivityAnnouncementService announcementService;
 
-    @PostMapping("/add")
+    @PostMapping("/addAm")
     public ResultObject<Object> addAnnouncement(@RequestBody ActivityAnnouncement announcement) {
         ResultObject<Object> result = new ResultObject<>();
         int id = announcementService.addAnnouncement(announcement);
@@ -31,7 +31,7 @@ public class ActivityAnnouncementController {
         return result;
     }
 
-    @GetMapping("/get/{id}")
+    @GetMapping("/getAmById")
     public ResultObject<ActivityAnnouncement> getAnnouncementById(@PathVariable int id) {
         ResultObject<ActivityAnnouncement> result = new ResultObject<>();
         ActivityAnnouncement announcement = announcementService.getAnnouncementById(id);
@@ -46,7 +46,7 @@ public class ActivityAnnouncementController {
         return result;
     }
 
-    @GetMapping("/all")
+    @GetMapping("/getAllAm")
     public ResultObject<List<ActivityAnnouncement>> getAllAnnouncements() {
         ResultObject<List<ActivityAnnouncement>> result = new ResultObject<>();
         List<ActivityAnnouncement> announcements = announcementService.getAllAnnouncements();
@@ -56,7 +56,7 @@ public class ActivityAnnouncementController {
         return result;
     }
 
-    @PutMapping("/update")
+    @PutMapping("/updateAm")
     public ResultObject<Object> updateAnnouncement(@RequestBody ActivityAnnouncement announcement) {
         ResultObject<Object> result = new ResultObject<>();
         int rows = announcementService.updateAnnouncement(announcement);
@@ -70,7 +70,7 @@ public class ActivityAnnouncementController {
         return result;
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/deleteAm")
     public ResultObject<Object> deleteAnnouncement(@PathVariable int id) {
         ResultObject<Object> result = new ResultObject<>();
         int rows = announcementService.deleteAnnouncement(id);

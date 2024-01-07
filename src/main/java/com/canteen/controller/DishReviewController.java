@@ -25,7 +25,7 @@ public class DishReviewController {
     public ResultObject<List<Dishreview>> getAllDishReviews() {
         ResultObject<List<Dishreview>> result = new ResultObject<>();
         DishreviewExample example = new DishreviewExample();
-        example.setOrderByClause("canteenreviewid ASC");
+        example.setOrderByClause("dishreviewid ASC");
         List<Dishreview> reviews = dishReviewService.selectByExample(example);
 
         if (reviews != null && !reviews.isEmpty()) {
