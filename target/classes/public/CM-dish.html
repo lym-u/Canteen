@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<div class="page-content-wrap" id="canteenSearch">
+<div class="page-content-wrap" id="dishSearch">
     <h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">菜品管理</h5>
     <hr>
     <div class="layui-form-item">
@@ -25,13 +25,13 @@
             </button>
         </div>
         <div class="layui-inline">
-            <input type="text" id="dishSearch" placeholder="请输入菜品名称"
+            <input type="text" id="DishNameSearch" placeholder="请输入菜品名称"
                    autocomplete="off" class="layui-input">
         </div>
         <button class="layui-btn layui-btn-normal site-demo-active"
-                data-type="search" id="searchdish">搜索</button>
+                data-type="search" id="searchDish">搜索</button>
         <table class="layui-table"
-               lay-data="{ url:'/student/getAllStudent', page:true, id:'idTest'}"
+               lay-data="{ url:'/dish/getAllDishes', page:true, id:'idTest'}"
                lay-filter="demo">
             <thead>
             <tr>
@@ -44,8 +44,8 @@
                 <th lay-data="{field:'canteenid'}">所属食堂ID</th>
                 <th lay-data="{field:'description'}">简介</th>
                 <th lay-data="{field:'imagefilename'}">图片文件名</th>
-                <th
-                        lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}"></th>
+                <th lay-data="{field:'ifrecommend'}">是否推荐</th>
+                <th lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}"></th>
             </tr>
             </thead>
         </table>
@@ -73,16 +73,16 @@
         table.on('tool(demo)', function(obj) {
             var data = obj.data;
             if (obj.event === 'del') {
-                layer.confirm('真的删除该食堂吗？', function(index) {
+                layer.confirm('真的删除该菜品吗？', function(index) {
                     var data = obj.data;
                     $.ajax({
                         //几个参数需要注意一下
                         type: "POST",//方法类型
                         dataType: "json",//预期服务器返回的数据类型
-                        url: "/student/deleteStudent",//url
+                        url: "/dish/deleteDish",//url
                         data: data,
                         success: function (result) {
-                            if (result.code == "0") {
+                            if (result.code === "0") {
                                 layer.close(index);
                                 layer.msg('删除菜品成功');
                                 layui.table.reload('idTest',{page:{curr:1}});
@@ -110,9 +110,15 @@
                         var body = layui.layer.getChildFrame('body', index);
                         //获取窗口对象
                         var iframeWindow = layero.find('iframe')[0].contentWindow;
-                        body.find("#studentNo").val(data.studentNo);
-                        body.find("#studentName").val(data.studentName);
-                        body.find(".studentSex option[value="+data.studentSex+"]").attr("selected","selected");
+                        body.find("#dishid").val(data.dishid);
+                        body.find("#dishname").val(data.dishname);
+                        body.find("#price").val(data.price);
+                        body.find("#promoteprice").val(data.promoteprice);
+                        body.find("#dishstyle").val(data.dishstyle);
+                        body.find("#canteenid").val(data.canteenid);
+                        body.find("#description").val(data.description);
+                        body.find("#imagefilename").val(data.imagefilename);
+                        body.find("#ifrecommend").val(data.ifrecommend);
                         iframeWindow.layui.form.render();
                         iframeWindow.layui.form.render('select');
                     }});
@@ -133,11 +139,12 @@
                     content: '/CM-dishAdd.html'
                 });
 
-            },search:function(){
-                var name=$("#canteenNameSearch").val();
+            },
+            search:function(){
+                var name=$("#searchDish").val();
                 table.reload('idTest',{
                     method: 'POST'
-                    , where: {"canteenName":name},page: {
+                    , where: {"dishname":name},page: {
                         curr: 1 //重新从第 1 页开始
                     }
 
@@ -145,7 +152,7 @@
             }
         };
 
-        $('#canteenSearch .layui-btn').on('click', function() {
+        $('#searchDish .layui-btn').on('click', function() {
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });

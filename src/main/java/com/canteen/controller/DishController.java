@@ -15,7 +15,7 @@ import java.util.List;
 /**
  * 所有用户：
  *   查看菜品（getAllDishes）
- *   搜索菜品（serchDish）
+ *   搜索菜品（searchDish）
  *   计算菜品评分（calcDishRate）
  *
  * 食堂管理员：
@@ -46,10 +46,10 @@ public class DishController {
         return rs;
     }
 
-    @RequestMapping("/serchDish")
-    public ResultObject<Dish> serchDish(@RequestParam("dishID") int dishID) {
+    @RequestMapping("/searchDish")
+    public ResultObject<Dish> searchDish(@RequestParam("dishID") int dishID) {
         ResultObject<Dish> rs=new ResultObject<Dish>();
-        Dish dish=dishService.serchDishByNo(dishID);
+        Dish dish=dishService.searchDishByNo(dishID);
         rs.setCode(Constant.SUCCESS_RETUEN_CODE);
         rs.setMsg("查询成功");
         rs.setData(dish);
