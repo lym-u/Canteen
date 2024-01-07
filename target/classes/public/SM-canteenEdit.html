@@ -17,38 +17,61 @@
 <div class="page-content-wrap" id="canteenAdd">
 
 	<form class="layui-form" action="" id="">
+		<div class="layui-row">
+			<div class="layui-col-xs6">
+				<div class="grid-demo grid-demo-bg1 lableInfo">食堂编号</div>
+			</div>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="canteenid">6/12</div>
+			</div>
+		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂名称</label>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="canteenname">6/12</div>
+			</div>
 			<div class="layui-input-block">
-				<input type="text" name="canteenName"  id="canteenName" lay-verify="canteenName"
+				<input type="text" name="canteenname"  id="canteennameInput" lay-verify="canteenname"
 					   placeholder="请输入食堂名称" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂地址</label>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="location">6/12</div>
+			</div>
 			<div class="layui-input-block">
-				<input type="text" name="canteenAddress"  id="canteenAddress" lay-verify="canteenAddress"
+				<input type="text" name="location"  id="locationInput" lay-verify="canteenAddress"
 					   placeholder="请输入食堂地址" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂简介</label>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="description">6/12</div>
+			</div>
 			<div class="layui-input-block">
-				<input type="text" name="canteentProfile"  id="canteentProfile" lay-verify="canteentProfile"
+				<input type="text" name="description"  id="descriptionInput" lay-verify="canteentProfile"
 					   placeholder="请输入食堂简介" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂开始营业时间</label>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="starttime">6/12</div>
+			</div>
 			<div class="layui-input-block">
-				<input type="text" name="canteentStart"  id="canteentStart" lay-verify="canteentStart"
+				<input type="text" name="starttime"  id="starttimeInput" lay-verify="canteentStart"
 					   placeholder="请输入开始营业时间" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂结束营业时间</label>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="endtime">6/12</div>
+			</div>
 			<div class="layui-input-block">
-				<input type="text" name="canteentEnd"  id="canteentEnd" lay-verify="canteentEnd"
+				<input type="text" name="endtime"  id="endtimeInput" lay-verify="canteentEnd"
 					   placeholder="请输入结束营业时间" autocomplete="off" class="layui-input">
 			</div>
 		</div>
@@ -77,13 +100,17 @@
 		var editIndex = layedit.build('LAY_demo_editor');
 		//自定义验证规则
 		form.verify({
-			startTime: function(value) {
-				if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
+			canteentStart: function(value) {
+				if (value === "") {
+
+				} else if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
 					return '请输入正确的时间格式（HH:mm）';
 				}
 			},
-			endTime: function(value) {
-				if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
+			canteentEnd: function(value) {
+				if (value === "") {
+
+				} else if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
 					return '请输入正确的时间格式（HH:mm）';
 				}
 			}
@@ -92,14 +119,21 @@
 			}
 		});
 		form.on('submit(editStudent)', function(data){
+			var canteenId = $("#canteenid").text(); // 获取食堂id的值
+			// var canteenId = $("#canteenidInput").text();
 			var str=JSON.stringify(data.field)
+			console.log(str)
 			var param = JSON.parse(str);
+			param.canteenid = canteenId; // 将食堂id添加到请求参数中
+
 			$.ajax({
 				//几个参数需要注意一下
 				type: "POST",//方法类型
 				dataType: "json",//预期服务器返回的数据类型
 				url: "/canteen/updateCanteen",//url
-				data: param,
+				// data: param,
+				data: JSON.stringify(param),
+				contentType: "application/json",
 				success: function (result) {
 					if (result.code == "0") {
 						var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
@@ -112,11 +146,17 @@
 						});
 					}
 				},
-				error : function() {
-					layer.msg('服务器错误', {
+				// error : function() {
+				// 	layer.msg('服务器错误', {
+				// 		icon: 5
+				// 	});
+				// }
+				error: function(xhr) {
+					layer.msg('服务器错误：' + xhr.responseText, {
 						icon: 5
 					});
 				}
+
 			});
 
 			return false;

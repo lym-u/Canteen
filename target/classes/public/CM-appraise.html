@@ -36,14 +36,14 @@
         <button class="layui-btn layui-btn-normal site-demo-active"
                 data-type="search" id="searchCanteen">搜索</button>
         <table class="layui-table"
-               lay-data="{ url:'/canteenreview/getAllCanteenReviews', page:true, id:'idTest'}"
+               lay-data="{ url:'/dishReview/getAllDishReviews', page:true, id:'idTest'}"
                lay-filter="demo">
             <thead>
             <tr>
                 <th lay-data="{type:'checkbox', }"></th>
                 <th lay-data="{field:'dishreviewid',sort: true}">评价编号</th>
                 <th lay-data="{field:'userid'}">评价人ID</th>
-                <th lay-data="{field:'canteenid'}">菜品ID</th>
+                <th lay-data="{field:'dishid'}">菜品ID</th>
                 <th lay-data="{field:'title'}">评价标题</th>
                 <th lay-data="{field:'content'}">评价内容</th>
                 <th lay-data="{field:'imageurl'}">图片</th>
@@ -91,7 +91,7 @@
                         body.find("#dishid").text(data.dishid);
                         body.find("#title").text(data.title);
                         body.find("#content").text(data.content);
-                        body.find("#imageurl").text(data.imageUrl);
+                        body.find("#imageurl").text(data.imageurl);
                         body.find("#reviewtime").text(data.reviewtime);
                         body.find("#rating").text(data.rating);
                     }});
@@ -103,7 +103,7 @@
                         //几个参数需要注意一下
                         type: "POST",//方法类型
                         dataType: "json",//预期服务器返回的数据类型
-                        url: "/canteenreview/deleteCanteenReview",//url
+                        url: "/dishReview/deleteDishReview",//url
                         data: { id: data.canteenid },
                         success: function (result) {
                             if (result.code == "0") {

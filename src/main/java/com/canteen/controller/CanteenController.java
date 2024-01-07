@@ -151,6 +151,34 @@ public class CanteenController {
 
         return result;
     }
+    @RequestMapping("/getCanteenNames")
+    public ResultObject<List<Canteen>> getCanteenNames(@RequestParam("canteenName") String canteenname) {
+        ResultObject<List<Canteen>> result = new ResultObject<>();
+// 创建 CanteenExample 实例
+        CanteenExample example = new CanteenExample();
+// 创建 Criteria 对象，表示查询条件
+        CanteenExample.Criteria criteria = example.createCriteria();
+        criteria.andCanteennameEqualTo(canteenname);
+        List<Canteen> canteens = canteenService.selectByExample(example);
+        System.out.println(canteenname);
+        for (Canteen c:canteens
+        ) {
+            System.out.println("1");
+            System.out.println(c.getCanteenid());
+        }
+        if (canteens != null&& !canteens.isEmpty()) {
+            result.setCode(Constant.SUCCESS_RETUEN_CODE);
+            result.setMsg("查询成功");
+            for (Canteen canteen : canteens) {
+                result.setData(canteens);
+            }
+        } else {
+            result.setCode(Constant.FAILURE_RETUEN_CODE);
+            result.setMsg("未找到对应的食堂");
+        }
+
+        return result;
+    }
     @RequestMapping("/addCanteen")
     public ResultObject<Object> addCanteen(@RequestBody Canteen canteen) {
         ResultObject<Object> result = new ResultObject<>();
@@ -201,6 +229,26 @@ public class CanteenController {
             result.setCode(Constant.FAILURE_RETUEN_CODE);
             result.setMsg("删除食堂失败");
         }
+        return result;
+    }
+
+    @RequestMapping("/getCanteenByName")
+    public ResultObject<Canteen> getCanteenByName(@RequestParam("canteenName") String canteenName) {
+        ResultObject<Canteen> result = new ResultObject<>();
+        CanteenExample example = new CanteenExample();
+        CanteenExample.Criteria criteria = example.createCriteria();
+        criteria.andCanteennameEqualTo(canteenName);
+        List<Canteen> canteens = canteenService.selectByExample(example);
+
+        if (canteens != null && !canteens.isEmpty()) {
+            result.setCode(Constant.SUCCESS_RETUEN_CODE);
+            result.setMsg("查询成功");
+            result.setData(canteens.get(0));
+        } else {
+            result.setCode(Constant.FAILURE_RETUEN_CODE);
+            result.setMsg("未找到对应的食堂");
+        }
+
         return result;
     }
 

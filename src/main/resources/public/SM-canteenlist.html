@@ -180,16 +180,27 @@
             // }
             search: function() {
                 var name = $("#canteenNameSearch").val();
-                table.reload('idTest', {
-                    method: 'POST',
-                    url: '/canteen/getCanteenName', // 设置新的URL
-                    where: {"canteenName": name},
-                    page: {
-                        curr: 1 // 重新从第1页开始
-                    }
-                });
+                if (name) {
+                    // 如果 canteenName 不为空，则重新加载当前页面
+                    table.reload('idTest', {
+                        method: 'POST',
+                        url: '/canteen/getCanteenNames', // 设置新的URL
+                        where: {"canteenName": name},
+                        page: {
+                            curr: 1 // 重新从第1页开始
+                        }
+                    });
+                } else {
+                    // 如果 canteenName 为空，则跳转到另一个页面
+                    table.reload('idTest', {
+                        method: 'POST',
+                        url: '/canteen/getAllCanteens', // 设置新的URL
+                        page: {
+                            curr: 1 // 重新从第1页开始
+                        }
+                    });
+                }
             }
-
 
         };
 
