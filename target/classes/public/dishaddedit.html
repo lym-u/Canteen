@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>菜品维护</title>
+    <style>
+        /* 样式可以根据需求进行自定义 */
+        .form-container {
+            margin-bottom: 20px;
+        }
+
+        .form-container input[type="text"],
+        .form-container input[type="number"] {
+            width: 200px;
+            margin-bottom: 10px;
+        }
+
+        .form-container button {
+            margin-right: 10px;
+        }
+
+        .dish-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .dish-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="form-container">
+    <h3>添加/编辑菜品</h3>
+    <input type="text" id="dish-name" placeholder="菜名" required>
+    <input type="number" id="dish-price" placeholder="价格" required>
+    <input type="number" id="dish-promotion-price" placeholder="促销价格">
+    <input type="text" id="dish-cuisine" placeholder="菜系" required>
+    <input type="text" id="dish-image" placeholder="图片链接" required>
+    <button onclick="addOrUpdateDish()">保存</button>
+    <button onclick="clearForm()">清空</button>
+</div>
+
+<ul class="dish-list" id="dish-list"></ul>
+<script src="script.js"></script>
+</body>
+</html>

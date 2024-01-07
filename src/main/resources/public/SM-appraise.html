@@ -41,14 +41,14 @@
             <thead>
             <tr>
                 <th lay-data="{type:'checkbox', }"></th>
-                <th lay-data="{field:'CanteenReviewID',sort: true}">评价编号</th>
-                <th lay-data="{field:'UserID'}">评价人ID</th>
-                <th lay-data="{field:'CanteenID'}">食堂ID</th>
-                <th lay-data="{field:'Title'}">评价标题</th>
-                <th lay-data="{field:'Content'}">评价内容</th>
-                <th lay-data="{field:'ImageURL'}">图片</th>
-                <th lay-data="{field:'ReviewTime'}">评价时间</th>
-                <th lay-data="{field:'Rating'}">评分</th>
+                <th lay-data="{field:'canteenreviewid',sort: true}">评价编号</th>
+                <th lay-data="{field:'userid'}">评价人ID</th>
+                <th lay-data="{field:'canteenid'}">食堂ID</th>
+                <th lay-data="{field:'title'}">评价标题</th>
+                <th lay-data="{field:'content'}">评价内容</th>
+                <th lay-data="{field:'imageurl'}">图片</th>
+                <th lay-data="{field:'reviewtime'}">评价时间</th>
+                <th lay-data="{field:'rating'}">评分</th>
                 <th
                         lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}"></th>
             </tr>
@@ -80,24 +80,24 @@
             var data = obj.data;
             if (obj.event === 'detail') {
                 var detailFrom = layui.layer.open({
-                    title : "查看食堂信息",
+                    title : "查看评价信息",
                     type : 2,
                     content : "/SM-appraiseDetail.html",//弹出层页面
                     area: ['500px', '200px'],
                     success : function(layero, index){
                         var body = layui.layer.getChildFrame('body', index);
-                        body.find("#CanteenReviewID").text(data.canteenreviewid);
-                        body.find("#UserID").text(data.userid);
-                        body.find("#CanteenID").text(data.canteenid);
-                        body.find("#Title").text(data.title);
-                        body.find("#Content").text(data.content);
-                        body.find("#ImageURL").text(data.imageUrl);
-                        body.find("#ReviewTime").text(data.reviewtime);
-                        body.find("#Rating").text(data.rating);
+                        body.find("#canteenreviewid").text(data.canteenreviewid);
+                        body.find("#userid").text(data.userid);
+                        body.find("#canteenid").text(data.canteenid);
+                        body.find("#title").text(data.title);
+                        body.find("#content").text(data.content);
+                        body.find("#imageurl").text(data.imageurl);
+                        body.find("#reviewtime").text(data.reviewtime);
+                        body.find("#rating").text(data.rating);
                     }});
             }
             if (obj.event === 'del') {
-                layer.confirm('真的删除该食堂吗？', function(index) {
+                layer.confirm('真的删除该评价吗？', function(index) {
                     var data = obj.data;
                     $.ajax({
                         //几个参数需要注意一下
@@ -111,7 +111,7 @@
                                 layer.msg('删除成功');
                                 layui.table.reload('idTest',{page:{curr:1}});
                             }else{
-                                layer.msg('删除食堂失败', {
+                                layer.msg('删除评价失败', {
                                     icon: 5
                                 });
                             }
@@ -126,9 +126,9 @@
             }
             if (obj.event === 'edit') {
                 var editFrom = layui.layer.open({
-                    title : "编辑学生信息",
+                    title : "编辑评价信息",
                     type : 2,
-                    content : "/studentEdit.html",//弹出层页面
+                    content : "/SM-appriseEdit.html",//弹出层页面
                     area: ['800px', '400px'],
                     success : function(layero, index){
                         var body = layui.layer.getChildFrame('body', index);
@@ -149,7 +149,7 @@
 
                 layer.open({
                     type: 2,
-                    title: '添加食堂信息',
+                    title: '编辑评价信息',
                     shadeClose: true,
                     shade: false,
                     /*    maxmin: true,  *///开启最大化最小化按钮

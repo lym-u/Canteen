@@ -90,6 +90,14 @@
     DishID, DishName, Price, PromotePrice, DishStyle, CanteenID, Description, ImageFileName, 
     IfRecommend
   </sql>
+  <select id="getAllDish" parameterType="com.canteen.bean.Dish">
+    select DishID, DishName, Price, PromotePrice, DishStyle, CanteenID, Description, ImageFileName, IfRecommend
+    from Dish
+    where 1=1
+    <if test="dishname !=null and dishname !=''">
+      and DishName like concat('%',#{dishname},'%')
+    </if>
+  </select>
   <select id="selectByExample" parameterType="com.canteen.bean.DishExample" resultMap="BaseResultMap">
     <!--
       WARNING - @mbg.generated

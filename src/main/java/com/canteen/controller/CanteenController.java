@@ -66,17 +66,17 @@ public class CanteenController {
 //        return result;
 //    }
 
-    @RequestMapping("/getAllCanteen")
-    public ResultObject<List<Canteen>> getUsers(CanteenExample example,@RequestParam("limit") int limit,@RequestParam("page") int page) {
-        System.out.println(example);
-        PageInfo<Canteen> pageInfo=canteenService.getAll(example, page, limit);
-        ResultObject<List<Canteen>> rs=new ResultObject<List<Canteen>>();
-        rs.setCode(Constant.SUCCESS_RETUEN_CODE);
-        rs.setMsg("查询成功");
-        rs.setData(pageInfo.getList());
-        rs.setCount(pageInfo.getTotal());
-        return rs;
-    }
+//    @RequestMapping("/getAllCanteen")
+//    public ResultObject<List<Canteen>> getUsers(CanteenExample example,@RequestParam("limit") int limit,@RequestParam("page") int page) {
+//        System.out.println(example);
+//        PageInfo<Canteen> pageInfo=canteenService.getAll(example, page, limit);
+//        ResultObject<List<Canteen>> rs=new ResultObject<List<Canteen>>();
+//        rs.setCode(Constant.SUCCESS_RETUEN_CODE);
+//        rs.setMsg("查询成功");
+//        rs.setData(pageInfo.getList());
+//        rs.setCount(pageInfo.getTotal());
+//        return rs;
+//    }
 
     @RequestMapping("/getAllCanteens")
 //查询全部食堂（按食堂ID升序）
@@ -123,7 +123,34 @@ public class CanteenController {
 
         return result;
     }
+    @RequestMapping("/getCanteenName")
+    public ResultObject<Canteen> getCanteenName(@RequestParam("canteenName") String canteenname) {
+        ResultObject<Canteen> result = new ResultObject<>();
+// 创建 CanteenExample 实例
+        CanteenExample example = new CanteenExample();
+// 创建 Criteria 对象，表示查询条件
+        CanteenExample.Criteria criteria = example.createCriteria();
+        criteria.andCanteennameEqualTo(canteenname);
+        List<Canteen> canteens = canteenService.selectByExample(example);
+        System.out.println(canteenname);
+        for (Canteen c:canteens
+        ) {
+            System.out.println("1");
+            System.out.println(c.getCanteenid());
+        }
+        if (canteens != null&& !canteens.isEmpty()) {
+            result.setCode(Constant.SUCCESS_RETUEN_CODE);
+            result.setMsg("查询成功");
+            for (Canteen canteen : canteens) {
+                result.setData(canteen);
+            }
+        } else {
+            result.setCode(Constant.FAILURE_RETUEN_CODE);
+            result.setMsg("未找到对应的食堂");
+        }
 
+        return result;
+    }
     @RequestMapping("/addCanteen")
     public ResultObject<Object> addCanteen(@RequestBody Canteen canteen) {
         ResultObject<Object> result = new ResultObject<>();
@@ -145,7 +172,13 @@ public class CanteenController {
     public ResultObject<Object> updateCanteen(@RequestBody Canteen canteen) {
         ResultObject<Object> result = new ResultObject<>();
 //        Integer rows = canteenService.updateCanteen(canteen);
-        Integer rows = canteenService.updateByPrimaryKey(canteen);
+//        CanteenExample example = new CanteenExample();
+//// 创建 Criteria 对象，表示查询条件
+//        CanteenExample.Criteria criteria = example.createCriteria();
+//        criteria.andCanteenidEqualTo(canteen.getCanteenid());
+        System.out.println("QQQ");
+
+        Integer rows = canteenService.updateByPrimaryKeySelective(canteen);
         if (rows != null && rows > 0) {
             result.setCode(Constant.SUCCESS_RETUEN_CODE);
             result.setMsg("修改食堂信息成功");
