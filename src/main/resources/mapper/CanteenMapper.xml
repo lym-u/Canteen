@@ -264,7 +264,7 @@
       <if test="endtime != null">
         EndTime = #{endtime,jdbcType=TIME},
       </if>
-      <if test="description != null">
+      <if test="description != null and description != ''">
         Description = #{description,jdbcType=VARCHAR},
       </if>
     </set>

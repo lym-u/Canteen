@@ -100,14 +100,14 @@
 		var editIndex = layedit.build('LAY_demo_editor');
 		//自定义验证规则
 		form.verify({
-			startTimeInput: function(value) {
+			canteentStart: function(value) {
 				if (value === "") {
 
 				} else if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
 					return '请输入正确的时间格式（HH:mm）';
 				}
 			},
-			endTimeInput: function(value) {
+			canteentEnd: function(value) {
 				if (value === "") {
 
 				} else if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
