@@ -20,21 +20,21 @@
         <div class="layui-form-item">
             <label class="layui-form-label">工号</label>
             <div class="layui-input-block">
-                <input type="text" name="canteenmanagerNo" lay-verify="required|canteenmanagerNo"
+                <input type="text" name="managerid" lay-verify="required|managerid"
                        autocomplete="off" placeholder="请输入工号" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">姓名</label>
             <div class="layui-input-block">
-                <input type="text" name="canteenmanagerName" lay-verify="required|canteenmanagerName"
+                <input type="text" name="managername" lay-verify="required|managername"
                        placeholder="请输入姓名" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">性别</label>
             <div class="layui-input-block">
-                <select name="canteenmanagerSex" lay-verify="required">
+                <select name="gender" lay-verify="required">
                     <option value="">请选择性别</option>
                     <option value="男">男</option>
                     <option value="女">女</option>
@@ -44,7 +44,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">管理食堂ID</label>
             <div class="layui-input-block">
-                <input type="text" name="canteenID" lay-verify="required|canteenID"
+                <input type="text" name="canteenid" lay-verify="required|canteenid"
                        placeholder="请输入管理食堂ID" autocomplete="off" class="layui-input">
             </div>
         </div>
@@ -73,15 +73,15 @@
         var editIndex = layedit.build('LAY_demo_editor');
         //自定义验证规则
         form.verify({
-            canteenmanagerNo:[
+            managerid:[
                 /^[\d]{6,10}$/,
                 '工号必须6到10位数字'
             ]
-            ,canteenmanagerName: [
+            ,managername: [
                 /^[\S]{2,10}$/
                 ,'姓名必须2到12位，且不能出现空格'
             ]
-            ,canteenID: [
+            ,canteenid: [
                 /^[\S]{1,5}$/,
                 '食堂编号长度不能超过5个字符'
             ]
@@ -96,7 +96,7 @@
                 //几个参数需要注意一下
                 type: "POST",//方法类型
                 dataType: "json",//预期服务器返回的数据类型
-                url: "/student/addStudent",//url
+                url: "/canteenmanager/addCanteenManager",//url
                 data: param,
                 success: function (result) {
                     if (result.code == "0") {
