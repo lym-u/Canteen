@@ -14,60 +14,70 @@
 </head>
 
 <body>
-<div class="page-content-wrap" id="canteenUpdate">
+<div class="page-content-wrap" id="canteenAdd">
 
 	<form class="layui-form" action="" id="">
-		<div class="layui-form-item">
-			<label class="layui-form-label">食堂编号</label>
-			<div class="layui-input-block">
-				<input type="text" name="canteenid" id="canteenid" lay-verify="required|canteenid"
-					   placeholder="请输入食堂编号" autocomplete="off" class="layui-input">
+		<div class="layui-row">
+			<div class="layui-col-xs6">
+				<div class="grid-demo grid-demo-bg1 lableInfo">食堂编号</div>
+			</div>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="canteenid">6/12</div>
 			</div>
 		</div>
-
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂名称</label>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="canteenname">6/12</div>
+			</div>
 			<div class="layui-input-block">
-				<input type="text" name="canteenname" id="canteenname" lay-verify="required|canteenname"
+				<input type="text" name="canteenname"  id="canteennameInput" lay-verify="canteenname"
 					   placeholder="请输入食堂名称" autocomplete="off" class="layui-input">
 			</div>
 		</div>
-
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂地址</label>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="location">6/12</div>
+			</div>
 			<div class="layui-input-block">
-				<input type="text" name="location" id="location" lay-verify="required|location"
+				<input type="text" name="location"  id="locationInput" lay-verify="canteenAddress"
 					   placeholder="请输入食堂地址" autocomplete="off" class="layui-input">
 			</div>
 		</div>
-
-
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂简介</label>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="description">6/12</div>
+			</div>
 			<div class="layui-input-block">
-				<input type="text" name="description" id="description" lay-verify="required|description"
+				<input type="text" name="description"  id="descriptionInput" lay-verify="canteentProfile"
 					   placeholder="请输入食堂简介" autocomplete="off" class="layui-input">
 			</div>
 		</div>
-
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂开始营业时间</label>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="starttime">6/12</div>
+			</div>
 			<div class="layui-input-block">
-				<input type="text" name="starttime" id="starttime" lay-verify="required|starttime"
+				<input type="text" name="starttime"  id="starttimeInput" lay-verify="canteentStart"
 					   placeholder="请输入开始营业时间" autocomplete="off" class="layui-input">
 			</div>
 		</div>
-
 		<div class="layui-form-item">
 			<label class="layui-form-label">食堂结束营业时间</label>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="endtime">6/12</div>
+			</div>
 			<div class="layui-input-block">
-				<input type="text" name="endtime" id="endtime" lay-verify="required|endtime"
+				<input type="text" name="endtime"  id="endtimeInput" lay-verify="canteentEnd"
 					   placeholder="请输入结束营业时间" autocomplete="off" class="layui-input">
 			</div>
 		</div>
 		<div class="layui-form-item m-login-btn" style="text-align:center">
 			<div class="layui-inline">
-				<button class="layui-btn layui-btn-normal" lay-submit lay-filter="updateCanteen">修改食堂信息</button>
+				<button class="layui-btn layui-btn-normal" lay-submit lay-filter="editStudent">修改信息</button>
 			</div>
 			<div class="layui-inline">
 				<button type="reset" class="layui-btn layui-btn-primary  site-demo-active"
@@ -90,14 +100,14 @@
 		var editIndex = layedit.build('LAY_demo_editor');
 		//自定义验证规则
 		form.verify({
-			starttime: function(value) {
+			canteentStart: function(value) {
 				if (value === "") {
 
 				} else if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
 					return '请输入正确的时间格式（HH:mm）';
 				}
 			},
-			endtime: function(value) {
+			canteentEnd: function(value) {
 				if (value === "") {
 
 				} else if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
@@ -159,7 +169,7 @@
 				parent.layer.msg('已取消操作');
 			}
 		};
-		$('#canteenUpdate .layui-btn').on('click', function() {
+		$('#canteenAdd .layui-btn').on('click', function() {
 			var type = $(this).data('type');
 			active[type] ? active[type].call(this) : '';
 		});

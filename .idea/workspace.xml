@@ -5,15 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="db805a19-2802-40c2-8f8a-0ded9246114f" name="更改" comment="注销账号后端">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/35ce001c-fa55-4fab-b49a-4ff6d1e156b1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/35ce001c-fa55-4fab-b49a-4ff6d1e156b1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_17_37____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_17_37____.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_18_05____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_18_05____.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_18_14____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_18_14____.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_18_24____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_18_24____.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/CanteenMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CanteenMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/SM-canteenEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/SM-canteenEdit.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/SM-canteenlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/SM-canteenlist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-index-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-index-index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/user_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/user_register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/ActivityAnnouncementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/ActivityAnnouncementController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/CanteenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/CanteenController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mapper/CanteenMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/CanteenMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/CM-announcement.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/CM-announcement.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/CM-appraiseEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/CM-appraiseEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-canteenEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-canteenEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-canteenlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-canteenlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/TS-canteen.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/TS-canteen.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
