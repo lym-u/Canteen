@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db805a19-2802-40c2-8f8a-0ded9246114f" name="更改" comment="菜品后端">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/CM-dish.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/CM-dish.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/DishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/DishMapper.xml" afterDir="false" />
+    <list default="true" id="db805a19-2802-40c2-8f8a-0ded9246114f" name="更改" comment="菜品评价后端">
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2023-12-30_16_07_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2023-12-30_16_52_取消提交了更改_[更改]/ActivityAnnouncement.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/在进行更新之前于_2023-12-30_16_52_取消提交了更改_[更改]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +24,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -134,7 +137,7 @@
       <workItem from="1702127710300" duration="135000" />
       <workItem from="1702128086446" duration="48713000" />
       <workItem from="1703042995854" duration="23494000" />
-      <workItem from="1703421100457" duration="53194000" />
+      <workItem from="1703421100457" duration="58718000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <option name="closed" value="true" />
@@ -312,7 +315,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704570543414</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="菜品评价后端">
+      <option name="closed" value="true" />
+      <created>1704574936712</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1704574936712</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -362,7 +373,8 @@
     <MESSAGE value="显示界面" />
     <MESSAGE value="登录全连上了" />
     <MESSAGE value="菜品后端" />
-    <option name="LAST_COMMIT_MESSAGE" value="菜品后端" />
+    <MESSAGE value="菜品评价后端" />
+    <option name="LAST_COMMIT_MESSAGE" value="菜品评价后端" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
 </project>
