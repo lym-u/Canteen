@@ -35,6 +35,13 @@ public class UserController {
         }
         return result;
     }
+    @PostMapping({"/loginOut"})
+    public ResultObject<Object> loginOut() {
+        ResultObject<Object> result = new ResultObject();
+        result.setCode("0");
+        result.setMsg("退出成功");
+        return result;
+    }
     //注册功能，添加用户
     @RequestMapping("/addUser")
     public ResultObject<Object> addUser(@RequestBody User user) {
