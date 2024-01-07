@@ -15,7 +15,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
     //师生用户登录
     @RequestMapping("/TstudentLogin")
     public ResultObject<Object> loginUser(@RequestParam("userName") Integer userId,
@@ -26,24 +25,23 @@ public class UserController {
         criteria.andUseridEqualTo(userId);
         criteria.andPasswordEqualTo(pwd);
         List<User> users = userService.selectByExample(example);
-        if (!users.isEmpty()) {
-            result.setCode(Constant.SUCCESS_RETUEN_CODE);
-            result.setMsg("用户登录成功");
+        if (!users.isEmpty()){
+                result.setCode(Constant.SUCCESS_RETUEN_CODE);
+                result.setMsg("用户登录成功");
 
-        } else {
+        }else{
             result.setCode(Constant.FAILURE_RETUEN_CODE);
             result.setMsg("用户登录失败");
         }
         return result;
     }
-
-    @PostMapping("/loginOut")
+    @PostMapping({"/loginOut"})
     public ResultObject<Object> loginOut() {
-        ResultObject<Object> result = new ResultObject<>();
+        ResultObject<Object> result = new ResultObject();
         result.setCode("0");
+        result.setMsg("退出成功");
         return result;
     }
-
     //注册功能，添加用户
     @RequestMapping("/addUser")
     public ResultObject<Object> addUser(@RequestBody User user) {
@@ -52,7 +50,7 @@ public class UserController {
         UserExample.Criteria criteria = example.createCriteria();
         criteria.andUseridEqualTo(user.getUserid());
         List<User> users = userService.selectByExample(example);
-        if (!users.isEmpty()) {
+        if (!users.isEmpty()){
             Integer id = userService.updateByPrimaryKey(user);
             if (id != null) {
                 result.setCode(Constant.SUCCESS_RETUEN_CODE);
@@ -61,17 +59,16 @@ public class UserController {
                 result.setCode(Constant.FAILURE_RETUEN_CODE);
                 result.setMsg("注册用户失败");
             }
-        } else {
+        }else{
             result.setCode(Constant.FAILURE_RETUEN_CODE);
             result.setMsg("您的用户id不存在");
         }
         return result;
     }
-
     //修改密码
     @RequestMapping("/updateUser")
     //传入新密码，和原有的user
-    public ResultObject<Object> updateUser(@RequestParam("password") String pwd, @RequestBody User user) {
+    public ResultObject<Object> updateUser(@RequestParam("password") String pwd,@RequestBody User user) {
         ResultObject<Object> result = new ResultObject<>();
         UserExample example = new UserExample();
         UserExample.Criteria criteria = example.createCriteria();
@@ -79,8 +76,8 @@ public class UserController {
         criteria.andUsernameEqualTo(user.getUsername());
         criteria.andPasswordEqualTo(user.getPassword());
         List<User> users = userService.selectByExample(example);
-        if (!users.isEmpty()) {
-            User updateuser = new User();
+        if (!users.isEmpty()){
+            User updateuser=new User();
             updateuser.setUserid(user.getUserid());
             updateuser.setPassword(pwd);
             updateuser.setUsername(user.getUsername());
@@ -92,27 +89,26 @@ public class UserController {
                 result.setCode(Constant.FAILURE_RETUEN_CODE);
                 result.setMsg("修改用户失败");
             }
-        } else {
+        }else{
             result.setCode(Constant.FAILURE_RETUEN_CODE);
             result.setMsg("您的用户id不存在");
         }
         return result;
     }
-
     //注销账户
-    @RequestMapping("/deleteUser")
-    public ResultObject<Object> deleteUser(@RequestParam("id") int id) {
-        ResultObject<Object> result = new ResultObject<>();
-        Integer rows = userService.deleteByPrimaryKey(id);
-        if (rows != null && rows > 0) {
-            result.setCode(Constant.SUCCESS_RETUEN_CODE);
-            result.setMsg("注销用户成功");
-        } else {
-            result.setCode(Constant.FAILURE_RETUEN_CODE);
-            result.setMsg("注销用户失败");
-        }
-        return result;
-     }
+//    @RequestMapping("/deleteUser")
+//    public ResultObject<Object> deleteUser(@RequestParam("id") int id) {
+//        ResultObject<Object> result = new ResultObject<>();
+//        boolean success = userService.deleteUser(id);
+//        if (success) {
+//            result.setCode(Constant.SUCCESS_RETUEN_CODE);
+//            result.setMsg("注销用户成功");
+//        } else {
+//            result.setCode(Constant.FAILURE_RETUEN_CODE);
+//            result.setMsg("注销用户失败");
+//        }
+//        return result;
+//    }
 
 //    @RequestMapping("/getAllUsers")
 //    public ResultObject<List<User>> getAllUsers() {
