@@ -18,17 +18,17 @@
     <h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">食堂基本信息管理</h5>
     <hr>
     <div class="layui-form-item">
-        <div class="layui-inline tool-btn">
-            <button class="layui-btn layui-btn-small site-demo-active"
-                    data-type="tabAdd">
-                <i class="layui-icon">&#xe654;</i>
-            </button>
-            <!-- 				<button
-                                class="layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs"
-                                data-url="/admin/category/listorderall.html">
-                                <i class="iconfont">&#xe656;</i>
-                            </button> -->
-        </div>
+<!--        <div class="layui-inline tool-btn">-->
+<!--            <button class="layui-btn layui-btn-small site-demo-active"-->
+<!--                    data-type="tabAdd">-->
+<!--                <i class="layui-icon">&#xe654;</i>-->
+<!--            </button>-->
+<!--            <button-->
+<!--                class="layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs"-->
+<!--                data-url="/admin/category/listorderall.html">-->
+<!--                <i class="iconfont">&#xe656;</i>-->
+<!--            </button>-->
+<!--        </div>-->
         <div class="layui-inline">
             <input type="text" id="canteenNameSearch" placeholder="请输入食堂名称"
                    autocomplete="off" class="layui-input">
@@ -47,8 +47,7 @@
                 <th lay-data="{field:'description'}">食堂简介</th>
                 <th lay-data="{field:'starttime'}">食堂开始营业时间</th>
                 <th lay-data="{field:'endtime'}">食堂结束营业时间</th>
-                <th
-                        lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}"></th>
+                <th lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}"></th>
             </tr>
             </thead>
         </table>
@@ -122,17 +121,20 @@
             }
             if (obj.event === 'edit') {
                 var editFrom = layui.layer.open({
-                    title : "编辑学生信息",
+                    title : "维护食堂信息",
                     type : 2,
-                    content : "/SM-canteenEdit.html",//弹出层页面
+                    content : "/CM-canteenEdit.html",//弹出层页面
                     area: ['800px', '400px'],
                     success : function(layero, index){
                         var body = layui.layer.getChildFrame('body', index);
                         //获取窗口对象
                         var iframeWindow = layero.find('iframe')[0].contentWindow;
-                        body.find("#studentNo").val(data.studentNo);
-                        body.find("#studentName").val(data.studentName);
-                        body.find(".studentSex option[value="+data.studentSex+"]").attr("selected","selected");
+                        body.find("#canteenid").val(data.canteenid);
+                        body.find("#canteenname").val(data.canteenname);
+                        body.find("#location").val(data.location);
+                        body.find("#description").val(data.description);
+                        body.find("#starttime").val(data.starttime);
+                        body.find("#endtime").val(data.endtime);
                         iframeWindow.layui.form.render();
                         iframeWindow.layui.form.render('select');
                     }});
@@ -142,7 +144,6 @@
         //触发事件
         var active = {
             tabAdd : function() {
-
                 layer.open({
                     type: 2,
                     title: '添加食堂信息',

@@ -6,166 +6,124 @@
     <meta name="renderer" content="webkit">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
-          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
     <title>网站后台管理模版</title>
     <link rel="stylesheet" type="text/css"
-          href="assets/admin/layui/css/layui.css" />
-    <link rel="stylesheet" type="text/css" href="assets/admin/css/admin.css" />
+          href="assets/admin/layui/css/layui.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/admin/css/admin.css"/>
+    <style>
+        body {
+            background: #fff !important;
+        }
+
+        .menu-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .menu-item {
+            width: 200px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 10px 0;
+        }
+
+        .menu-item > span {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
-<div class="page-content-wrap" id="studentSearch">
-    <h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">首页</h5>
-    <hr>
-    <div class="layui-form-item">
-        <div class="layui-inline tool-btn">
-            <button class="layui-btn layui-btn-small site-demo-active"
-                    data-type="tabAdd">
-                <i class="layui-icon">&#xe654;</i>
-            </button>
-            <!-- 				<button
-                                class="layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs"
-                                data-url="/admin/category/listorderall.html">
-                                <i class="iconfont">&#xe656;</i>
-                            </button> -->
+
+<div class="layui-container" style="margin-top: 15px;">
+
+    <div class="layui-card">
+        <div class="layui-card-body">
+            <div class="layui-row layui-col-space30">
+                <div class="layui-col-md12">
+                    <div class="menu-wrapper">
+                        <div class="menu-item">
+                            <svg t="1704618079757" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" p-id="10372" width="64" height="64">
+                                <path d="M0 0m204.8 0l614.4 0q204.8 0 204.8 204.8l0 614.4q0 204.8-204.8 204.8l-614.4 0q-204.8 0-204.8-204.8l0-614.4q0-204.8 204.8-204.8Z"
+                                      fill="#FF5353" p-id="10373"></path>
+                                <path d="M512.034133 209.954133a302.08 302.08 0 1 0 302.08 302.08 302.08 302.08 0 0 0-302.08-302.08z m-193.399466 191.232a37.2224 37.2224 0 0 1 8.379733-31.914666c0.1024-0.1024 0.1024-0.238933 0.238933-0.375467a36.881067 36.881067 0 0 1 36.3008-13.2608 111.9232 111.9232 0 0 1 78.8992 47.3088 52.343467 52.343467 0 0 1 5.495467 54.135467c-1.3312 2.747733-0.324267 4.317867 1.570133 6.109866 14.4896 13.653333 28.791467 27.306667 43.144534 40.874667 4.4544 4.164267 4.539733 4.078933 0.238933 8.2432-5.870933 5.5808-12.0832 11.076267-17.7152 16.9472l-0.6144 0.6144c-0.1024 0-0.1024 0.1024-0.238933 0.1024s-0.238933 0.238933-0.375467 0.238933-0.1024 0.1024-0.238933 0.1024-0.238933 0.1024-0.238934 0.238934-0.1024 0.1024-0.238933 0.1024-0.1024 0.1024-0.238933 0.1024-0.1024 0.1024-0.238934 0.1024-0.1024 0.1024-0.238933 0.1024-0.1024 0.1024-0.238933 0.1024h-0.238934c-0.1024 0-0.1024 0-0.238933 0.1024h-0.6144a2.7648 2.7648 0 0 1-1.041067-0.238934c-0.1024 0-0.238933-0.1024-0.375466-0.1024h-0.068267a0.494933 0.494933 0 0 1-0.324267-0.238933h-0.238933c-0.1024-0.1024-0.238933-0.1024-0.375467-0.238933l-0.1024-0.1024c-0.1024-0.1024-0.238933-0.238933-0.375466-0.238934s-0.324267-0.324267-0.6144-0.477866l-0.6144-0.6144a4.5056 4.5056 0 0 1-0.7168-0.853334c-13.2608-13.8752-26.5216-27.613867-39.68-41.489066a4.7104 4.7104 0 0 0-6.109867-1.570134 52.036267 52.036267 0 0 1-54.135467-5.12 111.121067 111.121067 0 0 1-47.786666-78.609066z m326.126933 257.911467a42.666667 42.666667 0 0 1-12.305067 16.759467c-4.4544 3.6864-10.752 8.2432-16.861866 6.3488h-0.1024a26.094933 26.094933 0 0 1-9.5744-6.724267c-11.690667-11.844267-22.8352-24.388267-34.286934-36.5568-12.544-13.1584-24.951467-26.4192-37.546666-39.543467-4.4544-4.642133-8.721067-9.181867-13.1584-13.8752s-4.317867-4.4544 0-8.8064c6.3488-6.536533 12.782933-13.021867 18.773333-19.848533 3.1232-3.601067 5.256533-3.1232 8.379733-0.1024 13.2608 12.782933 26.624 25.344 39.918934 37.973333 17.902933 16.9472 35.703467 34.133333 53.794133 50.909867a10.9056 10.9056 0 0 1 2.935467 13.448533z m60.245333-249.9072a93.627733 93.627733 0 0 1-18.432 26.043733 335.5648 335.5648 0 0 1-37.7856 37.410134 52.5312 52.5312 0 0 1-53.896533 9.710933 4.5568 4.5568 0 0 0-5.5808 1.792q-38.212267 40.3456-76.629333 80.657067c-20.9408 21.981867-41.728 43.997867-62.600534 65.962666-15.0528 15.906133-30.122667 31.675733-45.038933 47.547734a17.493333 17.493333 0 0 1-6.536533 4.317866h-0.8192a37.922133 37.922133 0 0 1-27.511467-22.8352 10.24 10.24 0 0 1 2.884267-14.677333q89.787733-85.333333 179.729066-170.5472c4.4544-4.164267 8.8064-8.533333 13.2608-12.782933a4.2496 4.2496 0 0 0 1.416534-5.393067 52.1728 52.1728 0 0 1 9.710933-59.204267 382.293333 382.293333 0 0 1 48.264533-46.830933 45.1072 45.1072 0 0 1 12.305067-7.765333 14.967467 14.967467 0 0 1 13.653333 0.853333c6.434133 3.310933 6.434133 3.601067 1.570134 8.721067l-37.649067 39.1168c-3.925333 4.078933-7.867733 8.1408-11.605333 12.407466a5.9904 5.9904 0 0 0 0.375466 9.4208c3.2256 2.884267 5.973333 2.5088 10.752-1.570133l51.2-43.758933c8.721067-7.441067 6.109867-6.724267 14.199467 0.7168 2.747733 2.5088 2.986667 4.317867 0.375467 7.287466-15.7696 18.2784-31.453867 36.846933-47.069867 55.227734-3.6864 4.4544-3.925333 7.68-0.853333 10.752s6.434133 2.6112 10.6496-1.416534q23.296-22.186667 46.609066-44.714666c9.335467-8.994133 9.335467-9.096533 14.830934 2.884266a14.062933 14.062933 0 0 1 0.2048 10.666667z"
+                                      fill="#FFFFFF" p-id="10374"></path>
+                            </svg>
+                            <span>食堂信息维护</span>
+                        </div>
+                        <div class="menu-item">
+                            <svg t="1704618112340" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" p-id="11393" width="64" height="64">
+                                <path d="M0 0m182.570457 0l658.859086 0q182.570457 0 182.570457 182.570457l0 658.859086q0 182.570457-182.570457 182.570457l-658.859086 0q-182.570457 0-182.570457-182.570457l0-658.859086q0-182.570457 182.570457-182.570457Z"
+                                      fill="#EF6B11" p-id="11394"></path>
+                                <path d="M802.721491 602.495489a292.831069 292.831069 0 0 0-257.476705-255.853952 44.723054 44.723054 0 1 0-66.273205 0 292.831069 292.831069 0 0 0-257.476705 255.853952 29.901916 29.901916 0 0 0 29.858643 33.212331h521.660786A29.923553 29.923553 0 0 0 802.721491 602.495489z"
+                                      fill="#FFFFFF" opacity=".56" p-id="11395"></path>
+                                <path d="M148.838845 670.802544m40.633718 0l645.054874 0q40.633719 0 40.633718 40.633719l0-0.021637q0 40.633719-40.633718 40.633718l-645.054874 0q-40.633719 0-40.633718-40.633718l0 0.021637q0-40.633719 40.633718-40.633719Z"
+                                      fill="#FFFFFF" opacity=".56" p-id="11396"></path>
+                                <path d="M284.803854 579.603862a13.371479 13.371479 0 0 1-4.175883-0.670737 13.652756 13.652756 0 0 1-8.827772-17.157902c1.319839-4.132609 33.450335-101.519386 120.970777-133.866249a13.652756 13.652756 0 1 1 9.476874 25.61785c-74.884611 27.673337-104.159064 115.71306-104.461977 116.600165a13.674393 13.674393 0 0 1-12.982019 9.476873z"
+                                      fill="#FFFFFF" opacity=".56" p-id="11397"></path>
+                            </svg>
+                            <span>菜品信息维护</span>
+                        </div>
+                        <div class="menu-item">
+                            <svg t="1704622465172" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" p-id="19790" width="64" height="64">
+                                <path d="M287.696 219.28c-7.843 27.994-12.037 57.512-12.037 88.009 0 65.932 19.602 127.286 53.298 178.556-47.272 15.35-88.78 43.485-120.442 80.327-40.693-37.577-66.135-91.12-66.135-150.546 0-92.07 61.074-170.023 145.316-196.346zM179.542 607.043c-22.688 39.337-35.668 84.978-35.668 133.651v205.843H11v-186.98c0-84.231 68.283-152.514 152.513-152.514h16.03zM803.329 562.943h32.94c97.433 0 176.418 78.985 176.418 176.418V953H231.705V739.361c0-94.905 74.94-172.308 168.874-176.26 55.359 43.69 125.27 69.766 201.274 69.766 76.096 0 146.085-26.138 201.476-69.924z"
+                                      fill="#1AA5FF" p-id="19791"></path>
+                                <path d="M364.128 305.756a237.214 234.756 0 1 0 474.428 0 237.214 234.756 0 1 0-474.428 0Z"
+                                      fill="#1AA5FF" p-id="19792"></path>
+                            </svg>
+                            <span>账号管理</span>
+                        </div>
+                        <div class="menu-item">
+                            <svg t="1704618152572" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" p-id="12428" width="64" height="64">
+                                <path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#A6CB50"
+                                      p-id="12429"></path>
+                                <path d="M444.672 392h290.304v-33.792H444.672v33.792z m0 70.848h290.304v-33.792H444.672v33.792z m0 70.784h290.304v-33.728H444.672v33.728z m286.144-244.224c26.688 0 48.32 21.824 48.32 48.768v227.776a48.576 48.576 0 0 1-48.32 48.768h-16.128l-40.256 97.6-96.64-97.6H449.088a48.576 48.576 0 0 1-48.32-48.768V338.176c0-26.88 21.632-48.768 48.32-48.768h281.792zM349.44 567.872c0 44.48 36.032 80.512 80.384 80.512h104.512v16.128a48.256 48.256 0 0 1-48.256 48.32H397.632L293.12 801.408v-88.576a48.256 48.256 0 0 1-48.256-48.32v-193.28c0-26.624 21.632-48.256 48.256-48.256h56.256v144.896z"
+                                      fill="#FFFFFF" p-id="12430"></path>
+                            </svg>
+                            <span>评价信息处理</span>
+                        </div>
+                        <div class="menu-item">
+                            <svg t="1704618152572" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" p-id="12428" width="64" height="64">
+                                <path d="M512 512m-512 0a512 512 0 1 0 1024 0 512 512 0 1 0-1024 0Z" fill="#A6CB50"
+                                      p-id="12429"></path>
+                                <path d="M444.672 392h290.304v-33.792H444.672v33.792z m0 70.848h290.304v-33.792H444.672v33.792z m0 70.784h290.304v-33.728H444.672v33.728z m286.144-244.224c26.688 0 48.32 21.824 48.32 48.768v227.776a48.576 48.576 0 0 1-48.32 48.768h-16.128l-40.256 97.6-96.64-97.6H449.088a48.576 48.576 0 0 1-48.32-48.768V338.176c0-26.88 21.632-48.768 48.32-48.768h281.792zM349.44 567.872c0 44.48 36.032 80.512 80.384 80.512h104.512v16.128a48.256 48.256 0 0 1-48.256 48.32H397.632L293.12 801.408v-88.576a48.256 48.256 0 0 1-48.256-48.32v-193.28c0-26.624 21.632-48.256 48.256-48.256h56.256v144.896z"
+                                      fill="#FFFFFF" p-id="12430"></path>
+                            </svg>
+                            <span>评价信息处理</span>
+                        </div>
+                        <div class="menu-item">
+                            <svg t="1704616324976" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                                 xmlns="http://www.w3.org/2000/svg" p-id="8258" width="64" height="64">
+                                <path d="M0 0h1024v1024H0z" fill="#6690FF" p-id="8259"></path>
+                                <path d="M169.4208 511.9744c0-188.5184 152.8064-341.2992 341.3248-341.2992 188.544 0 341.3504 152.7808 341.3504 341.3504 0 188.5184-152.832 341.2992-341.3504 341.2992-71.68 0-138.1888-22.272-193.1264-60.0576l-168.2944 31.744 67.584-140.0064a339.6352 339.6352 0 0 1-47.488-173.056z m362.88 42.7008l-19.328 53.1968a16 16 0 1 0 30.0544 10.9312l23.3216-64.128h38.0928a16 16 0 0 0 0-32h-26.4448l27.136-74.6752h41.984a16 16 0 0 0 0-32h-30.336l11.5968-31.872a16 16 0 1 0-30.08-10.9312l-15.5648 42.8032h-72.6272l11.5968-31.872a16 16 0 0 0-30.08-10.9312l-15.5648 42.8032h-33.3824a16 16 0 1 0 0 32h21.76l-27.136 74.6752h-37.2992a16 16 0 1 0 0 32h25.6512l-19.3536 53.1968a16 16 0 0 0 30.08 10.9312l23.296-64.128h72.6272z m11.648-32H471.296l27.136-74.6752h72.6272l-27.136 74.6752z"
+                                      fill="#FFFFFF" p-id="8260"></path>
+                            </svg>
+                            <span>交流交流管理</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
         </div>
-        <div class="layui-inline">
-            <input type="text" id="studentNameSearch" placeholder="请输入学生姓名"
-                   autocomplete="off" class="layui-input">
-        </div>
-        <button class="layui-btn layui-btn-normal site-demo-active"
-                data-type="search" id="searchStudent">搜索</button>
-        <table class="layui-table"
-               lay-data="{ url:'/student/getAllStudent', page:true, id:'idTest'}"
-               lay-filter="demo">
-            <thead>
-            <tr>
-                <th lay-data="{type:'checkbox', }"></th>
-                <th lay-data="{field:'studentNo',sort: true}">学号</th>
-                <th lay-data="{field:'studentName'}">姓名</th>
-                <th lay-data="{field:'studentSex'}">性别</th>
-                <th
-                        lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}"></th>
-            </tr>
-            </thead>
-        </table>
     </div>
 
-
-    <script type="text/html" id="barDemo">
-        <a class="layui-btn layui-btn-normal layui-btn-sm" lay-event="detail">查看</a>
-        <a class="layui-btn layui-btn-sm" lay-event="edit">编辑</a>
-        <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">删除</a>
-    </script>
-    <hr></hr>
-    <h5 style="text-align: center;">@2018.学生单科成绩管理系统</h5>
 </div>
+
 <script src="assets/admin/layui/layui.all.js" type="text/javascript"
         charset="utf-8"></script>
-<script>
-    layui.use('table', function() {
-        var $ = layui.jquery
-        var table = layui.table;
-        //监听表格复选框选择
-        table.on('checkbox(demo)', function(obj) {
-            console.log(obj)
-        });
-        //监听工具条
-        table.on('tool(demo)', function(obj) {
-            var data = obj.data;
-            if (obj.event === 'detail') {
-                var detailFrom = layui.layer.open({
-                    title : "查看学生信息",
-                    type : 2,
-                    content : "/studentDetail.html",//弹出层页面
-                    area: ['500px', '200px'],
-                    success : function(layero, index){
-                        var body = layui.layer.getChildFrame('body', index);
-                        body.find("#studentNo").text(data.studentNo);
-                        body.find("#studentName").text(data.studentName);
-                        body.find("#studentSex").text(data.studentSex);
-                    }});
-            }
-            if (obj.event === 'del') {
-                layer.confirm('真的删除该学生吗？', function(index) {
-                    var data = obj.data;
-                    $.ajax({
-                        //几个参数需要注意一下
-                        type: "POST",//方法类型
-                        dataType: "json",//预期服务器返回的数据类型
-                        url: "/student/deleteStudent",//url
-                        data: data,
-                        success: function (result) {
-                            if (result.code == "0") {
-                                layer.close(index);
-                                layer.msg('删除学生成功');
-                                layui.table.reload('idTest',{page:{curr:1}});
-                            }else{
-                                layer.msg('删除学生失败', {
-                                    icon: 5
-                                });
-                            }
-                        },
-                        error : function() {
-                            layer.msg('服务器错误', {
-                                icon: 5
-                            });
-                        }
-                    });
-                });
-            }
-            if (obj.event === 'edit') {
-                var editFrom = layui.layer.open({
-                    title : "编辑学生信息",
-                    type : 2,
-                    content : "/studentEdit.html",//弹出层页面
-                    area: ['800px', '400px'],
-                    success : function(layero, index){
-                        var body = layui.layer.getChildFrame('body', index);
-                        //获取窗口对象
-                        var iframeWindow = layero.find('iframe')[0].contentWindow;
-                        body.find("#studentNo").val(data.studentNo);
-                        body.find("#studentName").val(data.studentName);
-                        body.find(".studentSex option[value="+data.studentSex+"]").attr("selected","selected");
-                        iframeWindow.layui.form.render();
-                        iframeWindow.layui.form.render('select');
-                    }});
-            }
-        });
 
-        //触发事件
-        var active = {
-            tabAdd : function() {
-
-                layer.open({
-                    type: 2,
-                    title: '添加学生信息',
-                    shadeClose: true,
-                    shade: false,
-                    /*    maxmin: true,  *///开启最大化最小化按钮
-                    area: ['800px', '400px'],
-                    content: '/studentAdd.html'
-                });
-
-            },search:function(){
-                var name=$("#studentNameSearch").val();
-                table.reload('idTest',{
-                    method: 'POST'
-                    , where: {"studentName":name},page: {
-                        curr: 1 //重新从第 1 页开始
-                    }
-
-                })
-            }
-        };
-
-        $('#studentSearch .layui-btn').on('click', function() {
-            var type = $(this).data('type');
-            active[type] ? active[type].call(this) : '';
-        });
-
-    });
-</script>
 </body>
 
 </html>
