@@ -40,13 +40,11 @@
 				<th lay-data="{field:'managername'}">姓名</th>
 				<th lay-data="{field:'gender'}">性别</th>
 				<th lay-data="{field:'canteenid'}">管理食堂ID</th>
-				<th
-						lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}"></th>
+				<th lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}"></th>
 			</tr>
 			</thead>
 		</table>
 	</div>
-
 
 	<script type="text/html" id="barDemo">
 		<a class="layui-btn layui-btn-normal layui-btn-sm" lay-event="detail">查看</a>
@@ -157,7 +155,7 @@
 			}
 		};
 
-		$('#canteenmanagerSearch .layui-btn').on('click', function() {
+		$('#canteenmanagerSearch.layui-btn').on('click', function() {
 			var type = $(this).data('type');
 			active[type] ? active[type].call(this) : '';
 		});
