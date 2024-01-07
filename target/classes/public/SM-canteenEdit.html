@@ -45,10 +45,13 @@
 					   placeholder="请输入食堂地址" autocomplete="off" class="layui-input">
 			</div>
 		</div>
-			<div class="layui-form-item">
+		<div class="layui-form-item">
 			<label class="layui-form-label">食堂简介</label>
+			<div class="layui-col-xs6">
+				<div class="grid-demo" id="description">6/12</div>
+			</div>
 			<div class="layui-input-block">
-				<input type="text" name="description" id="description" lay-verify="required|description"
+				<input type="text" name="description"  id="descriptionInput" lay-verify="canteentProfile"
 					   placeholder="请输入食堂简介" autocomplete="off" class="layui-input">
 			</div>
 		</div>
