@@ -44,7 +44,7 @@
                 <th lay-data="{field:'canteenreviewid',sort: true}">评价编号</th>
                 <th lay-data="{field:'userid'}">评价人ID</th>
                 <th lay-data="{field:'canteenid'}">食堂ID</th>
-                <th lay-data="{field:'Title'}">评价标题</th>
+                <th lay-data="{field:'title'}">评价标题</th>
                 <th lay-data="{field:'content'}">评价内容</th>
                 <th lay-data="{field:'imageurl'}">图片</th>
                 <th lay-data="{field:'reviewtime'}">评价时间</th>
@@ -91,7 +91,7 @@
                         body.find("#canteenid").text(data.canteenid);
                         body.find("#title").text(data.title);
                         body.find("#content").text(data.content);
-                        body.find("#imageurl").text(data.imageUrl);
+                        body.find("#imageurl").text(data.imageurl);
                         body.find("#reviewtime").text(data.reviewtime);
                         body.find("#rating").text(data.rating);
                     }});
@@ -134,8 +134,9 @@
                         var body = layui.layer.getChildFrame('body', index);
                         //获取窗口对象
                         var iframeWindow = layero.find('iframe')[0].contentWindow;
-                        body.find("#Title").val(data.title);
-                        body.find("#Context").val(data.context);
+                        body.find("#studentNo").val(data.studentNo);
+                        body.find("#studentName").val(data.studentName);
+                        body.find(".studentSex option[value="+data.studentSex+"]").attr("selected","selected");
                         iframeWindow.layui.form.render();
                         iframeWindow.layui.form.render('select');
                     }});
