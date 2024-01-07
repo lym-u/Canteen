@@ -204,6 +204,26 @@ public class CanteenController {
         return result;
     }
 
+    @RequestMapping("/getCanteenByName")
+    public ResultObject<Canteen> getCanteenByName(@RequestParam("canteenName") String canteenName) {
+        ResultObject<Canteen> result = new ResultObject<>();
+        CanteenExample example = new CanteenExample();
+        CanteenExample.Criteria criteria = example.createCriteria();
+        criteria.andCanteennameEqualTo(canteenName);
+        List<Canteen> canteens = canteenService.selectByExample(example);
+
+        if (canteens != null && !canteens.isEmpty()) {
+            result.setCode(Constant.SUCCESS_RETUEN_CODE);
+            result.setMsg("查询成功");
+            result.setData(canteens.get(0));
+        } else {
+            result.setCode(Constant.FAILURE_RETUEN_CODE);
+            result.setMsg("未找到对应的食堂");
+        }
+
+        return result;
+    }
+
 
 }
 
