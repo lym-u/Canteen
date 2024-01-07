@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport"
           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title>网站后台管理模版</title>
+    <title>食堂基本信息维护</title>
     <link rel="stylesheet" type="text/css"
           href="assets/admin/layui/css/layui.css" />
     <link rel="stylesheet" type="text/css" href="assets/admin/css/admin.css" />
@@ -15,20 +15,9 @@
 
 <body>
 <div class="page-content-wrap" id="canteenSearch">
-    <h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">食堂基本信息管理</h5>
+    <h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">食堂基本信息维护</h5>
     <hr>
     <div class="layui-form-item">
-<!--        <div class="layui-inline tool-btn">-->
-<!--            <button class="layui-btn layui-btn-small site-demo-active"-->
-<!--                    data-type="tabAdd">-->
-<!--                <i class="layui-icon">&#xe654;</i>-->
-<!--            </button>-->
-<!--            <button-->
-<!--                class="layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs"-->
-<!--                data-url="/admin/category/listorderall.html">-->
-<!--                <i class="iconfont">&#xe656;</i>-->
-<!--            </button>-->
-<!--        </div>-->
         <div class="layui-inline">
             <input type="text" id="canteenNameSearch" placeholder="请输入食堂名称"
                    autocomplete="off" class="layui-input">
@@ -57,9 +46,8 @@
     <script type="text/html" id="barDemo">
         <a class="layui-btn layui-btn-normal layui-btn-sm" lay-event="detail">查看</a>
         <a class="layui-btn layui-btn-sm" lay-event="edit">编辑</a>
-        <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">删除</a>
     </script>
-    <hr></hr>
+    <hr>
     <h5 style="text-align: center;">@2023.食堂基本信息管理</h5>
 </div>
 <script src="assets/admin/layui/layui.all.js" type="text/javascript"
@@ -91,37 +79,9 @@
                         body.find("#endtime").text(data.endtime);
                     }});
             }
-            if (obj.event === 'del') {
-                layer.confirm('真的删除该食堂吗？', function(index) {
-                    var data = obj.data;
-                    $.ajax({
-                        //几个参数需要注意一下
-                        type: "POST",//方法类型
-                        dataType: "json",//预期服务器返回的数据类型
-                        url: "/canteen/deleteCanteen",//url
-                        data: { id: data.canteenid },
-                        success: function (result) {
-                            if (result.code == "0") {
-                                layer.close(index);
-                                layer.msg('删除食堂成功');
-                                layui.table.reload('idTest',{page:{curr:1}});
-                            }else{
-                                layer.msg('删除食堂失败', {
-                                    icon: 5
-                                });
-                            }
-                        },
-                        error : function() {
-                            layer.msg('服务器错误', {
-                                icon: 5
-                            });
-                        }
-                    });
-                });
-            }
             if (obj.event === 'edit') {
                 var editFrom = layui.layer.open({
-                    title : "维护食堂信息",
+                    title : "编辑食堂信息",
                     type : 2,
                     content : "/CM-canteenEdit.html",//弹出层页面
                     area: ['800px', '400px'],
@@ -129,12 +89,13 @@
                         var body = layui.layer.getChildFrame('body', index);
                         //获取窗口对象
                         var iframeWindow = layero.find('iframe')[0].contentWindow;
-                        body.find("#canteenid").val(data.canteenid);
-                        body.find("#canteenname").val(data.canteenname);
-                        body.find("#location").val(data.location);
-                        body.find("#description").val(data.description);
-                        body.find("#starttime").val(data.starttime);
-                        body.find("#endtime").val(data.endtime);
+                        body.find("#canteenid").text(data.canteenid);
+                        // body.find("#canteenid").val(data.canteenid);
+                        body.find("#canteenname").text(data.canteenname);
+                        body.find("#location").text(data.location);
+                        body.find("#description").text(data.description);
+                        body.find("#starttime").text(data.starttime);
+                        body.find("#endtime").text(data.endtime);
                         iframeWindow.layui.form.render();
                         iframeWindow.layui.form.render('select');
                     }});
@@ -143,27 +104,30 @@
 
         //触发事件
         var active = {
-            tabAdd : function() {
-                layer.open({
-                    type: 2,
-                    title: '添加食堂信息',
-                    shadeClose: true,
-                    shade: false,
-                    /*    maxmin: true,  *///开启最大化最小化按钮
-                    area: ['800px', '400px'],
-                    content: '/SM-canteenadd.html'
-                });
-
-            },search:function(){
-                var name=$("#canteenNameSearch").val();
-                table.reload('idTest',{
-                    method: 'POST'
-                    , where: {"canteenName":name},page: {
-                        curr: 1 //重新从第 1 页开始
-                    }
-
-                })
+            search: function() {
+                var name = $("#canteenNameSearch").val();
+                if (name) {
+                    // 如果 canteenName 不为空，则重新加载当前页面
+                    table.reload('idTest', {
+                        method: 'POST',
+                        url: '/canteen/getCanteenNames', // 设置新的URL
+                        where: {"canteenName": name},
+                        page: {
+                            curr: 1 // 重新从第1页开始
+                        }
+                    });
+                } else {
+                    // 如果 canteenName 为空，则跳转到另一个页面
+                    table.reload('idTest', {
+                        method: 'POST',
+                        url: '/canteen/getAllCanteens', // 设置新的URL
+                        page: {
+                            curr: 1 // 重新从第1页开始
+                        }
+                    });
+                }
             }
+
         };
 
         $('#canteenSearch .layui-btn').on('click', function() {
