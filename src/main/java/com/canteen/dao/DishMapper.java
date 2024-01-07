@@ -103,4 +103,6 @@ public interface DishMapper {
     int updateByPrimaryKey(Dish record);
 
     List<Dish> getAllDish(Dish dish);
+
+    List<Dish> selectByCanteenId(int cateenid);
 }

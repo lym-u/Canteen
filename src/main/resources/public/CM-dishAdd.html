@@ -15,36 +15,35 @@
 
 <body>
 <div class="page-content-wrap" id="dishAdd">
-
     <form class="layui-form" action="" id="">
         <div class="layui-form-item">
             <label class="layui-form-label">菜品编号</label>
             <div class="layui-input-block">
-                <input type="text" name="dishid" lay-verify="required|dishID" placeholder="请输入菜品编号" autocomplete="off" class="layui-input">
+                <input type="text" name="dishid" lay-verify="required|dishid" placeholder="请输入菜品编号" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">菜品名称</label>
             <div class="layui-input-block">
-                <input type="text" name="dishname" lay-verify="required|dishName" placeholder="请输入菜品名称" autocomplete="off" class="layui-input">
+                <input type="text" name="dishname" lay-verify="required|dishname" placeholder="请输入菜品名称" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">菜品价格</label>
             <div class="layui-input-block">
-                <input type="text" name="price" lay-verify="required|dishPrice" placeholder="请输入菜品价格" autocomplete="off" class="layui-input">
+                <input type="text" name="price" lay-verify="required|price" placeholder="请输入菜品价格" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">促销价格</label>
             <div class="layui-input-block">
-                <input type="text" name="promoteprice" lay-verify="required|promoterPrice" placeholder="请输入促销菜品价格" autocomplete="off" class="layui-input">
+                <input type="text" name="promoteprice" lay-verify="required|promoteprice" placeholder="请输入促销菜品价格" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
             <label class="layui-form-label">菜系</label>
             <div class="layui-input-block">
-                <input type="text" name="dishstyle" lay-verify="required|dishStyle" placeholder="请输入菜系" autocomplete="off" class="layui-input">
+                <input type="text" name="dishstyle" lay-verify="required|dishstyle" placeholder="请输入菜系" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
@@ -62,7 +61,7 @@
         <div class="layui-form-item">
             <label class="layui-form-label">图片文件名</label>
             <div class="layui-input-block">
-                <input type="text" name="imagefilename" lay-verify="required|imagefileName" placeholder="请输入图片文件名" autocomplete="off" class="layui-input">
+                <input type="text" name="imagefilename" lay-verify="required|imagefilename" placeholder="请输入图片文件名" autocomplete="off" class="layui-input">
             </div>
         </div>
         <div class="layui-form-item">
@@ -84,9 +83,7 @@
             </div>
         </div>
     </form>
-
-
-    <hr></hr>
+    <hr>
     <h5 style="text-align: center;">@2023.食堂菜品管理系统</h5>
 </div>
 <script src="assets/admin/layui/layui.all.js" type="text/javascript"
@@ -100,27 +97,27 @@
         //创建一个编辑器
         var editIndex = layedit.build('LAY_demo_editor');
         form.verify({
-            dishID: function(value) {
+            dishid: function(value) {
                 if (!/^\d{3}$/.test(value)) {
                     return '菜品编号必须为3位数字';
                 }
             },
-            dishName: function(value) {
+            dishname: function(value) {
                 if (value.length < 2 || value.length > 20) {
                     return '菜品名称长度必须为2-20个字符';
                 }
             },
-            dishPrice: function(value) {
+            price: function(value) {
                 if (!/^\d+(\.\d{1,2})?$/.test(value)) {
                     return '菜品价格必须为数字，最多保留两位小数';
                 }
             },
-            promoterPrice: function(value) {
+            promoteprice: function(value) {
                 if (!/^\d+(\.\d{1,2})?$/.test(value)) {
                     return '促销菜品价格必须为数字，最多保留两位小数';
                 }
             },
-            dishStyle: function(value) {
+            dishstyle: function(value) {
                 if (value.length < 2 || value.length > 10) {
                     return '菜系长度必须为2-10个字符';
                 }
@@ -135,7 +132,7 @@
                     return '简介长度必须为10-100个字符';
                 }
             },
-            imagefileName: function(value) {
+            imagefilename: function(value) {
                 if (!/^[a-zA-Z0-9]{1,10}\.(jpg|jpeg|png)$/.test(value)) {
                     return '图片文件名格式不正确，只允许使用字母、数字和点号，并且后缀只能为jpg、jpeg或png';
                 }
@@ -181,14 +178,11 @@
             }
         };
 
-        $('#dishAdd .layui-btn').on('click', function() {
+        $('#dishAdd.layui-btn').on('click', function() {
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
-
-
     });
 </script>
 </body>
-
 </html>

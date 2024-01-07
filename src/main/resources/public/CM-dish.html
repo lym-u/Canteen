@@ -128,7 +128,6 @@
         //触发事件
         var active = {
             tabAdd : function() {
-
                 layer.open({
                     type: 2,
                     title: '添加菜品信息',
@@ -138,7 +137,6 @@
                     area: ['800px', '400px'],
                     content: '/CM-dishAdd.html'
                 });
-
             },
             search:function(){
                 var name=$("#searchDish").val();
@@ -147,16 +145,13 @@
                     , where: {"dishname":name},page: {
                         curr: 1 //重新从第 1 页开始
                     }
-
                 })
             }
         };
-
-        $('#searchDish .layui-btn').on('click', function() {
+        $('#searchDish.layui-btn').on('click', function() {
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
-
     });
 </script>
 </body>

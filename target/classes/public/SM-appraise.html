@@ -134,9 +134,14 @@
                         var body = layui.layer.getChildFrame('body', index);
                         //获取窗口对象
                         var iframeWindow = layero.find('iframe')[0].contentWindow;
-                        body.find("#studentNo").val(data.studentNo);
-                        body.find("#studentName").val(data.studentName);
-                        body.find(".studentSex option[value="+data.studentSex+"]").attr("selected","selected");
+                        body.find("#canteenreviewid").text(data.canteenreviewid);
+                        body.find("#userid").text(data.userid);
+                        body.find("#canteenid").text(data.canteenid);
+                        body.find("#title").text(data.title);
+                        body.find("#content").text(data.content);
+                        body.find("#imageurl").text(data.imageurl);
+                        body.find("#reviewtime").text(data.reviewtime);
+                        body.find("#rating").text(data.rating);
                         iframeWindow.layui.form.render();
                         iframeWindow.layui.form.render('select');
                     }});

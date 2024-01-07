@@ -41,4 +41,6 @@ public interface DishService {
     Integer updateDish(Dish dish);
 
     List<Dish> selectAllDish();
+
+    List<Dish> getDishesByCanteen(int canteenid);
 }

@@ -4,15 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db805a19-2802-40c2-8f8a-0ded9246114f" name="更改" comment="编辑功能修复">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/CM-announcementAdd.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/CM-announcementEdit.html" afterDir="false" />
+    <list default="true" id="db805a19-2802-40c2-8f8a-0ded9246114f" name="更改" comment="CM食堂前端修改">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/TS-dish1.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/public/TS-dishcmt.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/CM-announcement.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/CM-announcement.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/public/CM-dish.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/CM-dish.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/CM-dishEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/CM-dishEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/CM-dishEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/CM-dishEdit.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-canteenEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-canteenEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/CM-dishAdd.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/CM-dishAdd.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/SM-account.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/SM-account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/TS-dish.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/TS-dish.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/CanteenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/CanteenController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/PostreplyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/PostreplyService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/CM-appraise.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/CM-appraise.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/CM-canteenEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/CM-canteenEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/CM-canteenlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/CM-canteenlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-account.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-appraise.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-appraise.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-appriseEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-appriseEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-canteenlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-canteenlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/TS-dish.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/TS-dish.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/user_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/user_register.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -348,7 +358,31 @@
       <option name="project" value="LOCAL" />
       <updated>1704632867151</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="活动公告前端加接口">
+      <option name="closed" value="true" />
+      <created>1704639543371</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1704639543371</updated>
+    </task>
+    <task id="LOCAL-00027" summary="注册修复">
+      <option name="closed" value="true" />
+      <created>1704648424180</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1704648424180</updated>
+    </task>
+    <task id="LOCAL-00028" summary="CM食堂前端修改">
+      <option name="closed" value="true" />
+      <created>1704651917362</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1704651917362</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -378,7 +412,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="第一次提交" />
     <MESSAGE value="连接数据库" />
     <MESSAGE value="声明接口" />
     <MESSAGE value="过滤器" />
@@ -401,7 +434,10 @@
     <MESSAGE value="菜品评价后端" />
     <MESSAGE value="注销账号后端" />
     <MESSAGE value="编辑功能修复" />
-    <option name="LAST_COMMIT_MESSAGE" value="编辑功能修复" />
+    <MESSAGE value="活动公告前端加接口" />
+    <MESSAGE value="注册修复" />
+    <MESSAGE value="CM食堂前端修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="CM食堂前端修改" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

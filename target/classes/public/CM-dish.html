@@ -128,7 +128,6 @@
         //触发事件
         var active = {
             tabAdd : function() {
-
                 layer.open({
                     type: 2,
                     title: '添加菜品信息',
@@ -151,8 +150,7 @@
                 })
             }
         };
-
-        $('#searchDish .layui-btn').on('click', function() {
+        $('#searchDish.layui-btn').on('click', function() {
             var type = $(this).data('type');
             active[type] ? active[type].call(this) : '';
         });
