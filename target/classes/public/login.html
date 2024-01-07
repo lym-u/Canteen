@@ -17,7 +17,7 @@
 				<div class="m-login-warp">
 					<form class="layui-form">
 						<div class="layui-form-item">
-							<input type="text" name="userName" required lay-verify="required" placeholder="工号/学号" autocomplete="off" class="layui-input">
+							<input type="text" name="userName" required lay-verify="required" placeholder="用户名" autocomplete="off" class="layui-input">
 						</div>
 						<div class="layui-form-item">
 							<input type="password" name="password" required lay-verify="required" placeholder="密码" autocomplete="off" class="layui-input">
@@ -26,6 +26,9 @@
 							<input type="radio" name="type" value="2" title="师生用户" checked="">
 							<input type="radio" name="type" value="3" title="食堂管理员">
 							<input type="radio" name="type" value="1" title="系统">
+						</div>
+						<div class="layui-form-item">
+							<a style="color: #1E9FFF" href="user_register.html">还没有账号？去注册</a>
 						</div>
 						<div class="layui-form-item m-login-btn">
 							<div class="layui-inline">
@@ -67,21 +70,16 @@
 				                //几个参数需要注意一下
 				                    type: "POST",//方法类型
 				                    dataType: "json",//预期服务器返回的数据类型
-				                    url: "/SystemAdmin/login",//url
+				                    url: "/user/login",//url
 				                    data: param,
 				                    success: function (result) {
 				                    	if (result.code == "0") {
-											layer.msg('登录成功', {
-												icon: 6
-											});
-											setTimeout(function() {
-												location.href = "/index.html";
-											}, 2000); // 延迟 2 秒执行页面重定向
-										} else {
-											layer.msg('用户名密码错误', {
-												icon: 5
-											});
-										}
+						                       location.href="/index.html";
+						                    } else {
+						                        layer.msg('用户名密码错误', {
+						                            icon: 5
+						                        });
+						                    }
 				                    },
 				                    error : function() {
 				                    	layer.msg('服务器错误', {
@@ -107,17 +105,12 @@
 					                    data: param,
 					                    success: function (result) {
 					                    	if (result.code == "0") {
-												layer.msg('登录成功', {
-													icon: 6
-												});
-												setTimeout(function() {
-													location.href = "/TS-index.html";
-												}, 2000); // 延迟 2 秒执行页面重定向
-											} else {
-												layer.msg('用户名密码错误', {
-													icon: 5
-												});
-											}
+							                       location.href="/Tstudent-index.html";
+							                    } else {
+							                        layer.msg('用户名密码错误', {
+							                            icon: 5
+							                        });
+							                    }
 					                    },
 					                    error : function() {
 					                    	layer.msg('服务器错误', {
@@ -144,16 +137,11 @@
 									//几个参数需要注意一下
 									type: "POST",//方法类型
 									dataType: "json",//预期服务器返回的数据类型
-									url: "/canteenmanager/canteenmanagerLogin",//url
+									url: "/user/canteenmanagerLogin",//url
 									data: param,
 									success: function (result) {
 										if (result.code == "0") {
-											layer.msg('登录成功', {
-												icon: 6
-											});
-											setTimeout(function() {
-												location.href = "/CM-index.html";
-											}, 2000); // 延迟 2 秒执行页面重定向
+											location.href="/canteenmanager-index.html";
 										} else {
 											layer.msg('用户名密码错误', {
 												icon: 5
