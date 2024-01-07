@@ -130,13 +130,12 @@
                         var body = layui.layer.getChildFrame('body', index);
                         //获取窗口对象
                         var iframeWindow = layero.find('iframe')[0].contentWindow;
-                        body.find("#canteenid").text(data.canteenid);
-                        // body.find("#canteenid").val(data.canteenid);
-                        body.find("#canteenname").text(data.canteenname);
-                        body.find("#location").text(data.location);
-                        body.find("#description").text(data.description);
-                        body.find("#starttime").text(data.starttime);
-                        body.find("#endtime").text(data.endtime);
+                        body.find("#canteenid").val(data.canteenid);
+                        body.find("#canteenname").val(data.canteenname);
+                        body.find("#location").val(data.location);
+                        body.find("#description").val(data.description);
+                        body.find("#starttime").val(data.starttime);
+                        body.find("#endtime").val(data.endtime);
                         iframeWindow.layui.form.render();
                         iframeWindow.layui.form.render('select');
                     }});
@@ -183,7 +182,7 @@
                 table.reload('idTest', {
                     method: 'POST',
                     url: '/canteen/getCanteenName', // 设置新的URL
-                    where: {"canteenName": name},
+                    where: {"canteenname": name},
                     page: {
                         curr: 1 // 重新从第1页开始
                     }
