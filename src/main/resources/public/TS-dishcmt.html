@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>评价菜品</title>
+    <link rel="stylesheet" type="text/css"
+          href="assets/admin/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="assets/admin/css/admin.css" />
+</head>
+<body>
+<div class="layui-container">
+    <div class="layui-row">
+        <div class="layui-col-md12">
+            <form class="layui-form" lay-filter="commentForm">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">标题</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="title" lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">图片URL</label>
+                    <div class="layui-input-block">
+                        <input type="text" id="imageurl" lay-verify="required" placeholder="请输入图片URL" autocomplete="off" class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">内容</label>
+                    <div class="layui-input-block">
+                        <textarea id="content" lay-verify="required" placeholder="请输入内容" class="layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">评分</label>
+                    <div class="layui-input-block">
+                        <button class="layui-btn layui-btn-primary" id="subtractBtn">-</button>
+                        <input type="text" id="rating" value="5" readonly class="layui-input" style="display: inline-block; width: 60px; text-align: center;">
+                        <button class="layui-btn layui-btn-primary" id="addBtn">+</button>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="submitComment">添加</button>
+                        <button type="button" class="layui-btn layui-btn-primary" id="cancelBtn">取消</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    layui.use(['form', 'layer'], function () {
+        var form = layui.form;
+        var layer = layui.layer;
+
+        var dishid = $("#dishid").val();
+        var userid = $("#userid").val();
+
+        // 减少评分
+        $("#subtractBtn").on("click", function () {
+            var rating = parseInt($("#rating").val());
+            if (rating > 0) {
+                rating--;
+                $("#rating").val(rating);
+            }
+        });
+
+        // 增加评分
+        $("#addBtn").on("click", function () {
+            var rating = parseInt($("#rating").val());
+            if (rating < 10) {
+                rating++;
+                $("#rating").val(rating);
+            }
+        });
+
+        // 取消添加评论
+        $("#cancelBtn").on("click", function () {
+            layer.confirm('确定取消添加评论吗？', function (index) {
+                layui.layer.closeAll();
+            });
+        });
+
+        // 提交评论
+        form.on('submit(submitComment)', function (data) {
+            var reviewData = {
+                dishreviewid: 0,
+                userid: userid,
+                dishid: dishid,
+                title: data.field.title,
+                imageurl: data.field.imageurl,
+                reviewtime: new Date(),
+                rating: data.field.rating,
+                content: data.field.content
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "/dishReview/addDishReview",
+                data: JSON.stringify(reviewData),
+                contentType: "application/json",
+                success: function (response) {
+                    if (response.success) {
+                        layer.msg("添加评论成功");
+                        setTimeout(function () {
+                            window.location.href = "/TS-dish.html";
+                        }, 1000);
+                    } else {
+                        layer.msg("添加评论失败：" + response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    layer.msg("请求出错：" + xhr.responseText);
+                }
+            });
+
+            return false;
+        });
+    });
+</script>
+</body>
+</html>

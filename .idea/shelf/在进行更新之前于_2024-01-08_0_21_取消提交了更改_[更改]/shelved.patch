@@ -1,0 +1,815 @@
+Index: src/main/resources/public/user_register.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html>\r\n<head>\r\n  <meta charset=\"UTF-8\">\r\n  <meta name=\"viewport\"\r\n        content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no\"/>\r\n  <title>后台登录</title>\r\n  <link rel=\"stylesheet\" type=\"text/css\" href=\"assets/admin/layui/css/layui.css\"/>\r\n  <link rel=\"stylesheet\" type=\"text/css\" href=\"assets/admin/css/login.css\"/>\r\n  <script src=\"assets/js/aJaxUtil.js\"></script>\r\n  <script src=\"assets/js/jquery-3.3.1.min.js\"></script>\r\n</head>\r\n\r\n<body>\r\n<div class=\"m-login-bg\">\r\n  <div class=\"m-login\">\r\n    <h3>师生注册</h3>\r\n    <div class=\"m-login-warp\">\r\n      <form class=\"layui-form\">\r\n        <div class=\"layui-form-item\">\r\n          <input type=\"text\" name=\"userName\" required lay-verify=\"required\" placeholder=\"用户名\"\r\n                 autocomplete=\"off\" class=\"layui-input\">\r\n        </div>\r\n        <div class=\"layui-form-item\">\r\n          <input type=\"password\" name=\"password\" id=\"password\" required lay-verify=\"required\"\r\n                 placeholder=\"密码\" autocomplete=\"off\" class=\"layui-input\">\r\n        </div>\r\n        <div class=\"layui-form-item\">\r\n          <input type=\"password\" name=\"repassword\" id=\"repassword\" required lay-verify=\"required\"\r\n                 placeholder=\"确认密码\" autocomplete=\"off\" class=\"layui-input\">\r\n        </div>\r\n        <div class=\"layui-form-item\">\r\n          <a style=\"color: #1E9FFF\" href=\"login.html\">已经有账号？去登录</a>\r\n        </div>\r\n        <div class=\"layui-form-item m-login-btn\">\r\n          <div class=\"layui-inline\">\r\n            <button class=\"layui-btn layui-btn-normal\" lay-submit lay-filter=\"login\">注册</button>\r\n          </div>\r\n          <div class=\"layui-inline\">\r\n            <button type=\"reset\" class=\"layui-btn layui-btn-primary\">取消</button>\r\n          </div>\r\n        </div>\r\n      </form>\r\n    </div>\r\n    <p class=\"copyright\">Copyright 2023 by 食堂点评交流社区</p>\r\n  </div>\r\n</div>\r\n<script src=\"assets/admin/layui/layui.all.js\" type=\"text/javascript\" charset=\"utf-8\"></script>\r\n<script>\r\n  layui.use(['form', 'layedit', 'laydate', 'jquery'], function () {\r\n    var form = layui.form,\r\n            layer = layui.layer,\r\n            admin = layui.admin,\r\n            $ = layui.jquery;\r\n\r\n    //自定义验证规则\r\n    form.verify({\r\n      userName: function (value) {\r\n        if (value.length < 4) {\r\n          return '用户名至少4个字符';\r\n        }\r\n      },\r\n      password: [/(.+){5,12}$/, '密码必须5到12位']\r\n    });\r\n    //监听提交\r\n    form.on('submit(login)', function (data) {\r\n      if (data.field.password !== data.field.repassword) {\r\n        layer.msg('两次密码不一致', {\r\n          icon: 5\r\n        });\r\n        return false;\r\n      }\r\n      $.ajax({\r\n        //几个参数需要注意一下\r\n        type: \"POST\",//方法类型\r\n        dataType: \"json\",//预期服务器返回的数据类型\r\n        url: \"/user/addUser\",//url\r\n        data: JSON.stringify({\r\n          username: data.field.userName,\r\n          password: data.field.password,\r\n        }),\r\n        contentType: \"application/json;charset=utf-8\",//发送数据的格式\r\n        timeout: 10000,\r\n        success: function (result) {\r\n          if (result.code == \"0\") {\r\n            layer.msg(result.msg, {\r\n              icon: 6\r\n            });\r\n            setTimeout(function () {\r\n              window.location.href = \"login.html\";\r\n            }, 1000);\r\n          } else {\r\n            layer.msg(result.msg, {\r\n              icon: 5\r\n            });\r\n          }\r\n        },\r\n        error: function () {\r\n          layer.msg('服务器错误', {\r\n            icon: 5\r\n          });\r\n        }\r\n      });\r\n      return false;\r\n    });\r\n\r\n  });\r\n</script>\r\n</body>\r\n\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/public/user_register.html b/src/main/resources/public/user_register.html
+--- a/src/main/resources/public/user_register.html	(revision 14a9179f68a57a891f6ce66ad1f0ae16f6e12573)
++++ b/src/main/resources/public/user_register.html	(date 1704644482947)
+@@ -18,7 +18,7 @@
+     <div class="m-login-warp">
+       <form class="layui-form">
+         <div class="layui-form-item">
+-          <input type="text" name="userName" required lay-verify="required" placeholder="用户名"
++          <input type="text" name="userid" required lay-verify="required" placeholder="用户名"
+                  autocomplete="off" class="layui-input">
+         </div>
+         <div class="layui-form-item">
+Index: src/main/resources/public/CM-canteenlist.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"renderer\" content=\"webkit\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n    <meta name=\"viewport\"\r\n          content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no\" />\r\n    <title>网站后台管理模版</title>\r\n    <link rel=\"stylesheet\" type=\"text/css\"\r\n          href=\"assets/admin/layui/css/layui.css\" />\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"assets/admin/css/admin.css\" />\r\n</head>\r\n\r\n<body>\r\n<div class=\"page-content-wrap\" id=\"canteenSearch\">\r\n    <h5 style=\"text-align:center;font-size: 20px;line-height: 25px;color:#666\">食堂基本信息管理</h5>\r\n    <hr>\r\n    <div class=\"layui-form-item\">\r\n<!--        <div class=\"layui-inline tool-btn\">-->\r\n<!--            <button class=\"layui-btn layui-btn-small site-demo-active\"-->\r\n<!--                    data-type=\"tabAdd\">-->\r\n<!--                <i class=\"layui-icon\">&#xe654;</i>-->\r\n<!--            </button>-->\r\n<!--            <button-->\r\n<!--                class=\"layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs\"-->\r\n<!--                data-url=\"/admin/category/listorderall.html\">-->\r\n<!--                <i class=\"iconfont\">&#xe656;</i>-->\r\n<!--            </button>-->\r\n<!--        </div>-->\r\n        <div class=\"layui-inline\">\r\n            <input type=\"text\" id=\"canteenNameSearch\" placeholder=\"请输入食堂名称\"\r\n                   autocomplete=\"off\" class=\"layui-input\">\r\n        </div>\r\n        <button class=\"layui-btn layui-btn-normal site-demo-active\"\r\n                data-type=\"search\" id=\"searchCanteen\">搜索</button>\r\n        <table class=\"layui-table\"\r\n               lay-data=\"{ url:'/canteen/getAllCanteens', page:true, id:'idTest'}\"\r\n               lay-filter=\"demo\">\r\n            <thead>\r\n            <tr>\r\n                <th lay-data=\"{type:'checkbox', }\"></th>\r\n                <th lay-data=\"{field:'canteenid',sort: true}\">食堂编号</th>\r\n                <th lay-data=\"{field:'canteenname'}\">食堂名称</th>\r\n                <th lay-data=\"{field:'location'}\">食堂地址</th>\r\n                <th lay-data=\"{field:'description'}\">食堂简介</th>\r\n                <th lay-data=\"{field:'starttime'}\">食堂开始营业时间</th>\r\n                <th lay-data=\"{field:'endtime'}\">食堂结束营业时间</th>\r\n                <th lay-data=\"{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}\"></th>\r\n            </tr>\r\n            </thead>\r\n        </table>\r\n    </div>\r\n\r\n\r\n    <script type=\"text/html\" id=\"barDemo\">\r\n        <a class=\"layui-btn layui-btn-normal layui-btn-sm\" lay-event=\"detail\">查看</a>\r\n        <a class=\"layui-btn layui-btn-sm\" lay-event=\"edit\">编辑</a>\r\n        <a class=\"layui-btn layui-btn-danger layui-btn-sm\" lay-event=\"del\">删除</a>\r\n    </script>\r\n    <hr></hr>\r\n    <h5 style=\"text-align: center;\">@2023.食堂基本信息管理</h5>\r\n</div>\r\n<script src=\"assets/admin/layui/layui.all.js\" type=\"text/javascript\"\r\n        charset=\"utf-8\"></script>\r\n<script>\r\n    layui.use('table', function() {\r\n        var $ = layui.jquery\r\n        var table = layui.table;\r\n        //监听表格复选框选择\r\n        table.on('checkbox(demo)', function(obj) {\r\n            console.log(obj)\r\n        });\r\n        //监听工具条\r\n        table.on('tool(demo)', function(obj) {\r\n            var data = obj.data;\r\n            if (obj.event === 'detail') {\r\n                var detailFrom = layui.layer.open({\r\n                    title : \"查看食堂信息\",\r\n                    type : 2,\r\n                    content : \"/SM-canteenDetail.html\",//弹出层页面\r\n                    area: ['500px', '200px'],\r\n                    success : function(layero, index){\r\n                        var body = layui.layer.getChildFrame('body', index);\r\n                        body.find(\"#canteenid\").text(data.canteenid);\r\n                        body.find(\"#canteenname\").text(data.canteenname);\r\n                        body.find(\"#location\").text(data.location);\r\n                        body.find(\"#description\").text(data.description);\r\n                        body.find(\"#starttime\").text(data.starttime);\r\n                        body.find(\"#endtime\").text(data.endtime);\r\n                    }});\r\n            }\r\n            if (obj.event === 'del') {\r\n                layer.confirm('真的删除该食堂吗？', function(index) {\r\n                    var data = obj.data;\r\n                    $.ajax({\r\n                        //几个参数需要注意一下\r\n                        type: \"POST\",//方法类型\r\n                        dataType: \"json\",//预期服务器返回的数据类型\r\n                        url: \"/canteen/deleteCanteen\",//url\r\n                        data: { id: data.canteenid },\r\n                        success: function (result) {\r\n                            if (result.code == \"0\") {\r\n                                layer.close(index);\r\n                                layer.msg('删除食堂成功');\r\n                                layui.table.reload('idTest',{page:{curr:1}});\r\n                            }else{\r\n                                layer.msg('删除食堂失败', {\r\n                                    icon: 5\r\n                                });\r\n                            }\r\n                        },\r\n                        error : function() {\r\n                            layer.msg('服务器错误', {\r\n                                icon: 5\r\n                            });\r\n                        }\r\n                    });\r\n                });\r\n            }\r\n            if (obj.event === 'edit') {\r\n                var editFrom = layui.layer.open({\r\n                    title : \"维护食堂信息\",\r\n                    type : 2,\r\n                    content : \"/CM-canteenEdit.html\",//弹出层页面\r\n                    area: ['800px', '400px'],\r\n                    success : function(layero, index){\r\n                        var body = layui.layer.getChildFrame('body', index);\r\n                        //获取窗口对象\r\n                        var iframeWindow = layero.find('iframe')[0].contentWindow;\r\n                        body.find(\"#canteenid\").val(data.canteenid);\r\n                        body.find(\"#canteenname\").val(data.canteenname);\r\n                        body.find(\"#location\").val(data.location);\r\n                        body.find(\"#description\").val(data.description);\r\n                        body.find(\"#starttime\").val(data.starttime);\r\n                        body.find(\"#endtime\").val(data.endtime);\r\n                        iframeWindow.layui.form.render();\r\n                        iframeWindow.layui.form.render('select');\r\n                    }});\r\n            }\r\n        });\r\n\r\n        //触发事件\r\n        var active = {\r\n            tabAdd : function() {\r\n                layer.open({\r\n                    type: 2,\r\n                    title: '添加食堂信息',\r\n                    shadeClose: true,\r\n                    shade: false,\r\n                    /*    maxmin: true,  *///开启最大化最小化按钮\r\n                    area: ['800px', '400px'],\r\n                    content: '/SM-canteenadd.html'\r\n                });\r\n\r\n            },search:function(){\r\n                var name=$(\"#canteenNameSearch\").val();\r\n                table.reload('idTest',{\r\n                    method: 'POST'\r\n                    , where: {\"canteenName\":name},page: {\r\n                        curr: 1 //重新从第 1 页开始\r\n                    }\r\n\r\n                })\r\n            }\r\n        };\r\n\r\n        $('#canteenSearch .layui-btn').on('click', function() {\r\n            var type = $(this).data('type');\r\n            active[type] ? active[type].call(this) : '';\r\n        });\r\n\r\n    });\r\n</script>\r\n</body>\r\n\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/public/CM-canteenlist.html b/src/main/resources/public/CM-canteenlist.html
+--- a/src/main/resources/public/CM-canteenlist.html	(revision 14a9179f68a57a891f6ce66ad1f0ae16f6e12573)
++++ b/src/main/resources/public/CM-canteenlist.html	(date 1704643249679)
+@@ -7,7 +7,7 @@
+     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+     <meta name="viewport"
+           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+-    <title>网站后台管理模版</title>
++    <title>食堂基本信息维护</title>
+     <link rel="stylesheet" type="text/css"
+           href="assets/admin/layui/css/layui.css" />
+     <link rel="stylesheet" type="text/css" href="assets/admin/css/admin.css" />
+@@ -15,20 +15,9 @@
+ 
+ <body>
+ <div class="page-content-wrap" id="canteenSearch">
+-    <h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">食堂基本信息管理</h5>
++    <h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">食堂基本信息维护</h5>
+     <hr>
+     <div class="layui-form-item">
+-<!--        <div class="layui-inline tool-btn">-->
+-<!--            <button class="layui-btn layui-btn-small site-demo-active"-->
+-<!--                    data-type="tabAdd">-->
+-<!--                <i class="layui-icon">&#xe654;</i>-->
+-<!--            </button>-->
+-<!--            <button-->
+-<!--                class="layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs"-->
+-<!--                data-url="/admin/category/listorderall.html">-->
+-<!--                <i class="iconfont">&#xe656;</i>-->
+-<!--            </button>-->
+-<!--        </div>-->
+         <div class="layui-inline">
+             <input type="text" id="canteenNameSearch" placeholder="请输入食堂名称"
+                    autocomplete="off" class="layui-input">
+@@ -57,9 +46,8 @@
+     <script type="text/html" id="barDemo">
+         <a class="layui-btn layui-btn-normal layui-btn-sm" lay-event="detail">查看</a>
+         <a class="layui-btn layui-btn-sm" lay-event="edit">编辑</a>
+-        <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">删除</a>
+     </script>
+-    <hr></hr>
++    <hr>
+     <h5 style="text-align: center;">@2023.食堂基本信息管理</h5>
+ </div>
+ <script src="assets/admin/layui/layui.all.js" type="text/javascript"
+@@ -91,37 +79,9 @@
+                         body.find("#endtime").text(data.endtime);
+                     }});
+             }
+-            if (obj.event === 'del') {
+-                layer.confirm('真的删除该食堂吗？', function(index) {
+-                    var data = obj.data;
+-                    $.ajax({
+-                        //几个参数需要注意一下
+-                        type: "POST",//方法类型
+-                        dataType: "json",//预期服务器返回的数据类型
+-                        url: "/canteen/deleteCanteen",//url
+-                        data: { id: data.canteenid },
+-                        success: function (result) {
+-                            if (result.code == "0") {
+-                                layer.close(index);
+-                                layer.msg('删除食堂成功');
+-                                layui.table.reload('idTest',{page:{curr:1}});
+-                            }else{
+-                                layer.msg('删除食堂失败', {
+-                                    icon: 5
+-                                });
+-                            }
+-                        },
+-                        error : function() {
+-                            layer.msg('服务器错误', {
+-                                icon: 5
+-                            });
+-                        }
+-                    });
+-                });
+-            }
+             if (obj.event === 'edit') {
+                 var editFrom = layui.layer.open({
+-                    title : "维护食堂信息",
++                    title : "编辑食堂信息",
+                     type : 2,
+                     content : "/CM-canteenEdit.html",//弹出层页面
+                     area: ['800px', '400px'],
+@@ -129,12 +89,13 @@
+                         var body = layui.layer.getChildFrame('body', index);
+                         //获取窗口对象
+                         var iframeWindow = layero.find('iframe')[0].contentWindow;
+-                        body.find("#canteenid").val(data.canteenid);
+-                        body.find("#canteenname").val(data.canteenname);
+-                        body.find("#location").val(data.location);
+-                        body.find("#description").val(data.description);
+-                        body.find("#starttime").val(data.starttime);
+-                        body.find("#endtime").val(data.endtime);
++                        body.find("#canteenid").text(data.canteenid);
++                        // body.find("#canteenid").val(data.canteenid);
++                        body.find("#canteenname").text(data.canteenname);
++                        body.find("#location").text(data.location);
++                        body.find("#description").text(data.description);
++                        body.find("#starttime").text(data.starttime);
++                        body.find("#endtime").text(data.endtime);
+                         iframeWindow.layui.form.render();
+                         iframeWindow.layui.form.render('select');
+                     }});
+@@ -143,27 +104,39 @@
+ 
+         //触发事件
+         var active = {
+-            tabAdd : function() {
+-                layer.open({
+-                    type: 2,
+-                    title: '添加食堂信息',
+-                    shadeClose: true,
+-                    shade: false,
+-                    /*    maxmin: true,  *///开启最大化最小化按钮
+-                    area: ['800px', '400px'],
+-                    content: '/SM-canteenadd.html'
+-                });
+-
+-            },search:function(){
+-                var name=$("#canteenNameSearch").val();
+-                table.reload('idTest',{
+-                    method: 'POST'
+-                    , where: {"canteenName":name},page: {
+-                        curr: 1 //重新从第 1 页开始
++            // search:function(){
++            //     var name=$("#canteenNameSearch").val();
++            //     table.reload('idTest',{
++            //         method: 'POST'
++            //         , where: {"canteenName":name},page: {
++            //             curr: 1 //重新从第 1 页开始
++            //         }
++            //
++            //     })
++            // },
++            // search:function(){
++            //     var name=$("#canteenNameSearch").val();
++            //     table.reload('idTest',{
++            //         method: 'POST'
++            //         , where: {"canteenName":name},page: {
++            //             curr: 1 //重新从第 1 页开始
++            //         }
++            //
++            //     })
++            // }
++            search: function() {
++                var name = $("#canteenNameSearch").val();
++                table.reload('idTest', {
++                    method: 'POST',
++                    url: '/canteen/getCanteenName', // 设置新的URL
++                    where: {"canteenName": name},
++                    page: {
++                        curr: 1 // 重新从第1页开始
+                     }
++                });
++            }
+ 
+-                })
+-            }
++
+         };
+ 
+         $('#canteenSearch .layui-btn').on('click', function() {
+Index: target/classes/public/CM-canteenlist.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"renderer\" content=\"webkit\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n    <meta name=\"viewport\"\r\n          content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no\" />\r\n    <title>网站后台管理模版</title>\r\n    <link rel=\"stylesheet\" type=\"text/css\"\r\n          href=\"assets/admin/layui/css/layui.css\" />\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"assets/admin/css/admin.css\" />\r\n</head>\r\n\r\n<body>\r\n<div class=\"page-content-wrap\" id=\"canteenSearch\">\r\n    <h5 style=\"text-align:center;font-size: 20px;line-height: 25px;color:#666\">食堂基本信息管理</h5>\r\n    <hr>\r\n    <div class=\"layui-form-item\">\r\n<!--        <div class=\"layui-inline tool-btn\">-->\r\n<!--            <button class=\"layui-btn layui-btn-small site-demo-active\"-->\r\n<!--                    data-type=\"tabAdd\">-->\r\n<!--                <i class=\"layui-icon\">&#xe654;</i>-->\r\n<!--            </button>-->\r\n<!--            <button-->\r\n<!--                class=\"layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs\"-->\r\n<!--                data-url=\"/admin/category/listorderall.html\">-->\r\n<!--                <i class=\"iconfont\">&#xe656;</i>-->\r\n<!--            </button>-->\r\n<!--        </div>-->\r\n        <div class=\"layui-inline\">\r\n            <input type=\"text\" id=\"canteenNameSearch\" placeholder=\"请输入食堂名称\"\r\n                   autocomplete=\"off\" class=\"layui-input\">\r\n        </div>\r\n        <button class=\"layui-btn layui-btn-normal site-demo-active\"\r\n                data-type=\"search\" id=\"searchCanteen\">搜索</button>\r\n        <table class=\"layui-table\"\r\n               lay-data=\"{ url:'/canteen/getAllCanteens', page:true, id:'idTest'}\"\r\n               lay-filter=\"demo\">\r\n            <thead>\r\n            <tr>\r\n                <th lay-data=\"{type:'checkbox', }\"></th>\r\n                <th lay-data=\"{field:'canteenid',sort: true}\">食堂编号</th>\r\n                <th lay-data=\"{field:'canteenname'}\">食堂名称</th>\r\n                <th lay-data=\"{field:'location'}\">食堂地址</th>\r\n                <th lay-data=\"{field:'description'}\">食堂简介</th>\r\n                <th lay-data=\"{field:'starttime'}\">食堂开始营业时间</th>\r\n                <th lay-data=\"{field:'endtime'}\">食堂结束营业时间</th>\r\n                <th lay-data=\"{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}\"></th>\r\n            </tr>\r\n            </thead>\r\n        </table>\r\n    </div>\r\n\r\n\r\n    <script type=\"text/html\" id=\"barDemo\">\r\n        <a class=\"layui-btn layui-btn-normal layui-btn-sm\" lay-event=\"detail\">查看</a>\r\n        <a class=\"layui-btn layui-btn-sm\" lay-event=\"edit\">编辑</a>\r\n        <a class=\"layui-btn layui-btn-danger layui-btn-sm\" lay-event=\"del\">删除</a>\r\n    </script>\r\n    <hr></hr>\r\n    <h5 style=\"text-align: center;\">@2023.食堂基本信息管理</h5>\r\n</div>\r\n<script src=\"assets/admin/layui/layui.all.js\" type=\"text/javascript\"\r\n        charset=\"utf-8\"></script>\r\n<script>\r\n    layui.use('table', function() {\r\n        var $ = layui.jquery\r\n        var table = layui.table;\r\n        //监听表格复选框选择\r\n        table.on('checkbox(demo)', function(obj) {\r\n            console.log(obj)\r\n        });\r\n        //监听工具条\r\n        table.on('tool(demo)', function(obj) {\r\n            var data = obj.data;\r\n            if (obj.event === 'detail') {\r\n                var detailFrom = layui.layer.open({\r\n                    title : \"查看食堂信息\",\r\n                    type : 2,\r\n                    content : \"/SM-canteenDetail.html\",//弹出层页面\r\n                    area: ['500px', '200px'],\r\n                    success : function(layero, index){\r\n                        var body = layui.layer.getChildFrame('body', index);\r\n                        body.find(\"#canteenid\").text(data.canteenid);\r\n                        body.find(\"#canteenname\").text(data.canteenname);\r\n                        body.find(\"#location\").text(data.location);\r\n                        body.find(\"#description\").text(data.description);\r\n                        body.find(\"#starttime\").text(data.starttime);\r\n                        body.find(\"#endtime\").text(data.endtime);\r\n                    }});\r\n            }\r\n            if (obj.event === 'del') {\r\n                layer.confirm('真的删除该食堂吗？', function(index) {\r\n                    var data = obj.data;\r\n                    $.ajax({\r\n                        //几个参数需要注意一下\r\n                        type: \"POST\",//方法类型\r\n                        dataType: \"json\",//预期服务器返回的数据类型\r\n                        url: \"/canteen/deleteCanteen\",//url\r\n                        data: { id: data.canteenid },\r\n                        success: function (result) {\r\n                            if (result.code == \"0\") {\r\n                                layer.close(index);\r\n                                layer.msg('删除食堂成功');\r\n                                layui.table.reload('idTest',{page:{curr:1}});\r\n                            }else{\r\n                                layer.msg('删除食堂失败', {\r\n                                    icon: 5\r\n                                });\r\n                            }\r\n                        },\r\n                        error : function() {\r\n                            layer.msg('服务器错误', {\r\n                                icon: 5\r\n                            });\r\n                        }\r\n                    });\r\n                });\r\n            }\r\n            if (obj.event === 'edit') {\r\n                var editFrom = layui.layer.open({\r\n                    title : \"维护食堂信息\",\r\n                    type : 2,\r\n                    content : \"/CM-canteenEdit.html\",//弹出层页面\r\n                    area: ['800px', '400px'],\r\n                    success : function(layero, index){\r\n                        var body = layui.layer.getChildFrame('body', index);\r\n                        //获取窗口对象\r\n                        var iframeWindow = layero.find('iframe')[0].contentWindow;\r\n                        body.find(\"#canteenid\").val(data.canteenid);\r\n                        body.find(\"#canteenname\").val(data.canteenname);\r\n                        body.find(\"#location\").val(data.location);\r\n                        body.find(\"#description\").val(data.description);\r\n                        body.find(\"#starttime\").val(data.starttime);\r\n                        body.find(\"#endtime\").val(data.endtime);\r\n                        iframeWindow.layui.form.render();\r\n                        iframeWindow.layui.form.render('select');\r\n                    }});\r\n            }\r\n        });\r\n\r\n        //触发事件\r\n        var active = {\r\n            tabAdd : function() {\r\n                layer.open({\r\n                    type: 2,\r\n                    title: '添加食堂信息',\r\n                    shadeClose: true,\r\n                    shade: false,\r\n                    /*    maxmin: true,  *///开启最大化最小化按钮\r\n                    area: ['800px', '400px'],\r\n                    content: '/SM-canteenadd.html'\r\n                });\r\n\r\n            },search:function(){\r\n                var name=$(\"#canteenNameSearch\").val();\r\n                table.reload('idTest',{\r\n                    method: 'POST'\r\n                    , where: {\"canteenName\":name},page: {\r\n                        curr: 1 //重新从第 1 页开始\r\n                    }\r\n\r\n                })\r\n            }\r\n        };\r\n\r\n        $('#canteenSearch .layui-btn').on('click', function() {\r\n            var type = $(this).data('type');\r\n            active[type] ? active[type].call(this) : '';\r\n        });\r\n\r\n    });\r\n</script>\r\n</body>\r\n\r\n</html>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/classes/public/CM-canteenlist.html b/target/classes/public/CM-canteenlist.html
+--- a/target/classes/public/CM-canteenlist.html	(revision 14a9179f68a57a891f6ce66ad1f0ae16f6e12573)
++++ b/target/classes/public/CM-canteenlist.html	(date 1704643074412)
+@@ -7,7 +7,7 @@
+     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+     <meta name="viewport"
+           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+-    <title>网站后台管理模版</title>
++    <title>食堂基本信息维护</title>
+     <link rel="stylesheet" type="text/css"
+           href="assets/admin/layui/css/layui.css" />
+     <link rel="stylesheet" type="text/css" href="assets/admin/css/admin.css" />
+@@ -15,20 +15,9 @@
+ 
+ <body>
+ <div class="page-content-wrap" id="canteenSearch">
+-    <h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">食堂基本信息管理</h5>
++    <h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">食堂基本信息维护</h5>
+     <hr>
+     <div class="layui-form-item">
+-<!--        <div class="layui-inline tool-btn">-->
+-<!--            <button class="layui-btn layui-btn-small site-demo-active"-->
+-<!--                    data-type="tabAdd">-->
+-<!--                <i class="layui-icon">&#xe654;</i>-->
+-<!--            </button>-->
+-<!--            <button-->
+-<!--                class="layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs"-->
+-<!--                data-url="/admin/category/listorderall.html">-->
+-<!--                <i class="iconfont">&#xe656;</i>-->
+-<!--            </button>-->
+-<!--        </div>-->
+         <div class="layui-inline">
+             <input type="text" id="canteenNameSearch" placeholder="请输入食堂名称"
+                    autocomplete="off" class="layui-input">
+@@ -59,7 +48,7 @@
+         <a class="layui-btn layui-btn-sm" lay-event="edit">编辑</a>
+         <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">删除</a>
+     </script>
+-    <hr></hr>
++    <hr>
+     <h5 style="text-align: center;">@2023.食堂基本信息管理</h5>
+ </div>
+ <script src="assets/admin/layui/layui.all.js" type="text/javascript"
+@@ -92,7 +81,7 @@
+                     }});
+             }
+             if (obj.event === 'del') {
+-                layer.confirm('真的删除该食堂吗？', function(index) {
++                layer.confirm('真的删除该评价吗？', function(index) {
+                     var data = obj.data;
+                     $.ajax({
+                         //几个参数需要注意一下
+@@ -121,7 +110,7 @@
+             }
+             if (obj.event === 'edit') {
+                 var editFrom = layui.layer.open({
+-                    title : "维护食堂信息",
++                    title : "编辑食堂信息",
+                     type : 2,
+                     content : "/CM-canteenEdit.html",//弹出层页面
+                     area: ['800px', '400px'],
+@@ -129,12 +118,13 @@
+                         var body = layui.layer.getChildFrame('body', index);
+                         //获取窗口对象
+                         var iframeWindow = layero.find('iframe')[0].contentWindow;
+-                        body.find("#canteenid").val(data.canteenid);
+-                        body.find("#canteenname").val(data.canteenname);
+-                        body.find("#location").val(data.location);
+-                        body.find("#description").val(data.description);
+-                        body.find("#starttime").val(data.starttime);
+-                        body.find("#endtime").val(data.endtime);
++                        body.find("#canteenid").text(data.canteenid);
++                        // body.find("#canteenid").val(data.canteenid);
++                        body.find("#canteenname").text(data.canteenname);
++                        body.find("#location").text(data.location);
++                        body.find("#description").text(data.description);
++                        body.find("#starttime").text(data.starttime);
++                        body.find("#endtime").text(data.endtime);
+                         iframeWindow.layui.form.render();
+                         iframeWindow.layui.form.render('select');
+                     }});
+@@ -143,27 +133,39 @@
+ 
+         //触发事件
+         var active = {
+-            tabAdd : function() {
+-                layer.open({
+-                    type: 2,
+-                    title: '添加食堂信息',
+-                    shadeClose: true,
+-                    shade: false,
+-                    /*    maxmin: true,  *///开启最大化最小化按钮
+-                    area: ['800px', '400px'],
+-                    content: '/SM-canteenadd.html'
+-                });
+-
+-            },search:function(){
+-                var name=$("#canteenNameSearch").val();
+-                table.reload('idTest',{
+-                    method: 'POST'
+-                    , where: {"canteenName":name},page: {
+-                        curr: 1 //重新从第 1 页开始
++            // search:function(){
++            //     var name=$("#canteenNameSearch").val();
++            //     table.reload('idTest',{
++            //         method: 'POST'
++            //         , where: {"canteenName":name},page: {
++            //             curr: 1 //重新从第 1 页开始
++            //         }
++            //
++            //     })
++            // },
++            // search:function(){
++            //     var name=$("#canteenNameSearch").val();
++            //     table.reload('idTest',{
++            //         method: 'POST'
++            //         , where: {"canteenName":name},page: {
++            //             curr: 1 //重新从第 1 页开始
++            //         }
++            //
++            //     })
++            // }
++            search: function() {
++                var name = $("#canteenNameSearch").val();
++                table.reload('idTest', {
++                    method: 'POST',
++                    url: '/canteen/getCanteenName', // 设置新的URL
++                    where: {"canteenName": name},
++                    page: {
++                        curr: 1 // 重新从第1页开始
+                     }
++                });
++            }
+ 
+-                })
+-            }
++
+         };
+ 
+         $('#canteenSearch .layui-btn').on('click', function() {
+Index: target/classes/public/CM-canteenEdit.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"renderer\" content=\"webkit\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n    <meta name=\"viewport\"\r\n          content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no\" />\r\n    <title>维护食堂信息</title>\r\n    <link rel=\"stylesheet\" type=\"text/css\"\r\n          href=\"assets/admin/layui/css/layui.css\" />\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"assets/admin/css/admin.css\" />\r\n</head>\r\n\r\n<body>\r\n<div class=\"page-content-wrap\" id=\"canteenAdd\">\r\n\r\n    <form class=\"layui-form\" action=\"\" id=\"\">\r\n        <div class=\"layui-form-item\">\r\n            <label class=\"layui-form-label\">食堂名称</label>\r\n            <div class=\"layui-input-block\">\r\n                <input type=\"text\" name=\"canteenname\"  id=\"canteenname\" lay-verify=\"canteenname\"\r\n                       placeholder=\"请输入食堂名称\" autocomplete=\"off\" class=\"layui-input\">\r\n            </div>\r\n        </div>\r\n        <div class=\"layui-form-item\">\r\n            <label class=\"layui-form-label\">食堂地址</label>\r\n            <div class=\"layui-input-block\">\r\n                <input type=\"text\" name=\"canteenAddress\"  id=\"canteenAddress\" lay-verify=\"canteenAddress\"\r\n                       placeholder=\"请输入食堂地址\" autocomplete=\"off\" class=\"layui-input\">\r\n            </div>\r\n        </div>\r\n        <div class=\"layui-form-item\">\r\n            <label class=\"layui-form-label\">食堂简介</label>\r\n            <div class=\"layui-input-block\">\r\n                <input type=\"text\" name=\"canteentProfile\"  id=\"canteentProfile\" lay-verify=\"canteentProfile\"\r\n                       placeholder=\"请输入食堂简介\" autocomplete=\"off\" class=\"layui-input\">\r\n            </div>\r\n        </div>\r\n        <div class=\"layui-form-item\">\r\n            <label class=\"layui-form-label\">食堂开始营业时间</label>\r\n            <div class=\"layui-input-block\">\r\n                <input type=\"text\" name=\"canteentStart\"  id=\"canteentStart\" lay-verify=\"canteentStart\"\r\n                       placeholder=\"请输入开始营业时间\" autocomplete=\"off\" class=\"layui-input\">\r\n            </div>\r\n        </div>\r\n        <div class=\"layui-form-item\">\r\n            <label class=\"layui-form-label\">食堂结束营业时间</label>\r\n            <div class=\"layui-input-block\">\r\n                <input type=\"text\" name=\"canteentEnd\"  id=\"canteentEnd\" lay-verify=\"canteentEnd\"\r\n                       placeholder=\"请输入结束营业时间\" autocomplete=\"off\" class=\"layui-input\">\r\n            </div>\r\n        </div>\r\n        <div class=\"layui-form-item m-login-btn\" style=\"text-align:center\">\r\n            <div class=\"layui-inline\">\r\n                <button class=\"layui-btn layui-btn-normal\" lay-submit lay-filter=\"editStudent\">修改信息</button>\r\n            </div>\r\n            <div class=\"layui-inline\">\r\n                <button type=\"reset\" class=\"layui-btn layui-btn-primary  site-demo-active\"\r\n                        data-type=\"resetEdit\">取消修改</button>\r\n            </div>\r\n        </div>\r\n    </form>\r\n\r\n    <hr></hr>\r\n    <h5 style=\"text-align: center;\">@2023.食堂基本信息管理系统</h5>\r\n</div>\r\n<script src=\"assets/admin/layui/layui.all.js\" type=\"text/javascript\"\r\n        charset=\"utf-8\"></script>\r\n<script>\r\n    layui.use(['form', 'layedit', 'laydate'], function(){\r\n        var form = layui.form\r\n            ,layer = layui.layer,layedit=layui.layedit;\r\n        var $ = layui.jquery;\r\n        //创建一个编辑器\r\n        var editIndex = layedit.build('LAY_demo_editor');\r\n        //自定义验证规则\r\n        form.verify({\r\n            startTime: function(value) {\r\n                if (!/^([01]\\d|2[0-3]):([0-5]\\d)$/.test(value)) {\r\n                    return '请输入正确的时间格式（HH:mm）';\r\n                }\r\n            },\r\n            endTime: function(value) {\r\n                if (!/^([01]\\d|2[0-3]):([0-5]\\d)$/.test(value)) {\r\n                    return '请输入正确的时间格式（HH:mm）';\r\n                }\r\n            }\r\n            ,content: function(value){\r\n                layedit.sync(editIndex);\r\n            }\r\n        });\r\n        form.on('submit(editStudent)', function(data){\r\n            var str=JSON.stringify(data.field)\r\n            var param = JSON.parse(str);\r\n            $.ajax({\r\n                //几个参数需要注意一下\r\n                type: \"POST\",//方法类型\r\n                dataType: \"json\",//预期服务器返回的数据类型\r\n                url: \"/canteen/updateCanteen\",//url\r\n                data: param,\r\n                success: function (result) {\r\n                    if (result.code == \"0\") {\r\n                        var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引\r\n                        parent.layer.close(index);\r\n                        parent.layer.msg('编辑食堂成功');\r\n                        parent.layui.table.reload('idTest',{page:{curr:1}});\r\n                    }else{\r\n                        layer.msg('编辑食堂失败', {\r\n                            icon: 5\r\n                        });\r\n                    }\r\n                },\r\n                error : function() {\r\n                    layer.msg('服务器错误', {\r\n                        icon: 5\r\n                    });\r\n                }\r\n            });\r\n\r\n            return false;\r\n        });\r\n        //触发事件\r\n        var active = {\r\n            resetEdit : function() {\r\n                var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引\r\n                parent.layer.close(index);\r\n                parent.layer.msg('已取消操作');\r\n            }\r\n        };\r\n        $('#studentAdd .layui-btn').on('click', function() {\r\n            var type = $(this).data('type');\r\n            active[type] ? active[type].call(this) : '';\r\n        });\r\n\r\n    });\r\n</script>\r\n</body>\r\n\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/target/classes/public/CM-canteenEdit.html b/target/classes/public/CM-canteenEdit.html
+--- a/target/classes/public/CM-canteenEdit.html	(revision 14a9179f68a57a891f6ce66ad1f0ae16f6e12573)
++++ b/target/classes/public/CM-canteenEdit.html	(date 1704642587326)
+@@ -7,7 +7,7 @@
+     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+     <meta name="viewport"
+           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+-    <title>维护食堂信息</title>
++    <title>食堂维护信息</title>
+     <link rel="stylesheet" type="text/css"
+           href="assets/admin/layui/css/layui.css" />
+     <link rel="stylesheet" type="text/css" href="assets/admin/css/admin.css" />
+@@ -17,38 +17,61 @@
+ <div class="page-content-wrap" id="canteenAdd">
+ 
+     <form class="layui-form" action="" id="">
++        <div class="layui-row">
++            <div class="layui-col-xs6">
++                <div class="grid-demo grid-demo-bg1 lableInfo">食堂编号</div>
++            </div>
++            <div class="layui-col-xs6">
++                <div class="grid-demo" id="canteenid">6/12</div>
++            </div>
++        </div>
+         <div class="layui-form-item">
+             <label class="layui-form-label">食堂名称</label>
++            <div class="layui-col-xs6">
++                <div class="grid-demo" id="canteenname">6/12</div>
++            </div>
+             <div class="layui-input-block">
+-                <input type="text" name="canteenname"  id="canteenname" lay-verify="canteenname"
++                <input type="text" name="canteenname"  id="canteennameInput" lay-verify="canteenname"
+                        placeholder="请输入食堂名称" autocomplete="off" class="layui-input">
+             </div>
+         </div>
+         <div class="layui-form-item">
+             <label class="layui-form-label">食堂地址</label>
++            <div class="layui-col-xs6">
++                <div class="grid-demo" id="location">6/12</div>
++            </div>
+             <div class="layui-input-block">
+-                <input type="text" name="canteenAddress"  id="canteenAddress" lay-verify="canteenAddress"
++                <input type="text" name="location"  id="locationInput" lay-verify="canteenAddress"
+                        placeholder="请输入食堂地址" autocomplete="off" class="layui-input">
+             </div>
+         </div>
+         <div class="layui-form-item">
+             <label class="layui-form-label">食堂简介</label>
++            <div class="layui-col-xs6">
++                <div class="grid-demo" id="description">6/12</div>
++            </div>
+             <div class="layui-input-block">
+-                <input type="text" name="canteentProfile"  id="canteentProfile" lay-verify="canteentProfile"
++                <input type="text" name="description"  id="descriptionInput" lay-verify="canteentProfile"
+                        placeholder="请输入食堂简介" autocomplete="off" class="layui-input">
+             </div>
+         </div>
+         <div class="layui-form-item">
+             <label class="layui-form-label">食堂开始营业时间</label>
++            <div class="layui-col-xs6">
++                <div class="grid-demo" id="starttime">6/12</div>
++            </div>
+             <div class="layui-input-block">
+-                <input type="text" name="canteentStart"  id="canteentStart" lay-verify="canteentStart"
++                <input type="text" name="starttime"  id="starttimeInput" lay-verify="canteentStart"
+                        placeholder="请输入开始营业时间" autocomplete="off" class="layui-input">
+             </div>
+         </div>
+         <div class="layui-form-item">
+             <label class="layui-form-label">食堂结束营业时间</label>
++            <div class="layui-col-xs6">
++                <div class="grid-demo" id="endtime">6/12</div>
++            </div>
+             <div class="layui-input-block">
+-                <input type="text" name="canteentEnd"  id="canteentEnd" lay-verify="canteentEnd"
++                <input type="text" name="endtime"  id="endtimeInput" lay-verify="canteentEnd"
+                        placeholder="请输入结束营业时间" autocomplete="off" class="layui-input">
+             </div>
+         </div>
+@@ -77,13 +100,17 @@
+         var editIndex = layedit.build('LAY_demo_editor');
+         //自定义验证规则
+         form.verify({
+-            startTime: function(value) {
+-                if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
++            canteentStart: function(value) {
++                if (value === "") {
++
++                } else if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
+                     return '请输入正确的时间格式（HH:mm）';
+                 }
+             },
+-            endTime: function(value) {
+-                if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
++            canteentEnd: function(value) {
++                if (value === "") {
++
++                } else if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
+                     return '请输入正确的时间格式（HH:mm）';
+                 }
+             }
+@@ -92,14 +119,21 @@
+             }
+         });
+         form.on('submit(editStudent)', function(data){
++            var canteenId = $("#canteenid").text(); // 获取食堂id的值
++            // var canteenId = $("#canteenidInput").text();
+             var str=JSON.stringify(data.field)
++            console.log(str)
+             var param = JSON.parse(str);
++            param.canteenid = canteenId; // 将食堂id添加到请求参数中
++
+             $.ajax({
+                 //几个参数需要注意一下
+                 type: "POST",//方法类型
+                 dataType: "json",//预期服务器返回的数据类型
+                 url: "/canteen/updateCanteen",//url
+-                data: param,
++                // data: param,
++                data: JSON.stringify(param),
++                contentType: "application/json",
+                 success: function (result) {
+                     if (result.code == "0") {
+                         var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+@@ -112,11 +146,17 @@
+                         });
+                     }
+                 },
+-                error : function() {
+-                    layer.msg('服务器错误', {
++                // error : function() {
++                // 	layer.msg('服务器错误', {
++                // 		icon: 5
++                // 	});
++                // }
++                error: function(xhr) {
++                    layer.msg('服务器错误：' + xhr.responseText, {
+                         icon: 5
+                     });
+                 }
++
+             });
+ 
+             return false;
+@@ -129,7 +169,7 @@
+                 parent.layer.msg('已取消操作');
+             }
+         };
+-        $('#studentAdd .layui-btn').on('click', function() {
++        $('#canteenAdd .layui-btn').on('click', function() {
+             var type = $(this).data('type');
+             active[type] ? active[type].call(this) : '';
+         });
+@@ -138,4 +178,4 @@
+ </script>
+ </body>
+ 
+-</html>
++</html>
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"db805a19-2802-40c2-8f8a-0ded9246114f\" name=\"更改\" comment=\"编辑功能修复\">\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/public/CM-announcementAdd.html\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/public/CM-announcementEdit.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/public/CM-announcement.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/public/CM-announcement.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/public/CM-dish.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/public/CM-dish.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/public/CM-dishEdit.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/public/CM-dishEdit.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/public/CM-dishEdit.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/public/CM-dishEdit.html\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/target/classes/public/SM-canteenEdit.html\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/public/SM-canteenEdit.html\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ChangesViewManager\">\r\n    <option name=\"groupingKeys\">\r\n      <option value=\"directory\" />\r\n    </option>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"Interface\" />\r\n        <option value=\"HTML File\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"branch1\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;lym-u&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">\r\n    <option name=\"selectedUrlAndAccountId\">\r\n      <UrlAndAccount>\r\n        <option name=\"accountId\" value=\"2cd167e0-4931-4f28-bbfb-7684a35d1f76\" />\r\n        <option name=\"url\" value=\"git@github.com:lym-u/Canteen.git\" />\r\n      </UrlAndAccount>\r\n    </option>\r\n  </component>\r\n  <component name=\"MavenImportPreferences\">\r\n    <option name=\"generalSettings\">\r\n      <MavenGeneralSettings>\r\n        <option name=\"localRepository\" value=\"D:\\Astudy\\Maven\\jar_pack\" />\r\n        <option name=\"userSettingsFile\" value=\"D:\\Astudy\\Maven\\apache-maven-3.9.5\\conf\\settings.xml\" />\r\n      </MavenGeneralSettings>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 2\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2ZJ6CoNVab9ACgNQf5mmXVg97zL\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">{\r\n  &quot;keyToString&quot;: {\r\n    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,\r\n    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,\r\n    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,\r\n    &quot;RequestMappingsPanelOrder2&quot;: &quot;2&quot;,\r\n    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,\r\n    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,\r\n    &quot;RequestMappingsPanelWidth2&quot;: &quot;75&quot;,\r\n    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,\r\n    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,\r\n    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,\r\n    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,\r\n    &quot;git-widget-placeholder&quot;: &quot;master&quot;,\r\n    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,\r\n    &quot;last_opened_file_path&quot;: &quot;D:/A学习资料/IdealU/Project/test_web/StudentScore&quot;,\r\n    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,\r\n    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,\r\n    &quot;project.structure.last.edited&quot;: &quot;模块&quot;,\r\n    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,\r\n    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,\r\n    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,\r\n    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;\r\n  },\r\n  &quot;keyToStringList&quot;: {\r\n    &quot;DatabaseDriversLRU&quot;: [\r\n      &quot;mysql&quot;\r\n    ],\r\n    &quot;com.intellij.ide.scratch.LRUPopupBuilder$1/SQL 方言&quot;: [\r\n      &quot;MySQL&quot;\r\n    ]\r\n  }\r\n}</component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\A学习资料\\IdealU\\Project\\test_web\\Canteen\\src\\main\\resources\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"D:\\A学习资料\\IdealU\\Project\\test_web\\Canteen\\src\\main\\resources\\public\" />\r\n    </key>\r\n    <key name=\"CopyClassDialog.RECENTS_KEY\">\r\n      <recent name=\"com.canteen.bean\" />\r\n      <recent name=\"com.score.dao\" />\r\n      <recent name=\"com.score.service\" />\r\n      <recent name=\"com.score.service.impl\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"StartApplication\" type=\"SpringBootApplicationConfigurationType\" factoryName=\"Spring Boot\">\r\n      <option name=\"ALTERNATIVE_JRE_PATH\" value=\"1.8\" />\r\n      <option name=\"ALTERNATIVE_JRE_PATH_ENABLED\" value=\"true\" />\r\n      <module name=\"Canteen\" />\r\n      <option name=\"SPRING_BOOT_MAIN_CLASS\" value=\"com.canteen.boot.StartApplication\" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"应用程序级\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"默认任务\">\r\n      <changelist id=\"db805a19-2802-40c2-8f8a-0ded9246114f\" name=\"更改\" comment=\"\" />\r\n      <created>1702127709264</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1702127709264</updated>\r\n      <workItem from=\"1702127710300\" duration=\"135000\" />\r\n      <workItem from=\"1702128086446\" duration=\"48713000\" />\r\n      <workItem from=\"1703042995854\" duration=\"23494000\" />\r\n      <workItem from=\"1703421100457\" duration=\"69402000\" />\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"第一次提交\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1702129452508</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1702129452508</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"连接数据库\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1702218686809</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1702218686809</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"声明接口\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1702297860340</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1702297860340</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\".\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703213356205</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703213356205</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"过滤器\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703216501913</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703216501913</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"重命名\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703216976307</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703216976307</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"dish\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703229029729</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703229029730</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\".\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703230748604</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703230748604</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"修正\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703256490409</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703256490409</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"合并\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703256957991</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703256957991</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"新建\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703257453394</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703257453395</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"修复\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703415623388</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703415623388</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"登录\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703417481850</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703417481850</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"前端\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703422748472</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703422748472</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"前后端数据传递\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703600316619</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703600316619</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"添加和删除食堂数据传递\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703616367543</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703616367543</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"菜品后端\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703825661358</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703825661358</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"后端更新\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703828389306</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703828389306</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"前端显示\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703832414027</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703832414027</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"显示界面\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703833973673</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703833973673</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"登录全连上了\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1703926308465</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1703926308465</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00022\" summary=\"菜品后端\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1704570543414</created>\r\n      <option name=\"number\" value=\"00022\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1704570543414</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00023\" summary=\"菜品评价后端\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1704574936712</created>\r\n      <option name=\"number\" value=\"00023\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1704574936712</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00024\" summary=\"注销账号后端\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1704614360413</created>\r\n      <option name=\"number\" value=\"00024\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1704614360413</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00025\" summary=\"编辑功能修复\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1704632867151</created>\r\n      <option name=\"number\" value=\"00025\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1704632867151</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"26\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"3\" />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State>\r\n              <option name=\"FILTERS\">\r\n                <map>\r\n                  <entry key=\"branch\">\r\n                    <value>\r\n                      <list>\r\n                        <option value=\"master\" />\r\n                      </list>\r\n                    </value>\r\n                  </entry>\r\n                </map>\r\n              </option>\r\n            </State>\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"第一次提交\" />\r\n    <MESSAGE value=\"连接数据库\" />\r\n    <MESSAGE value=\"声明接口\" />\r\n    <MESSAGE value=\"过滤器\" />\r\n    <MESSAGE value=\"重命名\" />\r\n    <MESSAGE value=\"dish\" />\r\n    <MESSAGE value=\".\" />\r\n    <MESSAGE value=\"修正\" />\r\n    <MESSAGE value=\"合并\" />\r\n    <MESSAGE value=\"新建\" />\r\n    <MESSAGE value=\"修复\" />\r\n    <MESSAGE value=\"登录\" />\r\n    <MESSAGE value=\"前端\" />\r\n    <MESSAGE value=\"前后端数据传递\" />\r\n    <MESSAGE value=\"添加和删除食堂数据传递\" />\r\n    <MESSAGE value=\"后端更新\" />\r\n    <MESSAGE value=\"前端显示\" />\r\n    <MESSAGE value=\"显示界面\" />\r\n    <MESSAGE value=\"登录全连上了\" />\r\n    <MESSAGE value=\"菜品后端\" />\r\n    <MESSAGE value=\"菜品评价后端\" />\r\n    <MESSAGE value=\"注销账号后端\" />\r\n    <MESSAGE value=\"编辑功能修复\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"编辑功能修复\" />\r\n    <option name=\"GROUP_MULTIFILE_MERGE_BY_DIRECTORY\" value=\"true\" />\r\n  </component>\r\n  <component name=\"XSLT-Support.FileAssociations.UIState\">\r\n    <expand />\r\n    <select />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 14a9179f68a57a891f6ce66ad1f0ae16f6e12573)
++++ b/.idea/workspace.xml	(date 1704644492032)
+@@ -4,15 +4,14 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="db805a19-2802-40c2-8f8a-0ded9246114f" name="更改" comment="编辑功能修复">
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/CM-announcementAdd.html" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/public/CM-announcementEdit.html" afterDir="false" />
++    <list default="true" id="db805a19-2802-40c2-8f8a-0ded9246114f" name="更改" comment="活动公告前端加接口">
++      <change afterPath="$PROJECT_DIR$/src/main/resources/public/CM-announcementDetail.html" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/CM-announcement.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/CM-announcement.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/CM-dish.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/CM-dish.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/CM-dishEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/CM-dishEdit.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/public/CM-dishEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/CM-dishEdit.html" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-canteenEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-canteenEdit.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/public/CM-canteenEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/CM-canteenEdit.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/public/CM-canteenlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/CM-canteenlist.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/public/user_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/user_register.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/public/CM-canteenEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/CM-canteenEdit.html" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/target/classes/public/CM-canteenlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/CM-canteenlist.html" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -348,7 +347,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1704632867151</updated>
+     </task>
+-    <option name="localTasksCounter" value="26" />
++    <task id="LOCAL-00026" summary="活动公告前端加接口">
++      <option name="closed" value="true" />
++      <created>1704639543371</created>
++      <option name="number" value="00026" />
++      <option name="presentableId" value="LOCAL-00026" />
++      <option name="project" value="LOCAL" />
++      <updated>1704639543371</updated>
++    </task>
++    <option name="localTasksCounter" value="27" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+@@ -401,7 +408,8 @@
+     <MESSAGE value="菜品评价后端" />
+     <MESSAGE value="注销账号后端" />
+     <MESSAGE value="编辑功能修复" />
+-    <option name="LAST_COMMIT_MESSAGE" value="编辑功能修复" />
++    <MESSAGE value="活动公告前端加接口" />
++    <option name="LAST_COMMIT_MESSAGE" value="活动公告前端加接口" />
+     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
+   </component>
+   <component name="XSLT-Support.FileAssociations.UIState">
+Index: src/main/resources/public/CM-announcementDetail.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/public/CM-announcementDetail.html b/src/main/resources/public/CM-announcementDetail.html
+new file mode 100644
+--- /dev/null	(date 1704641152951)
++++ b/src/main/resources/public/CM-announcementDetail.html	(date 1704641152951)
+@@ -0,0 +1,74 @@
++<!DOCTYPE html>
++<html>
++
++<head>
++    <meta charset="UTF-8">
++    <meta name="renderer" content="webkit">
++    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
++    <meta name="viewport"
++          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
++    <title>活动公告详情</title>
++    <link rel="stylesheet" type="text/css"
++          href="assets/admin/layui/css/layui.css" />
++    <link rel="stylesheet" type="text/css" href="assets/admin/css/admin.css" />
++</head>
++
++<body>
++<div class="page-content-wrap" id="CanteenAdd">
++
++    <div class="layui-row">
++        <div class="layui-col-xs6">
++            <div class="grid-demo grid-demo-bg1 lableInfo">食堂编号</div>
++        </div>
++        <div class="layui-col-xs6">
++            <div class="grid-demo" id="canteenid">6/12</div>
++        </div>
++    </div>
++    <div class="layui-row">
++        <div class="layui-col-xs6">
++            <div class="grid-demo grid-demo-bg1 lableInfo">食堂名称</div>
++        </div>
++        <div class="layui-col-xs6">
++            <div class="grid-demo" id="canteenname">6/12</div>
++        </div>
++    </div>
++    <div class="layui-row">
++        <div class="layui-col-xs6">
++            <div class="grid-demo grid-demo-bg1 lableInfo">食堂地址</div>
++        </div>
++        <div class="layui-col-xs6">
++            <div class="grid-demo" id="location">6/12</div>
++        </div>
++    </div>
++    <div class="layui-row">
++        <div class="layui-col-xs6">
++            <div class="grid-demo grid-demo-bg1 lableInfo">食堂简介</div>
++        </div>
++        <div class="layui-col-xs6">
++            <div class="grid-demo" id="description">6/12</div>
++        </div>
++    </div>
++    <div class="layui-row">
++        <div class="layui-col-xs6">
++            <div class="grid-demo grid-demo-bg1 lableInfo">食堂开始营业时间</div>
++        </div>
++        <div class="layui-col-xs6">
++            <div class="grid-demo" id="starttime">6/12</div>
++        </div>
++    </div>
++    <div class="layui-row">
++        <div class="layui-col-xs6">
++            <div class="grid-demo grid-demo-bg1 lableInfo">食堂结束营业时间</div>
++        </div>
++        <div class="layui-col-xs6">
++            <div class="grid-demo" id="endtime">6/12</div>
++        </div>
++    </div>
++    <hr></hr>
++    <h5 style="text-align: center;">@2023.食堂基本信息管理系统</h5>
++</div>
++<script src="assets/admin/layui/layui.all.js" type="text/javascript"
++        charset="utf-8"></script>
++</body>
++
++</html>
+\ No newline at end of file
+Index: src/main/resources/public/CM-canteenEdit.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><!DOCTYPE html>\r\n<html>\r\n\r\n<head>\r\n    <meta charset=\"UTF-8\">\r\n    <meta name=\"renderer\" content=\"webkit\">\r\n    <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge,chrome=1\">\r\n    <meta name=\"viewport\"\r\n          content=\"width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no\" />\r\n    <title>维护食堂信息</title>\r\n    <link rel=\"stylesheet\" type=\"text/css\"\r\n          href=\"assets/admin/layui/css/layui.css\" />\r\n    <link rel=\"stylesheet\" type=\"text/css\" href=\"assets/admin/css/admin.css\" />\r\n</head>\r\n\r\n<body>\r\n<div class=\"page-content-wrap\" id=\"canteenAdd\">\r\n\r\n    <form class=\"layui-form\" action=\"\" id=\"\">\r\n        <div class=\"layui-form-item\">\r\n            <label class=\"layui-form-label\">食堂名称</label>\r\n            <div class=\"layui-input-block\">\r\n                <input type=\"text\" name=\"canteenname\"  id=\"canteenname\" lay-verify=\"canteenname\"\r\n                       placeholder=\"请输入食堂名称\" autocomplete=\"off\" class=\"layui-input\">\r\n            </div>\r\n        </div>\r\n        <div class=\"layui-form-item\">\r\n            <label class=\"layui-form-label\">食堂地址</label>\r\n            <div class=\"layui-input-block\">\r\n                <input type=\"text\" name=\"canteenAddress\"  id=\"canteenAddress\" lay-verify=\"canteenAddress\"\r\n                       placeholder=\"请输入食堂地址\" autocomplete=\"off\" class=\"layui-input\">\r\n            </div>\r\n        </div>\r\n        <div class=\"layui-form-item\">\r\n            <label class=\"layui-form-label\">食堂简介</label>\r\n            <div class=\"layui-input-block\">\r\n                <input type=\"text\" name=\"canteentProfile\"  id=\"canteentProfile\" lay-verify=\"canteentProfile\"\r\n                       placeholder=\"请输入食堂简介\" autocomplete=\"off\" class=\"layui-input\">\r\n            </div>\r\n        </div>\r\n        <div class=\"layui-form-item\">\r\n            <label class=\"layui-form-label\">食堂开始营业时间</label>\r\n            <div class=\"layui-input-block\">\r\n                <input type=\"text\" name=\"canteentStart\"  id=\"canteentStart\" lay-verify=\"canteentStart\"\r\n                       placeholder=\"请输入开始营业时间\" autocomplete=\"off\" class=\"layui-input\">\r\n            </div>\r\n        </div>\r\n        <div class=\"layui-form-item\">\r\n            <label class=\"layui-form-label\">食堂结束营业时间</label>\r\n            <div class=\"layui-input-block\">\r\n                <input type=\"text\" name=\"canteentEnd\"  id=\"canteentEnd\" lay-verify=\"canteentEnd\"\r\n                       placeholder=\"请输入结束营业时间\" autocomplete=\"off\" class=\"layui-input\">\r\n            </div>\r\n        </div>\r\n        <div class=\"layui-form-item m-login-btn\" style=\"text-align:center\">\r\n            <div class=\"layui-inline\">\r\n                <button class=\"layui-btn layui-btn-normal\" lay-submit lay-filter=\"editStudent\">修改信息</button>\r\n            </div>\r\n            <div class=\"layui-inline\">\r\n                <button type=\"reset\" class=\"layui-btn layui-btn-primary  site-demo-active\"\r\n                        data-type=\"resetEdit\">取消修改</button>\r\n            </div>\r\n        </div>\r\n    </form>\r\n\r\n    <hr></hr>\r\n    <h5 style=\"text-align: center;\">@2023.食堂基本信息管理系统</h5>\r\n</div>\r\n<script src=\"assets/admin/layui/layui.all.js\" type=\"text/javascript\"\r\n        charset=\"utf-8\"></script>\r\n<script>\r\n    layui.use(['form', 'layedit', 'laydate'], function(){\r\n        var form = layui.form\r\n            ,layer = layui.layer,layedit=layui.layedit;\r\n        var $ = layui.jquery;\r\n        //创建一个编辑器\r\n        var editIndex = layedit.build('LAY_demo_editor');\r\n        //自定义验证规则\r\n        form.verify({\r\n            startTime: function(value) {\r\n                if (!/^([01]\\d|2[0-3]):([0-5]\\d)$/.test(value)) {\r\n                    return '请输入正确的时间格式（HH:mm）';\r\n                }\r\n            },\r\n            endTime: function(value) {\r\n                if (!/^([01]\\d|2[0-3]):([0-5]\\d)$/.test(value)) {\r\n                    return '请输入正确的时间格式（HH:mm）';\r\n                }\r\n            }\r\n            ,content: function(value){\r\n                layedit.sync(editIndex);\r\n            }\r\n        });\r\n        form.on('submit(editStudent)', function(data){\r\n            var str=JSON.stringify(data.field)\r\n            var param = JSON.parse(str);\r\n            $.ajax({\r\n                //几个参数需要注意一下\r\n                type: \"POST\",//方法类型\r\n                dataType: \"json\",//预期服务器返回的数据类型\r\n                url: \"/canteen/updateCanteen\",//url\r\n                data: param,\r\n                success: function (result) {\r\n                    if (result.code == \"0\") {\r\n                        var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引\r\n                        parent.layer.close(index);\r\n                        parent.layer.msg('编辑食堂成功');\r\n                        parent.layui.table.reload('idTest',{page:{curr:1}});\r\n                    }else{\r\n                        layer.msg('编辑食堂失败', {\r\n                            icon: 5\r\n                        });\r\n                    }\r\n                },\r\n                error : function() {\r\n                    layer.msg('服务器错误', {\r\n                        icon: 5\r\n                    });\r\n                }\r\n            });\r\n\r\n            return false;\r\n        });\r\n        //触发事件\r\n        var active = {\r\n            resetEdit : function() {\r\n                var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引\r\n                parent.layer.close(index);\r\n                parent.layer.msg('已取消操作');\r\n            }\r\n        };\r\n        $('#studentAdd .layui-btn').on('click', function() {\r\n            var type = $(this).data('type');\r\n            active[type] ? active[type].call(this) : '';\r\n        });\r\n\r\n    });\r\n</script>\r\n</body>\r\n\r\n</html>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/resources/public/CM-canteenEdit.html b/src/main/resources/public/CM-canteenEdit.html
+--- a/src/main/resources/public/CM-canteenEdit.html	(revision 14a9179f68a57a891f6ce66ad1f0ae16f6e12573)
++++ b/src/main/resources/public/CM-canteenEdit.html	(date 1704643393095)
+@@ -7,7 +7,7 @@
+     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+     <meta name="viewport"
+           content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+-    <title>维护食堂信息</title>
++    <title>食堂信息维护</title>
+     <link rel="stylesheet" type="text/css"
+           href="assets/admin/layui/css/layui.css" />
+     <link rel="stylesheet" type="text/css" href="assets/admin/css/admin.css" />
+@@ -17,38 +17,61 @@
+ <div class="page-content-wrap" id="canteenAdd">
+ 
+     <form class="layui-form" action="" id="">
++        <div class="layui-row">
++            <div class="layui-col-xs6">
++                <div class="grid-demo grid-demo-bg1 lableInfo">食堂编号</div>
++            </div>
++            <div class="layui-col-xs6">
++                <div class="grid-demo" id="canteenid">6/12</div>
++            </div>
++        </div>
+         <div class="layui-form-item">
+             <label class="layui-form-label">食堂名称</label>
++            <div class="layui-col-xs6">
++                <div class="grid-demo" id="canteenname">6/12</div>
++            </div>
+             <div class="layui-input-block">
+-                <input type="text" name="canteenname"  id="canteenname" lay-verify="canteenname"
++                <input type="text" name="canteenname"  id="canteennameInput" lay-verify="canteenname"
+                        placeholder="请输入食堂名称" autocomplete="off" class="layui-input">
+             </div>
+         </div>
+         <div class="layui-form-item">
+             <label class="layui-form-label">食堂地址</label>
++            <div class="layui-col-xs6">
++                <div class="grid-demo" id="location">6/12</div>
++            </div>
+             <div class="layui-input-block">
+-                <input type="text" name="canteenAddress"  id="canteenAddress" lay-verify="canteenAddress"
++                <input type="text" name="location"  id="locationInput" lay-verify="canteenAddress"
+                        placeholder="请输入食堂地址" autocomplete="off" class="layui-input">
+             </div>
+         </div>
+         <div class="layui-form-item">
+             <label class="layui-form-label">食堂简介</label>
++            <div class="layui-col-xs6">
++                <div class="grid-demo" id="description">6/12</div>
++            </div>
+             <div class="layui-input-block">
+-                <input type="text" name="canteentProfile"  id="canteentProfile" lay-verify="canteentProfile"
++                <input type="text" name="description"  id="descriptionInput" lay-verify="canteentProfile"
+                        placeholder="请输入食堂简介" autocomplete="off" class="layui-input">
+             </div>
+         </div>
+         <div class="layui-form-item">
+             <label class="layui-form-label">食堂开始营业时间</label>
++            <div class="layui-col-xs6">
++                <div class="grid-demo" id="starttime">6/12</div>
++            </div>
+             <div class="layui-input-block">
+-                <input type="text" name="canteentStart"  id="canteentStart" lay-verify="canteentStart"
++                <input type="text" name="starttime"  id="starttimeInput" lay-verify="canteentStart"
+                        placeholder="请输入开始营业时间" autocomplete="off" class="layui-input">
+             </div>
+         </div>
+         <div class="layui-form-item">
+             <label class="layui-form-label">食堂结束营业时间</label>
++            <div class="layui-col-xs6">
++                <div class="grid-demo" id="endtime">6/12</div>
++            </div>
+             <div class="layui-input-block">
+-                <input type="text" name="canteentEnd"  id="canteentEnd" lay-verify="canteentEnd"
++                <input type="text" name="endtime"  id="endtimeInput" lay-verify="canteentEnd"
+                        placeholder="请输入结束营业时间" autocomplete="off" class="layui-input">
+             </div>
+         </div>
+@@ -77,13 +100,17 @@
+         var editIndex = layedit.build('LAY_demo_editor');
+         //自定义验证规则
+         form.verify({
+-            startTime: function(value) {
+-                if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
++            canteentStart: function(value) {
++                if (value === "") {
++
++                } else if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
+                     return '请输入正确的时间格式（HH:mm）';
+                 }
+             },
+-            endTime: function(value) {
+-                if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
++            canteentEnd: function(value) {
++                if (value === "") {
++
++                } else if (!/^([01]\d|2[0-3]):([0-5]\d)$/.test(value)) {
+                     return '请输入正确的时间格式（HH:mm）';
+                 }
+             }
+@@ -92,14 +119,21 @@
+             }
+         });
+         form.on('submit(editStudent)', function(data){
++            var canteenId = $("#canteenid").text(); // 获取食堂id的值
++            // var canteenId = $("#canteenidInput").text();
+             var str=JSON.stringify(data.field)
++            console.log(str)
+             var param = JSON.parse(str);
++            param.canteenid = canteenId; // 将食堂id添加到请求参数中
++
+             $.ajax({
+                 //几个参数需要注意一下
+                 type: "POST",//方法类型
+                 dataType: "json",//预期服务器返回的数据类型
+                 url: "/canteen/updateCanteen",//url
+-                data: param,
++                // data: param,
++                data: JSON.stringify(param),
++                contentType: "application/json",
+                 success: function (result) {
+                     if (result.code == "0") {
+                         var index = parent.layer.getFrameIndex(window.name); //先得到当前iframe层的索引
+@@ -112,11 +146,17 @@
+                         });
+                     }
+                 },
+-                error : function() {
+-                    layer.msg('服务器错误', {
++                // error : function() {
++                // 	layer.msg('服务器错误', {
++                // 		icon: 5
++                // 	});
++                // }
++                error: function(xhr) {
++                    layer.msg('服务器错误：' + xhr.responseText, {
+                         icon: 5
+                     });
+                 }
++
+             });
+ 
+             return false;
+@@ -129,7 +169,7 @@
+                 parent.layer.msg('已取消操作');
+             }
+         };
+-        $('#studentAdd .layui-btn').on('click', function() {
++        $('#canteenAdd .layui-btn').on('click', function() {
+             var type = $(this).data('type');
+             active[type] ? active[type].call(this) : '';
+         });
+@@ -138,4 +178,4 @@
+ </script>
+ </body>
+ 
+-</html>
++</html>
+\ No newline at end of file

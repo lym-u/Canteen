@@ -46,6 +46,19 @@ public class DishController {
         return rs;
     }
 
+    @RequestMapping("/getDishesByCanteen")
+    public ResultObject<List<Dish>> getDishesByCanteen(@RequestParam("canteenid") int canteenid) {
+        ResultObject<List<Dish>> rs=new ResultObject<List<Dish>>();
+        List<Dish> list=dishService.getDishesByCanteen(canteenid);
+        rs.setCode(Constant.SUCCESS_RETUEN_CODE);
+        rs.setMsg("查询成功");
+        rs.setData(list);
+        int total=list.size();
+        Long a=Long.parseLong(String.valueOf(total));
+        rs.setCount(a);
+        return rs;
+    }
+
     @RequestMapping("/searchDish")
     public ResultObject<Dish> searchDish(@RequestParam("dishID") int dishID) {
         ResultObject<Dish> rs=new ResultObject<Dish>();

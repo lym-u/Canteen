@@ -74,4 +74,8 @@ public class DishServiceImpl implements DishService {
     public List<Dish> selectAllDish(){
         return dishMapper.getAllDish(null);
     }
+
+    public List<Dish> getDishesByCanteen(int canteenid){
+        return dishMapper.selectByCanteenId(canteenid);
+    }
 }

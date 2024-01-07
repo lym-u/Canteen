@@ -50,4 +50,8 @@ public class ActivityAnnouncementServiceImpl implements ActivityAnnouncementServ
         // 删除一个公告
         return announcementMapper.deleteByPrimaryKey(announcementId);
     }
+    @Override
+    public List<ActivityAnnouncement> selectByExample(ActivityAnnouncementExample example){
+        return announcementMapper.selectByExample(example);
+    }
 }

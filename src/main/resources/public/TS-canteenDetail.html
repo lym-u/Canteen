@@ -64,11 +64,50 @@
             <div class="grid-demo" id="endtime">6/12</div>
         </div>
     </div>
+    <button class="layui-btn layui-btn-normal site-demo-active"
+            data-type="search" id="searchDish">查看菜品</button>
     <hr></hr>
     <h5 style="text-align: center;">@2023.食堂基本信息管理系统</h5>
 </div>
 <script src="assets/admin/layui/layui.all.js" type="text/javascript"
         charset="utf-8"></script>
+
+<script>
+    //触发事件
+    var active = {
+        search: function() {
+            var id = $("#canteenid").val();
+            if (id) {
+                // 如果 canteenName 不为空，则重新加载当前页面
+                table.reload('idTest', {
+                    method: 'POST',
+                    url: '/canteen/getCanteenId', // 设置新的URL
+                    where: {"canteenName": name},
+                    page: {
+                        curr: 1 // 重新从第1页开始
+                    }
+                });
+            } else {
+                // 如果 canteenName 为空，则跳转到另一个页面
+                table.reload('idTest', {
+                    method: 'POST',
+                    url: '/canteen/getAllCanteens', // 设置新的URL
+                    page: {
+                        curr: 1 // 重新从第1页开始
+                    }
+                });
+            }
+        }
+
+    };
+
+    $('#canteenSearch .layui-btn').on('click', function() {
+        var type = $(this).data('type');
+        active[type] ? active[type].call(this) : '';
+    });
+
+</script>
+
 </body>
 
 </html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>食堂点评交流社区</title>
+    <link rel="stylesheet" type="text/css" href="assets/admin/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="assets/admin/css/admin.css" />
+    <style type="text/css">
+        #myModal {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 300px;
+            height: 200px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="main-layout" id='main-layout'>
+    <div class="main-layout-header">
+        <div class="menu-btn" id="hideBtn" style="font-size: 16px;width: 100px;">
+            菜品浏览
+        </div>
+        <ul class="layui-nav" lay-filter="rightNav">
+            <li class="layui-nav-item"><a href="javascript:;" data-url="loginOut" style="color:black">退出</a>
+            </li>
+        </ul>
+    </div>
+
+    <div id="myModal">
+        <h2 style="text-align: center;">鱼香肉丝</h2>
+        <textarea id="textarea"  style="width: 90%;height: 120px;margin-left: 20px;border: 1px solid black;">
+
+				    </textarea>
+        <button style="margin-left: 120px;" id="comment">评论</button>
+        <button id="closeBtn">关闭</button>
+    </div>
+    <div class="browse-main">
+        <div class="browse-jiansuo">
+            <select name="">
+                <option value="" disabled selected hidden>请选择菜系</option>
+                <option value="">川菜</option>
+                <option value="">鲁菜</option>
+                <option value="">粤菜</option>
+                <option value="">苏菜</option>
+                <option value="">闽菜</option>
+                <option value="">浙菜</option>
+                <option value="">湘菜</option>
+                <option value="">徽菜</option>
+            </select>
+            <select name="">
+                <option value="" disabled selected hidden>请选择食堂</option>
+                <option value=""></option>
+            </select>
+            <form style="display: flex;">
+                <input type="number" id="minPrice" name="minPrice" oninput="updatePrice()" required placeholder="价格下限">
+                <div style="width: 12px;border: 1px solid black;height: 0px;margin-top: 47px;"></div>
+                <input type="number" id="maxPrice" name="maxPrice" required placeholder="价格上限">
+            </form>
+            <button type="button" style="width: 150px;height: 35px;margin-top: 30px;">查询</button>
+        </div>
+        <div class="browse-list">
+            <ul>
+                <!--                    <c:forEach var="sa" items="${sandoAdmin}">-->
+                <!--                        <li>-->
+                <!--                            <img src="assets/admin/images/ms-list/ms1.jpg" >-->
+                <!--                            <p id="myBtn">鱼香肉丝</p>-->
+                <!--                        </li>-->
+                <!--                    </c:forEach>-->
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="assets/js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+    function updatePrice() {
+        var minPrice = document.getElementById("minPrice").value;
+        document.getElementById("maxPrice").setAttribute("min", minPrice);
+    }
+
+    document.addEventListener("keyup", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            var minPrice = document.getElementById("minPrice").value;
+            var maxPrice = document.getElementById("maxPrice").value;
+            if (parseInt(maxPrice) < parseInt(minPrice)) {
+                alert("最大价格不能小于最小价格，请重新输入！");
+            } else {
+                alert("提交成功！最小价格: " + minPrice + ", 最大价格: " + maxPrice);
+            }
+        }
+    });
+    var btn = document.getElementById("myBtn");
+    var modal = document.getElementById("myModal");
+    var closeBtn = document.getElementById("closeBtn");
+    var comment = document.getElementById("comment");
+    var textarea = document.getElementById("textarea");
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+    closeBtn.onclick = function() {
+        modal.style.display = "none";
+    }
+    comment.onclick = function (){
+        var id=Math.random()*(0-10000)+100000
+        ajaxPostJson('/dishReview/addDishReview',{content:textarea.value,dishreviewid:id},function(res,res2){
+            if(res){
+                layer.msg('添加评论成功！');
+                modal.style.display = "none";
+            }else{
+                layer.msg('添加评论失败', {
+                    icon: 5
+                });
+            }
+        })
+    }
+</script>
+
+<script src="assets/admin/layui/layui.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/admin/js/common.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/admin/js/main.js" type="text/javascript" charset="utf-8"></script>
+<script src="assets/js/aJaxUtil.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
