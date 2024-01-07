@@ -74,13 +74,18 @@
         //几个参数需要注意一下
         type: "POST",//方法类型
         dataType: "json",//预期服务器返回的数据类型
-        url: "/user/register",//url
-        data: param,
+        url: "/user/addUser",//url
+        data: JSON.stringify({
+          username: data.field.userName,
+          password: data.field.password,
+        }),
+        contentType: "application/json;charset=utf-8",//发送数据的格式
+        timeout: 10000,
         success: function (result) {
           if (result.code == "0") {
             location.href = "/login.html";
           } else {
-            layer.msg('注册失败', {
+            layer.msg(result.msg, {
               icon: 5
             });
           }
