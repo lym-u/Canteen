@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db805a19-2802-40c2-8f8a-0ded9246114f" name="更改" comment="修复">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/canteen/controller/DishReviewController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/canteen/controller/DishReviewController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/SM-account.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/SM-account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/SM-canteenmanagerDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/SM-canteenmanagerDetail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-account.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-account.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-canteenmanagerDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-canteenmanagerDetail.html" afterDir="false" />
+    <list default="true" id="db805a19-2802-40c2-8f8a-0ded9246114f" name="更改" comment="注销账号后端">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/35ce001c-fa55-4fab-b49a-4ff6d1e156b1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/35ce001c-fa55-4fab-b49a-4ff6d1e156b1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_17_37____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_17_37____.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_18_05____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_18_05____.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_18_14____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_18_14____.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_18_24____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2024-01-07_18_24____.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/SM-canteenEdit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/SM-canteenEdit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/SM-canteenlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/SM-canteenlist.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/public/SM-index-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-index-index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/public/user_register.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/user_register.html" afterDir="false" />
     </list>
@@ -146,7 +147,7 @@
       <workItem from="1702127710300" duration="135000" />
       <workItem from="1702128086446" duration="48713000" />
       <workItem from="1703042995854" duration="23494000" />
-      <workItem from="1703421100457" duration="71755000" />
+      <workItem from="1703421100457" duration="69402000" />
     </task>
     <task id="LOCAL-00001" summary="第一次提交">
       <option name="closed" value="true" />
@@ -340,15 +341,7 @@
       <option name="project" value="LOCAL" />
       <updated>1704614360413</updated>
     </task>
-    <task id="LOCAL-00025" summary="修复">
-      <option name="closed" value="true" />
-      <created>1704627262489</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1704627262489</updated>
-    </task>
-    <option name="localTasksCounter" value="26" />
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -388,6 +381,7 @@
     <MESSAGE value="修正" />
     <MESSAGE value="合并" />
     <MESSAGE value="新建" />
+    <MESSAGE value="修复" />
     <MESSAGE value="登录" />
     <MESSAGE value="前端" />
     <MESSAGE value="前后端数据传递" />
@@ -399,8 +393,11 @@
     <MESSAGE value="菜品后端" />
     <MESSAGE value="菜品评价后端" />
     <MESSAGE value="注销账号后端" />
-    <MESSAGE value="修复" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复" />
+    <option name="LAST_COMMIT_MESSAGE" value="注销账号后端" />
     <option name="GROUP_MULTIFILE_MERGE_BY_DIRECTORY" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
