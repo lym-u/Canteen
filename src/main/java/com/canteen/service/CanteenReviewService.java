@@ -34,5 +34,6 @@ public interface CanteenReviewService {
     int updateByPrimaryKeyWithBLOBs(Canteenreview record);
 
     int updateByPrimaryKey(Canteenreview record);
+
 }
 

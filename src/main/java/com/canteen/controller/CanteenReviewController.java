@@ -160,6 +160,22 @@ public class CanteenReviewController {
     }
 
 
+    @RequestMapping("/getAllReviewIds")
+    public ResultObject<List<Integer>> getAllReviewIds() {
+        ResultObject<List<Integer>> result = new ResultObject<>();
+        CanteenreviewExample example = new CanteenreviewExample();
+        List<Canteenreview> reviews = canteenReviewService.selectByExample(example); // 使用service中已有的selectByExample方法获取所有评论
+        List<Integer> reviewIds = new ArrayList<>();
+        for (Canteenreview review : reviews) {
+            reviewIds.add(review.getCanteenreviewid());
+        }
+        result.setCode(Constant.SUCCESS_RETUEN_CODE);
+        result.setMsg("成功获取所有评论的评论编号");
+        result.setData(reviewIds);
+        return result;
+    }
+
+
 
 
 }

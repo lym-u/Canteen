@@ -33,6 +33,9 @@ public interface CanteenReviewReplyService {
     int updateByPrimaryKeyWithBLOBs(Canteenreviewreply record);
 
     int updateByPrimaryKey(Canteenreviewreply record);
+
+
+
 }
 
 

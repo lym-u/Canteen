@@ -38,6 +38,12 @@
     <table class="layui-table"
            lay-data="{ url:'/canteenreview/getAllCanteenReviews', page:true, id:'idTest'}"
            lay-filter="demo">
+
+      <colgroup>
+        <!-- 添加一个新的列来显示回复状态 -->
+        <col width="150">
+      </colgroup>
+
       <thead>
       <tr>
         <th lay-data="{type:'checkbox', }"></th>
@@ -49,8 +55,13 @@
         <th lay-data="{field:'imageurl'}">图片</th>
         <th lay-data="{field:'reviewtime'}">评价时间</th>
         <th lay-data="{field:'rating'}">评分</th>
+
+        <!-- 新增的列用于显示回复状态 -->
+        <th lay-data="{field:'replyStatus', title: '回复状态', templet: '#replyTpl'}"></th>
+
         <th
-                lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}"></th>
+                lay-data="{fixed: 'right', width:70, align:'left', toolbar: '#barDemo'}"></th>
+
       </tr>
       </thead>
     </table>
@@ -59,12 +70,19 @@
 
   <script type="text/html" id="barDemo">
     <a class="layui-btn layui-btn-normal layui-btn-sm" lay-event="detail">查看</a>
-    <a class="layui-btn layui-btn-sm" lay-event="edit">回复</a>
-    <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">删除</a>
+    <!-- <a class="layui-btn layui-btn-sm" lay-event="edit">回复</a>
+     <a class="layui-btn layui-btn-danger layui-btn-sm" lay-event="del">删除</a>  -->
   </script>
+
+
+
   <hr></hr>
   <h5 style="text-align: center;">@2023.首页</h5>
 </div>
+
+
+
+
 <script src="assets/admin/layui/layui.all.js" type="text/javascript"
         charset="utf-8"></script>
 <script>
@@ -82,13 +100,13 @@
         var detailFrom = layui.layer.open({
           title : "查看评价信息",
           type : 2,
-          content : "/CM-appraiseDetail.html",//弹出层页面
-          area: ['500px', '200px'],
+          content : "/CM-canteenReviewDetail.html",//弹出层页面
+          area: ['800px', '500px'],
           success : function(layero, index){
             var body = layui.layer.getChildFrame('body', index);
-            body.find("#dishreviewid").text(data.dishreviewid);
+            body.find("#canteenreviewid").text(data.canteenreviewid);
             body.find("#userid").text(data.userid);
-            body.find("#dishid").text(data.dishid);
+            body.find("#canteenid").text(data.canteenid);
             body.find("#title").text(data.title);
             body.find("#content").text(data.content);
             body.find("#imageurl").text(data.imageurl);
@@ -96,6 +114,8 @@
             body.find("#rating").text(data.rating);
           }});
       }
+
+      /*
       if (obj.event === 'del') {
         layer.confirm('真的删除该评价吗？', function(index) {
           var data = obj.data;
@@ -124,12 +144,14 @@
           });
         });
       }
+      */
+
       if (obj.event === 'edit') {
         var editFrom = layui.layer.open({
           title : "编辑评价信息",
           type : 2,
-          content : "/CM-appraiseEdit.html",//弹出层页面
-          area: ['800px', '400px'],
+          content : "/CM-canteenReviewDetail.html",//弹出层页面
+          area: ['1000px', '800px'],
           success : function(layero, index){
             var body = layui.layer.getChildFrame('body', index);
             //获取窗口对象
@@ -195,6 +217,93 @@
     });
 
   });
+
+
+  // 假设您已经定义了一个名为 checkIfReplied 的方法来判断是否已回复
+  // 在 JavaScript 中定义 updateReplyStatus 函数
+  function updateReplyStatus(replyId) {
+
+    // 这里可以编写更新回复状态的逻辑
+    console.log('Update reply status for replyId: ' + replyId);
+  }
+
+  // 在 JavaScript 中定义 updateReplyStatus 函数
+  function updateReplyStatus(replyId) {
+    // 这里可以编写更新回复状态的逻辑
+    console.log('Update reply status for replyId: ' + replyId);
+  }
+
+
+
+  /*
+      {{# var status = getReplyStatus(d.replyId)}}
+      {{# if(status === '已回复')}}
+      <span style="color: green;">已回复</span>
+      {{# else}}
+      <span style="color: red;">未回复</span>
+      {{# endif}}
+
+  */
+    /*
+      // 请求后端接口检查回复状态，并更新表格中的回复状态列
+      async function updateReplyStatus() {
+        layui.use('table', async function () {
+          var table = layui.table;
+
+          try {
+            // 发起请求获取所有评论ID
+            const reviewResponse = await fetch('/canteenreview/getAllReviewIds');
+            const reviewData = await reviewResponse.json();
+            const reviewIds = reviewData.data; // 提取评论ID数组
+            console.log('Received review IDs:', reviewIds);
+
+            // 发起请求获取回复状态数据
+            const replyResponse = await fetch(`/CanteenReviewReply/checkIfRepliedBatch?canteenReviewIds=${reviewIds.join(',')}`);
+            const replyData = await replyResponse.json();
+
+            for (let canteenReviewId in replyData) {
+              if (replyData.hasOwnProperty(canteenReviewId)) {
+                let replyStatus = replyData[canteenReviewId]; // 获取回复状态
+                var index = table.checkStatus('idTest').data.findIndex(item => item.canteenreviewid === parseInt(canteenReviewId));
+                if (index !== -1) {
+                  table.cache['idTest'][index].replyStatus = replyStatus;
+                }
+              }
+            }
+
+            table.reload('idTest', {
+              data: table.cache['idTest']
+            });
+          } catch (error) {
+            console.error('Error:', error);
+          }
+        });
+      }
+
+    */
+
+
+
+  // 点击“未回复”时弹出回复层
+  function showReplyLayer(canteenreviewid) {
+    // 在这里编写弹出回复层的逻辑
+  }
+
+  // 点击“查看回复”时显示详细信息
+  function showReplyDetails(canteenreviewid) {
+    // 在这里编写显示详细信息的逻辑
+  }
+
+  // 在页面加载完毕后立即调用一次
+  // 页面加载完成时执行 updateReplyStatus 函数
+  window.onload = function() {
+    var replyId = ''; // 设置要更新状态的回复ID
+    updateReplyStatus(replyId);
+  };
+
+  // 然后每隔一段时间调用一次，例如每5秒钟
+  setInterval(updateReplyStatus, 60000);
+
 </script>
 </body>
 
