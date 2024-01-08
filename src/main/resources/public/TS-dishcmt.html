@@ -61,14 +61,16 @@
         var layer = layui.layer;
 
         var dishid = $("#dishid").val();
-        var userid = $("#userid").val();
+        // var userid = $("#userid").val();
+        // var userid = 213501;
+        // var randomInt = Math.floor(Math.random() * (30 - 10)) + 10;
 
         // 提交评论
         form.on('submit(submitComment)', function (data) {
             var reviewData = {
-                dishreviewid: 2,
-                userid: userid,
-                dishid: dishid,
+                dishreviewid: 3,
+                userid: 213501,
+                dishid: 1,
                 title: data.field.title,
                 imageurl: data.field.imageurl,
                 reviewtime: new Date(),

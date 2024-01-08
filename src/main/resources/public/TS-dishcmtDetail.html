@@ -17,10 +17,9 @@
     <div class="layui-col-xs6">
         <div class="grid-demo" id="dishid">6/12</div>
         <table class="layui-table"
-               lay-data="{ url:'/dishReview/getDishReviewByDish', where:{dishid: 333},page:true, id:'idTest'}"
+               lay-data="{ url:'/dishReview/getDishReviewByDish', where:{dishid: 1},page:true, id:'idTest'}"
                id="idTest" >
             <thead>
-
             <tr>
                 <th lay-data="{type:'checkbox', }"></th>
                 <th lay-data="{field:'dishreviewid',sort: true}">评价编号</th>
@@ -31,8 +30,6 @@
                 <th lay-data="{field:'imageurl'}">图片</th>
                 <th lay-data="{field:'reviewtime'}">评价时间</th>
                 <th lay-data="{field:'rating'}">评分</th>
-
-                <th lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}">操作</th>
             </tr>
             </thead>
             <tbody></tbody>
@@ -40,25 +37,23 @@
 
 
     </div>
-
-
-    <script type="text/html" id="barDemo">
-        <!--        <a class="layui-btn layui-btn-normal layui-btn-sm" lay-event="detail">查看所有评价</a>-->
-        <!--        <a class="layui-btn layui-btn-sm" lay-event="comment">评价</a>-->
-    </script>
     <hr>
     <h5 style="text-align: center;">@2023.评价管理系统</h5>
 </div>
 <script src="assets/admin/layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
 <script>
-
+    // console.log("yunxing");
+    // function getDishId() {
+    //     var dyndishid = parseInt($("#dishid").text());
+    //     console.log("动态获取的 dishid 参数值为：" + dyndishid);
+    //     return dyndishid;
+    // }
     layui.use('table', function(){
 
         var table = layui.table;
         var dyndishid = parseInt($("#dishid").text());
-        console.log("111");
+        // console.log("111");
         table.render({
-
             elem: '#idTest',
             url: '/dishReview/getDishReviewByDish',
             where: {dishid: dyndishid},

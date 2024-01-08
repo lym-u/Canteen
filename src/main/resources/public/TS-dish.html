@@ -88,13 +88,6 @@
                         var iframeWindow = layero.find('iframe')[0].contentWindow;
                         body.find("#dishid").val(data.dishid);
                         body.find("#dishname").val(data.dishname);
-                        body.find("#price").val(data.price);
-                        body.find("#promoteprice").val(data.promoteprice);
-                        body.find("#dishstyle").val(data.dishstyle);
-                        body.find("#canteenid").val(data.canteenid);
-                        body.find("#description").val(data.description);
-                        body.find("#imagefilename").val(data.imagefilename);
-                        body.find("#ifrecommend").val(data.ifrecommend);
                         iframeWindow.layui.form.render();
                         iframeWindow.layui.form.render('select');
                     }});
