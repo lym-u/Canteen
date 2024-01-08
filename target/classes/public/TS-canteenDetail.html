@@ -14,7 +14,7 @@
 </head>
 
 <body>
-<div class="page-content-wrap" id="CanteenAdd">
+<div class="page-content-wrap" id="canteenSearch">
 
     <div class="layui-row">
         <div class="layui-col-xs6">
@@ -64,11 +64,167 @@
             <div class="grid-demo" id="endtime">6/12</div>
         </div>
     </div>
+    <button class="layui-btn layui-btn-normal site-demo-active" data-type="openUrl" id="searchDish">查看菜品</button>
+    <button class="layui-btn layui-btn-normal site-demo-active" data-type="openUrl" id="searcha">查看活动</button>
     <hr></hr>
     <h5 style="text-align: center;">@2023.食堂基本信息管理系统</h5>
 </div>
 <script src="assets/admin/layui/layui.all.js" type="text/javascript"
         charset="utf-8"></script>
+
+<script>
+    layui.use('form', function() {
+        var $ = layui.jquery;
+        var form = layui.form;
+        // 监听搜索按钮的点击事件
+        $('#searchDish').on('click', function() {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
+        });
+        $('#searcha').on('click', function() {
+            var type = $(this).data('type');
+            acti[type] ? acti[type].call(this) : '';
+        });
+        var acti ={
+            openUrl: function() {
+                var id = $("#canteenid").text();
+                layer.open({
+                    type: 2,
+                    title: '查看活动',
+                    shadeClose: true,
+                    shade: false,
+                    area: ['800px', '600px'],
+                    content: '/TS-canteenactivity.html', // 替换为要打开的网页的URL
+                    success: function (layero, index) {
+                        var body = layui.layer.getChildFrame('body', index);
+                        console.log("hhh");
+                        body.find("#canteenid").text(id);
+                    },
+                    error : function() {
+                        layer.msg('服务器错误', {
+                            icon: 5
+                        });
+                    }
+                });
+            }
+        }
+        // 定义事件处理函数
+        var active = {
+            openUrl: function() {
+                var id = $("#canteenid").text();
+                layer.open({
+                    type: 2,
+                    title: '查看菜品',
+                    shadeClose: true,
+                    shade: false,
+                    area: ['800px', '600px'],
+                    content: '/TS-canteenDish.html', // 替换为要打开的网页的URL
+                    success: function (layero, index) {
+                    var body = layui.layer.getChildFrame('body', index);
+                    console.log("hhh");
+                    body.find("#canteenid").text(id);
+                    },
+                    error : function() {
+                        layer.msg('服务器错误', {
+                            icon: 5
+                        });
+                    }
+                });
+            }
+        };
+    });
+
+    // 定义事件处理函数
+    // function search() {
+    //     var id = $("#canteenid").text(); // 获取食堂编号
+    //     // if (id) {
+    //         var detailFrom = layui.layer.open({
+    //             title: "查看菜品信息",
+    //             type: 2,
+    //             content: "/TS-canteenDish.html", // 弹出层页面
+    //             area: ['800px', '400px'],
+    //             success: function (layero, index) {
+    //                 var body = layui.layer.getChildFrame('body', index);
+    //                 console.log("hhh");
+    //                 body.find("#canteenid").text(id);
+    //             },
+    //             error : function() {
+    //                 layer.msg('服务器错误', {
+    //                     icon: 5
+    //                 });
+    //             }
+    //         });
+
+            // 如果 canteenName 不为空，则重新加载当前页面
+            // table.reload('idTest', {
+            //     method: 'POST',
+            //     url: '/dish/getDishesByCanteen', // 设置新的URL
+            //     where: { "canteenName": name },
+            //     page: {
+            //         curr: 1 // 重新从第1页开始
+            //     }
+            // });
+        // } else {
+            // 如果 canteenName 为空，则跳转到另一个页面
+            // table.reload('idTest', {
+            //     method: 'POST',
+            //     url: '/canteen/getAllCanteens', // 设置新的URL
+            //     page: {
+            //         curr: 1 // 重新从第1页开始
+            //     }
+            // });
+        // }
+    // }
+
+    // 绑定点击事件
+    // $('#searchDish').on('click', search);
+
+    //触发事件
+    // var active = {
+    //     search: function() {
+    //         var id = $("#canteenid").val();
+    //         if (id) {
+    //             var detailFrom = layui.layer.open({
+    //                 title : "查看菜品信息",
+    //                 type : 2,
+    //                 content : "/TS-canteenDish.html",//弹出层页面
+    //                 area: ['800px', '400px'],
+    //                 success : function(layero, index){
+    //                     var body = layui.layer.getChildFrame('body', index);
+    //                     body.find("#canteenid").text(data.canteenid);
+    //                 }
+    //             });
+    //
+    //             // 如果 canteenName 不为空，则重新加载当前页面
+    //             table.reload('idTest', {
+    //                 method: 'POST',
+    //                 url: '/dish/getDishesByCanteen', // 设置新的URL
+    //                 where: {"canteenName": name},
+    //                 page: {
+    //                     curr: 1 // 重新从第1页开始
+    //                 }
+    //             });
+    //         } else {
+    //             // 如果 canteenName 为空，则跳转到另一个页面
+    //             table.reload('idTest', {
+    //                 method: 'POST',
+    //                 url: '/canteen/getAllCanteens', // 设置新的URL
+    //                 page: {
+    //                     curr: 1 // 重新从第1页开始
+    //                 }
+    //             });
+    //         }
+    //     }
+    //
+    // };
+    //
+    // $('#canteenSearch .layui-btn').on('click', function() {
+    //     var type = $(this).data('type');
+    //     active[type] ? active[type].call(this) : '';
+    // });
+
+</script>
+
 </body>
 
 </html>
