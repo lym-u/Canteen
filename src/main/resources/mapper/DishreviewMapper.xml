@@ -151,6 +151,14 @@
     from DishReview
     where DishReviewID = #{dishreviewid,jdbcType=INTEGER}
   </select>
+  <select id="selectByDishid" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from DishReview
+    where DishID = #{dishid,jdbcType=INTEGER}
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     <!--
       WARNING - @mbg.generated
