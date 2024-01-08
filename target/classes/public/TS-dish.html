@@ -76,32 +76,6 @@
                         body.find("#dishid").text(data.dishid);
                     }});
             }
-/*
-            // 定义事件处理函数
-            var active = {
-                openUrl: function() {
-                    var id = $("#canteenid").text();
-                    layer.open({
-                        type: 2,
-                        title: '查看菜品',
-                        shadeClose: true,
-                        shade: false,
-                        area: ['800px', '600px'],
-                        content: '/TS-canteenDish.html', // 替换为要打开的网页的URL
-                        success: function (layero, index) {
-                            var body = layui.layer.getChildFrame('body', index);
-                            console.log("hhh");
-                            body.find("#canteenid").text(id);
-                        },
-                        error : function() {
-                            layer.msg('服务器错误', {
-                                icon: 5
-                            });
-                        }
-                    });
-                }
-            };
-        });*/
             if (obj.event === 'comment') {
                 var editFrom = layui.layer.open({
                     title : "评价菜品",

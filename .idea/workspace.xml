@@ -7,30 +7,33 @@
     <list default="true" id="db805a19-2802-40c2-8f8a-0ded9246114f" name="更改" comment="CM食堂前端修改">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/35ce001c-fa55-4fab-b49a-4ff6d1e156b1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/35ce001c-fa55-4fab-b49a-4ff6d1e156b1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024-01-08_0_21____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2024-01-08_0_21____.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/_2024-01-08_1_23____.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/_2024-01-08_1_23____.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/public/TS-dishcmtDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/TS-dishcmtDetail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/CM-dish.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/CM-dish.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/SM-account.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/SM-account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/SM-canteenlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/SM-canteenlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/public/SM-canteenmanageradd.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/public/SM-canteenmanageradd.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/ActivityAnnouncementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/ActivityAnnouncementController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/CanteenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/CanteenController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/CanteenReviewController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/CanteenReviewController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/DishController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/DishController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/PostreplyController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/PostreplyController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/controller/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/controller/UserController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/dao/DishMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/dao/DishMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/ActivityAnnouncementService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/ActivityAnnouncementService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/DishService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/DishService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/PostreplyService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/PostreplyService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/ActivityAnnouncementServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/ActivityAnnouncementServiceImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/DishServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/canteen/service/impl/DishServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/mapper/DishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mapper/DishMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/public/CM-dish.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/CM-dish.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/public/CM-dishAdd.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/CM-dishAdd.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/public/CM-index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/CM-index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-account.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-account.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-canteenlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-canteenlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/SM-canteenmanageradd.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/SM-canteenmanageradd.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/public/TS-canteen.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/TS-canteen.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/public/TS-canteenDetail.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/TS-canteenDetail.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/public/TS-dish.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/TS-dish.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/public/TS-dishcmt.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/public/TS-dishcmt.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/public/assets/admin/images/ms-list/ms1.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

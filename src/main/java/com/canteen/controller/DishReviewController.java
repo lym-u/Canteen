@@ -1,6 +1,5 @@
 package com.canteen.controller;
 
-import com.canteen.bean.Dish;
 import com.canteen.bean.Dishreview;
 import com.canteen.bean.DishreviewExample;
 import com.canteen.bean.ResultObject;
