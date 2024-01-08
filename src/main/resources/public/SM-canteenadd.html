@@ -107,11 +107,17 @@
             var index = parent.layer.getFrameIndex(window.name);
             parent.layer.close(index);
             parent.layer.msg('添加食堂成功');
-            parent.layui.table.reload('canteenTable', {
-              page: {
-                curr: 1
-              }
+            // parent.layui.table.reload('canteenTable', {
+            //   page: {
+            //     curr: 1
+            //   }
+            // });
+            layer.msg(result.msg, {
+              icon: 6
             });
+            setTimeout(function () {
+              window.location.href = "SM-canteenlist.html";
+            }, 1000);
           } else {
             layer.msg(result.msg, {
               icon: 5

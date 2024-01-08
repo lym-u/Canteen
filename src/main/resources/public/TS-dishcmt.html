@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="renderer" content="webkit">
@@ -11,48 +12,49 @@
           href="assets/admin/layui/css/layui.css" />
     <link rel="stylesheet" type="text/css" href="assets/admin/css/admin.css" />
 </head>
-<body>
-<div class="layui-container">
-    <div class="layui-row">
-        <div class="layui-col-md12">
-            <form class="layui-form" lay-filter="commentForm">
-                <div class="layui-form-item">
-                    <label class="layui-form-label">标题</label>
-                    <div class="layui-input-block">
-                        <input type="text" id="title" lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label">图片URL</label>
-                    <div class="layui-input-block">
-                        <input type="text" id="imageurl" lay-verify="required" placeholder="请输入图片URL" autocomplete="off" class="layui-input">
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label">内容</label>
-                    <div class="layui-input-block">
-                        <textarea id="content" lay-verify="required" placeholder="请输入内容" class="layui-textarea"></textarea>
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <label class="layui-form-label">评分</label>
-                    <div class="layui-input-block">
-                        <button class="layui-btn layui-btn-primary" id="subtractBtn">-</button>
-                        <input type="text" id="rating" value="5" readonly class="layui-input" style="display: inline-block; width: 60px; text-align: center;">
-                        <button class="layui-btn layui-btn-primary" id="addBtn">+</button>
-                    </div>
-                </div>
-                <div class="layui-form-item">
-                    <div class="layui-input-block">
-                        <button class="layui-btn" lay-submit lay-filter="submitComment">添加</button>
-                        <button type="button" class="layui-btn layui-btn-primary" id="cancelBtn">取消</button>
-                    </div>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
 
+<body>
+<div class="page-content-wrap" id="dishcmtAdd">
+
+    <form class="layui-form" action="" id="">
+        <div class="layui-form-item">
+            <label class="layui-form-label">标题</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" lay-verify="required|title" placeholder="请输入标题" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">图片URL</label>
+            <div class="layui-input-block">
+                <input type="text" name="imageurl" lay-verify="required|imageurl" placeholder="请输入图片URL" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">内容</label>
+            <div class="layui-input-block">
+                <input type="text" name="content" lay-verify="required|content" placeholder="请输入内容" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <label class="layui-form-label">评分</label>
+            <div class="layui-input-block">
+                <input type="text" name="rating" lay-verify="required|rating" placeholder="请为菜品打分（1-5）" autocomplete="off" class="layui-input">
+            </div>
+        </div>
+        <div class="layui-form-item m-login-btn" style="text-align:center">
+            <div class="layui-inline">
+                <button class="layui-btn layui-btn-normal" lay-submit lay-filter="addDishcmt">发布评价</button>
+            </div>
+            <div class="layui-inline">
+                <button type="reset" class="layui-btn layui-btn-primary site-demo-active" data-type="reset">取消评价</button>
+            </div>
+        </div>
+    </form>
+    <hr>
+    <h5 style="text-align: center;">@2023.食堂基本信息管理系统</h5>
+</div>
+<script src="assets/admin/layui/layui.all.js" type="text/javascript"
+        charset="utf-8"></script>
 <script>
     layui.use(['form', 'layer'], function () {
         var form = layui.form;
@@ -61,35 +63,10 @@
         var dishid = $("#dishid").val();
         var userid = $("#userid").val();
 
-        // 减少评分
-        $("#subtractBtn").on("click", function () {
-            var rating = parseInt($("#rating").val());
-            if (rating > 0) {
-                rating--;
-                $("#rating").val(rating);
-            }
-        });
-
-        // 增加评分
-        $("#addBtn").on("click", function () {
-            var rating = parseInt($("#rating").val());
-            if (rating < 10) {
-                rating++;
-                $("#rating").val(rating);
-            }
-        });
-
-        // 取消添加评论
-        $("#cancelBtn").on("click", function () {
-            layer.confirm('确定取消添加评论吗？', function (index) {
-                layui.layer.closeAll();
-            });
-        });
-
         // 提交评论
         form.on('submit(submitComment)', function (data) {
             var reviewData = {
-                dishreviewid: 0,
+                dishreviewid: 2,
                 userid: userid,
                 dishid: dishid,
                 title: data.field.title,
@@ -120,6 +97,114 @@
             });
 
             return false;
+        });
+    });
+</script>
+<script>
+    layui.use(['form', 'layedit', 'laydate'], function(){
+        var form = layui.form
+            ,layer = layui.layer,layedit=layui.layedit;
+        var $ = layui.jquery;
+
+        var dishid = $("#dishid").val();
+        var userid = $("#userid").val();
+
+        //创建一个编辑器
+        var editIndex = layedit.build('LAY_demo_editor');
+        //自定义验证规则
+        form.verify({
+            rating: function(value) {
+                if (!/^[1-5]$/.test(value)) {
+                    return '评分必须为1到5之间的数字';
+                }
+            },
+        });
+
+
+        // 提交评论
+        form.on('submit(submitComment)', function (data) {
+            var reviewData = {
+                dishreviewid: 2,
+                userid: userid,
+                dishid: dishid,
+                title: data.field.title,
+                imageurl: data.field.imageurl,
+                reviewtime: new Date(),
+                rating: data.field.rating,
+                content: data.field.content
+            };
+
+            $.ajax({
+                type: "POST",
+                url: "/dishReview/addDishReview",
+                data: JSON.stringify(reviewData),
+                contentType: "application/json",
+                success: function (response) {
+                    if (response.success) {
+                        layer.msg("添加评论成功");
+                        setTimeout(function () {
+                            window.location.href = "/TS-dish.html";
+                        }, 1000);
+                    } else {
+                        layer.msg("添加评论失败：" + response.message);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    layer.msg("请求出错：" + xhr.responseText);
+                }
+            });
+
+            return false;
+        });
+
+
+        form.on('submit(addDishcmt)', function(data) {
+            var reviewData = {
+                dishreviewid: 2,
+                userid: userid,
+                dishid: dishid,
+                title: data.field.title,
+                imageurl: data.field.imageurl,
+                reviewtime: new Date(),
+                rating: data.field.rating,
+                content: data.field.content
+            };
+            var str =  JSON.stringify(reviewData);
+            var param = JSON.parse(str);
+
+            $.ajax({
+                type: "POST",
+                dataType: "json",
+                url: "/dishReview/addDishReview",
+                data: JSON.stringify(param),  // 将参数转为 JSON 字符串
+                contentType: "application/json",  // 设置请求头为 application/json
+                success: function(result) {
+                    if (result.code == "0") {
+                        layer.msg("添加评论成功");
+                        setTimeout(function () {
+                            window.location.href = "/TS-dish.html";
+                        }, 1000);
+                    } else {
+                        layer.msg("添加评论失败：" + response.message);
+                    }
+                },
+                error: function(xhr, status, error) {  // 处理请求错误
+                    console.error(error);
+                }
+            });
+        });
+
+        var active = {
+            reset: function() {
+                var index = parent.layer.getFrameIndex(window.name);
+                parent.layer.close(index);
+                parent.layer.msg('已取消操作');
+            }
+        };
+
+        $('#dishcmtAdd .layui-btn').on('click', function() {
+            var type = $(this).data('type');
+            active[type] ? active[type].call(this) : '';
         });
     });
 </script>
