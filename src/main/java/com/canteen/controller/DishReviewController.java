@@ -65,6 +65,19 @@ public class DishReviewController {
         return result;
     }
 
+    @RequestMapping("/getDishReviewByDish")
+    public ResultObject<List<Dishreview>> getDishReviewByDish(@RequestParam("dishid") int dishid) {
+        ResultObject<List<Dishreview>> rs=new ResultObject<List<Dishreview>>();
+        List<Dishreview> list=dishReviewService.getDishReviewByDish(dishid);
+        rs.setCode(Constant.SUCCESS_RETUEN_CODE);
+        rs.setMsg("查询成功");
+        rs.setData(list);
+        int total=list.size();
+        Long a=Long.parseLong(String.valueOf(total));
+        rs.setCount(a);
+        return rs;
+    }
+
     @RequestMapping("/addDishReview")
     public ResultObject<Object> addDishReview(@RequestBody Dishreview review) {
         ResultObject<Object> result = new ResultObject<>();

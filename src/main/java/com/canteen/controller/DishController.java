@@ -48,6 +48,7 @@ public class DishController {
 
     @RequestMapping("/getDishesByCanteen")
     public ResultObject<List<Dish>> getDishesByCanteen(@RequestParam("canteenid") int canteenid) {
+        System.out.println("SUC");
         ResultObject<List<Dish>> rs=new ResultObject<List<Dish>>();
         List<Dish> list=dishService.getDishesByCanteen(canteenid);
         rs.setCode(Constant.SUCCESS_RETUEN_CODE);

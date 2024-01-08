@@ -79,8 +79,8 @@
                 var detailFrom = layui.layer.open({
                     title : "查看食堂信息",
                     type : 2,
-                    content : "/SM-canteenDetail.html",//弹出层页面
-                    area: ['500px', '200px'],
+                    content : "/TS-canteenDetail.html",//弹出层页面
+                    area: ['800px', '400px'],
                     success : function(layero, index){
                         var body = layui.layer.getChildFrame('body', index);
                         body.find("#canteenid").text(data.canteenid);

@@ -94,12 +94,15 @@ public class ActivityAnnouncementController {
         CanteenmanagerExample example1=new CanteenmanagerExample();
         CanteenmanagerExample.Criteria criteria1 = example1.createCriteria();
         criteria1.andCanteenidEqualTo(canteenid);
+        System.out.println(canteenid);
         List<Canteenmanager> canteenmanagers = canteenManagerService.selectByExample(example1);
         //一个食堂应该对应一个食堂管理员
         for (int i = 0; i < canteenmanagers.size(); i++) {
+            System.out.println("A");
             Canteenmanager canteenmanager = canteenmanagers.get(i);
-            if(canteenmanager.getManagerid()!=null&&canteenmanager.getManagerid().equals("")){
+            if(canteenmanager.getManagerid()!=null&&!canteenmanager.getManagerid().equals("")){
                 canteenmid=canteenmanager.getManagerid();
+                System.out.println(canteenmid);
             }
             // 在这里对每个 canteenmanager 进行操作
         }
@@ -108,6 +111,7 @@ public class ActivityAnnouncementController {
         ActivityAnnouncementExample.Criteria criteria = example.createCriteria();
         criteria.andManagerIdEqualTo(canteenmid);
         List<ActivityAnnouncement> activityAnnouncements = announcementService.selectByExample(example);
+
         if (activityAnnouncements != null&& !activityAnnouncements.isEmpty()) {
             result.setCode(Constant.SUCCESS_RETUEN_CODE);
             result.setMsg("查询成功");

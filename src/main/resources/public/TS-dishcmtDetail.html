@@ -1,10 +1,100 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>评价信息浏览</title>
+    <link rel="stylesheet" type="text/css" href="assets/admin/layui/css/layui.css" />
+    <link rel="stylesheet" type="text/css" href="assets/admin/css/admin.css" />
 </head>
-<body>
 
+<body>
+<div class="page-content-wrap" id="dishSearch">
+    <h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">评价信息浏览</h5>
+    <hr>
+    <div class="layui-col-xs6">
+        <div class="grid-demo" id="dishid">6/12</div>
+        <table class="layui-table"
+               lay-data="{ url:'/dishReview/getDishReviewByDish', where:{dishid: 333},page:true, id:'idTest'}"
+               id="idTest" >
+            <thead>
+
+            <tr>
+                <th lay-data="{type:'checkbox', }"></th>
+                <th lay-data="{field:'dishreviewid',sort: true}">评价编号</th>
+                <th lay-data="{field:'userid'}">评价人ID</th>
+                <th lay-data="{field:'dishid'}">菜品ID</th>
+                <th lay-data="{field:'title'}">评价标题</th>
+                <th lay-data="{field:'content'}">评价内容</th>
+                <th lay-data="{field:'imageurl'}">图片</th>
+                <th lay-data="{field:'reviewtime'}">评价时间</th>
+                <th lay-data="{field:'rating'}">评分</th>
+
+                <th lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}">操作</th>
+            </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+
+    </div>
+
+
+    <script type="text/html" id="barDemo">
+        <!--        <a class="layui-btn layui-btn-normal layui-btn-sm" lay-event="detail">查看所有评价</a>-->
+        <!--        <a class="layui-btn layui-btn-sm" lay-event="comment">评价</a>-->
+    </script>
+    <hr>
+    <h5 style="text-align: center;">@2023.评价管理系统</h5>
+</div>
+<script src="assets/admin/layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
+<script>
+
+    layui.use('table', function(){
+
+        var table = layui.table;
+        var dyndishid = parseInt($("#dishid").text());
+        console.log("111");
+        table.render({
+
+            elem: '#idTest',
+            url: '/dishReview/getDishReviewByDish',
+            where: {dishid: dyndishid},
+            page: true,
+            id: 'idTest',
+            cols: [[
+                {type: 'checkbox'},
+                {field: 'dishreviewid', sort: true, title: '评价编号'},
+                {field: 'userid', title: '评价人id'},
+                {field: 'dishid', title: '菜品id'},
+                {field: 'title', title: '评价标题'},
+                {field: 'content', title: '评价内容'},
+                {field: 'imageurl', title: '图片'},
+                {field: 'reviewtime', title: '评价时间'},
+                {field: 'rating', title: '评分'},
+            ]]
+        });
+
+        // 监听工具条点击事件
+        table.on('tool(idTest)', function(obj){
+            var data = obj.data;
+            if(obj.event === 'edit'){
+                // 编辑操作
+            } else if(obj.event === 'delete'){
+                // 删除操作
+            }
+        });
+        layui.table.reload('idTest', {
+            where: {dishid: 444},
+            page: {curr: 1}
+        });
+
+    });
+
+
+
+</script>
 </body>
 </html>

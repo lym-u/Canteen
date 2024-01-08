@@ -23,11 +23,6 @@
                     data-type="tabAdd">
                 <i class="layui-icon">&#xe654;</i>
             </button>
-            <!-- 				<button
-                                class="layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs"
-                                data-url="/admin/category/listorderall.html">
-                                <i class="iconfont">&#xe656;</i>
-                            </button> -->
         </div>
         <div class="layui-inline">
             <input type="text" id="canteenNameSearch" placeholder="请输入食堂名称"
@@ -131,7 +126,6 @@
                         //获取窗口对象
                         var iframeWindow = layero.find('iframe')[0].contentWindow;
                         body.find("#canteenid").text(data.canteenid);
-                        // body.find("#canteenid").val(data.canteenid);
                         body.find("#canteenname").text(data.canteenname);
                         body.find("#location").text(data.location);
                         body.find("#description").text(data.description);
@@ -158,26 +152,6 @@
                 });
 
             },
-            // search:function(){
-            //     var name=$("#canteenNameSearch").val();
-            //     table.reload('idTest',{
-            //         method: 'POST'
-            //         , where: {"canteenName":name},page: {
-            //             curr: 1 //重新从第 1 页开始
-            //         }
-            //
-            //     })
-            // },
-            // search:function(){
-            //     var name=$("#canteenNameSearch").val();
-            //     table.reload('idTest',{
-            //         method: 'POST'
-            //         , where: {"canteenName":name},page: {
-            //             curr: 1 //重新从第 1 页开始
-            //         }
-            //
-            //     })
-            // }
             search: function() {
                 var name = $("#canteenNameSearch").val();
                 if (name) {
