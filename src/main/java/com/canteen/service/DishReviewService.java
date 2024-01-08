@@ -33,4 +33,6 @@ public interface DishReviewService {
     int updateByPrimaryKeyWithBLOBs(Dishreview record);
 
     int updateByPrimaryKey(Dishreview record);
+
+    List<Dishreview> getDishReviewByDish(int dishid);
 }

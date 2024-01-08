@@ -84,4 +84,9 @@ public class DishReviewServiceImpl implements DishReviewService {
     public int updateByPrimaryKey(Dishreview record) {
         return dishreviewMapper.updateByPrimaryKey(record);
     }
+
+    @Override
+    public List<Dishreview> getDishReviewByDish(int dishid) {
+        return dishreviewMapper.selectByDishid(dishid);
+    }
 }
