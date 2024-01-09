@@ -11,6 +11,13 @@
     <link rel="stylesheet" type="text/css"
           href="assets/admin/layui/css/layui.css" />
     <link rel="stylesheet" type="text/css" href="assets/admin/css/admin.css" />
+    <style>
+        .layui-form-item .layui-input-block input[name="dishid"],
+        .layui-form-item .layui-input-block input[name="userid"] {
+            display: none;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -49,6 +56,12 @@
                 <button type="reset" class="layui-btn layui-btn-primary site-demo-active" data-type="reset">取消评价</button>
             </div>
         </div>
+        <div class="layui-form-item">
+            <div class="layui-input-block">
+                <input type="text" name="dishid" autocomplete="off" class="layui-input">
+                <input type="text" name="userid" autocomplete="off" class="layui-input">
+            </div>
+        </div>
     </form>
     <hr>
     <h5 style="text-align: center;">@2023.食堂基本信息管理系统</h5>
@@ -56,11 +69,16 @@
 <script src="assets/admin/layui/layui.all.js" type="text/javascript"
         charset="utf-8"></script>
 <script>
+    var rdishid = parent.qdishid;
+    var ruserid = parent.quserid;
+    // console.log(rdishid);
+    // console.log(ruserid);
     layui.use(['form', 'layer'], function () {
         var form = layui.form;
         var layer = layui.layer;
+        // var dishid = $("#dishid").val();
+        // body.find("#dishid")
 
-        var dishid = $("#dishid").val();
         // var userid = $("#userid").val();
         // var userid = 213501;
         // var randomInt = Math.floor(Math.random() * (30 - 10)) + 10;
@@ -68,9 +86,8 @@
         // 提交评论
         form.on('submit(submitComment)', function (data) {
             var reviewData = {
-                dishreviewid: 3,
-                userid: 213501,
-                dishid: 1,
+                userid: parseInt(ruserid),
+                dishid: parseInt(rdishid),
                 title: data.field.title,
                 imageurl: data.field.imageurl,
                 reviewtime: new Date(),
@@ -103,13 +120,12 @@
     });
 </script>
 <script>
+    var rdishid = parent.qdishid;
+    var ruserid = parent.quserid;
     layui.use(['form', 'layedit', 'laydate'], function(){
         var form = layui.form
             ,layer = layui.layer,layedit=layui.layedit;
         var $ = layui.jquery;
-
-        var dishid = $("#dishid").val();
-        var userid = $("#userid").val();
 
         //创建一个编辑器
         var editIndex = layedit.build('LAY_demo_editor');
@@ -122,49 +138,12 @@
             },
         });
 
-
-        // 提交评论
-        form.on('submit(submitComment)', function (data) {
-            var reviewData = {
-                dishreviewid: 2,
-                userid: userid,
-                dishid: dishid,
-                title: data.field.title,
-                imageurl: data.field.imageurl,
-                reviewtime: new Date(),
-                rating: data.field.rating,
-                content: data.field.content
-            };
-
-            $.ajax({
-                type: "POST",
-                url: "/dishReview/addDishReview",
-                data: JSON.stringify(reviewData),
-                contentType: "application/json",
-                success: function (response) {
-                    if (response.success) {
-                        layer.msg("添加评论成功");
-                        setTimeout(function () {
-                            window.location.href = "/TS-dish.html";
-                        }, 1000);
-                    } else {
-                        layer.msg("添加评论失败：" + response.message);
-                    }
-                },
-                error: function (xhr, status, error) {
-                    layer.msg("请求出错：" + xhr.responseText);
-                }
-            });
-
-            return false;
-        });
-
-
         form.on('submit(addDishcmt)', function(data) {
             var reviewData = {
-                dishreviewid: 2,
-                userid: userid,
-                dishid: dishid,
+                userid: ruserid,
+                // userid: data.field.userid,
+                dishid: rdishid,
+                // dishid: data.field.dishid,
                 title: data.field.title,
                 imageurl: data.field.imageurl,
                 reviewtime: new Date(),

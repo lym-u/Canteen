@@ -15,7 +15,7 @@
     <h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">评价信息浏览</h5>
     <hr>
     <div class="layui-col-xs6">
-        <div class="grid-demo" id="dishid">6/12</div>
+<!--        <div class="grid-demo" id="dishid">6/12</div>-->
         <table class="layui-table"
                lay-data="{ url:'/dishReview/getDishReviewByDish', where:{dishid: 1},page:true, id:'idTest'}"
                id="idTest" >
@@ -48,15 +48,14 @@
     //     console.log("动态获取的 dishid 参数值为：" + dyndishid);
     //     return dyndishid;
     // }
+    var pdishid = parent.qdishid;
     layui.use('table', function(){
-
         var table = layui.table;
-        var dyndishid = parseInt($("#dishid").text());
         // console.log("111");
         table.render({
             elem: '#idTest',
             url: '/dishReview/getDishReviewByDish',
-            where: {dishid: dyndishid},
+            where: {dishid: pdishid},
             page: true,
             id: 'idTest',
             cols: [[
@@ -73,16 +72,16 @@
         });
 
         // 监听工具条点击事件
-        table.on('tool(idTest)', function(obj){
-            var data = obj.data;
-            if(obj.event === 'edit'){
-                // 编辑操作
-            } else if(obj.event === 'delete'){
-                // 删除操作
-            }
-        });
+        // table.on('tool(idTest)', function(obj){
+        //     var data = obj.data;
+        //     if(obj.event === 'edit'){
+        //         // 编辑操作
+        //     } else if(obj.event === 'delete'){
+        //         // 删除操作
+        //     }
+        // });
         layui.table.reload('idTest', {
-            where: {dishid: 444},
+            where: {dishid: pdishid},
             page: {curr: 1}
         });
 

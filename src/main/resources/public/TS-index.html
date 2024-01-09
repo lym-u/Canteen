@@ -79,6 +79,7 @@
 </div>
 <script src="assets/js/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
+    var buserid = parent.auserid;
     $(".layui-nav-item a").on('click',function(){
         var address=$(this).attr("data-url");
         if(undefined==address||"undefined"==address){

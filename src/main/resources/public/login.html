@@ -45,6 +45,7 @@
 </div>
 <script src="assets/admin/layui/layui.all.js" type="text/javascript" charset="utf-8"></script>
 <script>
+	var auserid;
 	layui.use(['form', 'layedit', 'laydate','jquery'], function() {
 		var form = layui.form,
 				layer = layui.layer,
@@ -65,7 +66,8 @@
 		form.on('submit(login)', function(data) {
 			var str = JSON.stringify(data.field);
 			var param = JSON.parse(str);
-			if("1"==param.type){
+			auserid = param.userName;
+			if("1"===param.type){
 				$.ajax({
 					//几个参数需要注意一下
 					type: "POST",//方法类型
@@ -73,7 +75,7 @@
 					url: "/SystemAdmin/login",//url
 					data: param,
 					success: function (result) {
-						if (result.code == "0") {
+						if (result.code === "0") {
 							layer.msg('登录成功', {
 								icon: 6
 							});
@@ -92,7 +94,7 @@
 						});
 					}
 				});
-			}else if("2"==param.type){
+			}else if("2"===param.type){
 				debugger;
 				var userName=param.userName;
 				var reg=/^[\d]{6,10}$/;

@@ -44,7 +44,6 @@
         </table>
     </div>
 
-
     <script type="text/html" id="barDemo">
         <a class="layui-btn layui-btn-normal layui-btn-sm" lay-event="detail">查看所有评价</a>
         <a class="layui-btn layui-btn-sm" lay-event="comment">评价</a>
@@ -55,6 +54,8 @@
 <script src="assets/admin/layui/layui.all.js" type="text/javascript"
         charset="utf-8"></script>
 <script>
+    var qdishid;
+    var quserid = parent.buserid;
     layui.use('table', function() {
         var $ = layui.jquery
         var table = layui.table;
@@ -65,6 +66,7 @@
         //监听工具条
         table.on('tool(demo)', function(obj) {
             var data = obj.data;
+            qdishid = data.dishid;
             if (obj.event === 'detail') {
                 var detailFrom = layui.layer.open({
                     title : "查看所有评价",
@@ -86,8 +88,8 @@
                         var body = layui.layer.getChildFrame('body', index);
                         //获取窗口对象
                         var iframeWindow = layero.find('iframe')[0].contentWindow;
-                        body.find("#dishid").val(data.dishid);
-                        body.find("#dishname").val(data.dishname);
+                        body.find("#dishid").val(qdishid);
+                        body.find("#userid").val(quserid);
                         iframeWindow.layui.form.render();
                         iframeWindow.layui.form.render('select');
                     }});
