@@ -73,9 +73,13 @@
         charset="utf-8"></script>
 
 <script>
+    var param1 =parent.cid;
+    // console.log(param1);
     layui.use('form', function() {
         var $ = layui.jquery;
         var form = layui.form;
+        // console.log("www");
+        // console.log(param1);
         // 监听搜索按钮的点击事件
         $('#searchDish').on('click', function() {
             var type = $(this).data('type');
@@ -87,18 +91,17 @@
         });
         var acti ={
             openUrl: function() {
-                var id = $("#canteenid").text();
                 layer.open({
                     type: 2,
                     title: '查看活动',
                     shadeClose: true,
                     shade: false,
-                    area: ['800px', '600px'],
+                    area: ['800px', '500px'],
                     content: '/TS-canteenactivity.html', // 替换为要打开的网页的URL
                     success: function (layero, index) {
                         var body = layui.layer.getChildFrame('body', index);
-                        console.log("hhh");
-                        body.find("#canteenid").text(id);
+                        // console.log("hhh");
+                        // body.find("#canteenid").text(id);
                     },
                     error : function() {
                         layer.msg('服务器错误', {
@@ -117,12 +120,12 @@
                     title: '查看菜品',
                     shadeClose: true,
                     shade: false,
-                    area: ['800px', '600px'],
+                    area: ['800px', '500px'],
                     content: '/TS-canteenDish.html', // 替换为要打开的网页的URL
                     success: function (layero, index) {
-                    var body = layui.layer.getChildFrame('body', index);
-                    console.log("hhh");
-                    body.find("#canteenid").text(id);
+                        var body = layui.layer.getChildFrame('body', index);
+                        // console.log("hhh");
+                        // body.find("#canteenid").text(id);
                     },
                     error : function() {
                         layer.msg('服务器错误', {
@@ -133,95 +136,6 @@
             }
         };
     });
-
-    // 定义事件处理函数
-    // function search() {
-    //     var id = $("#canteenid").text(); // 获取食堂编号
-    //     // if (id) {
-    //         var detailFrom = layui.layer.open({
-    //             title: "查看菜品信息",
-    //             type: 2,
-    //             content: "/TS-canteenDish.html", // 弹出层页面
-    //             area: ['800px', '400px'],
-    //             success: function (layero, index) {
-    //                 var body = layui.layer.getChildFrame('body', index);
-    //                 console.log("hhh");
-    //                 body.find("#canteenid").text(id);
-    //             },
-    //             error : function() {
-    //                 layer.msg('服务器错误', {
-    //                     icon: 5
-    //                 });
-    //             }
-    //         });
-
-            // 如果 canteenName 不为空，则重新加载当前页面
-            // table.reload('idTest', {
-            //     method: 'POST',
-            //     url: '/dish/getDishesByCanteen', // 设置新的URL
-            //     where: { "canteenName": name },
-            //     page: {
-            //         curr: 1 // 重新从第1页开始
-            //     }
-            // });
-        // } else {
-            // 如果 canteenName 为空，则跳转到另一个页面
-            // table.reload('idTest', {
-            //     method: 'POST',
-            //     url: '/canteen/getAllCanteens', // 设置新的URL
-            //     page: {
-            //         curr: 1 // 重新从第1页开始
-            //     }
-            // });
-        // }
-    // }
-
-    // 绑定点击事件
-    // $('#searchDish').on('click', search);
-
-    //触发事件
-    // var active = {
-    //     search: function() {
-    //         var id = $("#canteenid").val();
-    //         if (id) {
-    //             var detailFrom = layui.layer.open({
-    //                 title : "查看菜品信息",
-    //                 type : 2,
-    //                 content : "/TS-canteenDish.html",//弹出层页面
-    //                 area: ['800px', '400px'],
-    //                 success : function(layero, index){
-    //                     var body = layui.layer.getChildFrame('body', index);
-    //                     body.find("#canteenid").text(data.canteenid);
-    //                 }
-    //             });
-    //
-    //             // 如果 canteenName 不为空，则重新加载当前页面
-    //             table.reload('idTest', {
-    //                 method: 'POST',
-    //                 url: '/dish/getDishesByCanteen', // 设置新的URL
-    //                 where: {"canteenName": name},
-    //                 page: {
-    //                     curr: 1 // 重新从第1页开始
-    //                 }
-    //             });
-    //         } else {
-    //             // 如果 canteenName 为空，则跳转到另一个页面
-    //             table.reload('idTest', {
-    //                 method: 'POST',
-    //                 url: '/canteen/getAllCanteens', // 设置新的URL
-    //                 page: {
-    //                     curr: 1 // 重新从第1页开始
-    //                 }
-    //             });
-    //         }
-    //     }
-    //
-    // };
-    //
-    // $('#canteenSearch .layui-btn').on('click', function() {
-    //     var type = $(this).data('type');
-    //     active[type] ? active[type].call(this) : '';
-    // });
 
 </script>
 

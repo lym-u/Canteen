@@ -65,6 +65,7 @@
 <script src="assets/admin/layui/layui.all.js" type="text/javascript"
         charset="utf-8"></script>
 <script>
+    var cid;
     layui.use('table', function() {
         var $ = layui.jquery
         var table = layui.table;
@@ -75,20 +76,26 @@
         //监听工具条
         table.on('tool(demo)', function(obj) {
             var data = obj.data;
+            cid=data.canteenid;
             if (obj.event === 'detail') {
                 var detailFrom = layui.layer.open({
                     title : "查看食堂信息",
                     type : 2,
                     content : "/TS-canteenDetail.html",//弹出层页面
-                    area: ['800px', '400px'],
+                    area: ['800px', '600px'],
                     success : function(layero, index){
                         var body = layui.layer.getChildFrame('body', index);
+                        // body.postMessage(data.canteenid, '*');
+
+                        console.log("111");
+                        console.log(cid);
                         body.find("#canteenid").text(data.canteenid);
                         body.find("#canteenname").text(data.canteenname);
                         body.find("#location").text(data.location);
                         body.find("#description").text(data.description);
                         body.find("#starttime").text(data.starttime);
                         body.find("#endtime").text(data.endtime);
+                        // body.postMessage(data.canteenid, '*');
                     }
                 });
             }

@@ -16,8 +16,7 @@
 <div class="page-content-wrap" id="dishSearch">
     <h5 style="text-align:center;font-size: 20px;line-height: 25px;color:#666">菜品信息浏览</h5>
     <hr>
-        <div class="layui-col-xs6">
-        <div class="grid-demo" id="canteenid">6/12</div>
+    <div class="layui-form-item">
                 <table class="layui-table"
                        lay-data="{ url:'/dish/getDishesByCanteen', where:{canteenid: 333},page:true, id:'idTest'}"
                        id="idTest" >
@@ -33,193 +32,31 @@
                         <th lay-data="{field:'description'}">简介</th>
                         <th lay-data="{field:'imagefilename'}">图片文件名</th>
                         <th lay-data="{field:'ifrecommend'}">是否推荐</th>
-                        <th lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}">操作</th>
+<!--                        <th lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}">操作</th>-->
                     </tr>
                     </thead>
-                    <tbody></tbody>
                 </table>
-
-
-            <!--        <table class="layui-table" id="tableContainer"-->
-<!--               lay-data="{ url:'/dish/getDishesByCanteen', where:{canteenid: 333},page:true, id:'idTest'}"-->
-<!--               lay-filter="demo">-->
-<!--            <thead>-->
-<!--            <tr>-->
-<!--                <th lay-data="{type:'checkbox', }"></th>-->
-<!--                <th lay-data="{field:'dishid',sort: true}">编号</th>-->
-<!--                <th lay-data="{field:'dishname'}">姓名</th>-->
-<!--                <th lay-data="{field:'price'}">价格</th>-->
-<!--                <th lay-data="{field:'promoteprice'}">促销价格</th>-->
-<!--                <th lay-data="{field:'dishstyle'}">菜系</th>-->
-<!--                <th lay-data="{field:'canteenid'}">所属食堂ID</th>-->
-<!--                <th lay-data="{field:'description'}">简介</th>-->
-<!--                <th lay-data="{field:'imagefilename'}">图片文件名</th>-->
-<!--                <th lay-data="{field:'ifrecommend'}">是否推荐</th>-->
-<!--                <th lay-data="{fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}"></th>-->
-<!--            </tr>-->
-<!--            </thead>-->
-<!--        </table>-->
     </div>
-
-
-    <script type="text/html" id="barDemo">
-<!--        <a class="layui-btn layui-btn-normal layui-btn-sm" lay-event="detail">查看所有评价</a>-->
-<!--        <a class="layui-btn layui-btn-sm" lay-event="comment">评价</a>-->
-    </script>
+    </div>
     <hr>
     <h5 style="text-align: center;">@2023.菜品管理系统</h5>
 </div>
 <script src="assets/admin/layui/layui.all.js" type="text/javascript"
         charset="utf-8"></script>
 <script>
-    // layui.use('table', function() {
-    //     var table = layui.table;
-    //     var dyncanteenid = parseInt($("#canteenid").text());
-    //
-    //     table.reload('idTest', {
-    //         method: 'POST',
-    //         url: '/dish/getDishesByCanteen',
-    //         where: {
-    //             "canteenid": dyncanteenid
-    //         },
-    //         page: {
-    //             curr: 1
-    //         }
-    //     });
-    // });
-
-    // layui.use('table', function() {
-    //     var dyncanteenid = parseInt($("#canteenid").text());
-    //     var $ = layui.jquery
-    //     var table = layui.table;
-    //     //监听表格复选框选择
-    //     table.on('checkbox(demo)', function(obj) {
-    //         console.log(obj)
-    //     });
-    //     //监听工具条
-    //     table.on('tool(demo)', function(obj) {
-    //         var data = obj.data;
-    //         // if (obj.event === 'detail') {
-    //         //     var detailFrom = layui.layer.open({
-    //         //         title : "查看所有评价",
-    //         //         type : 2,
-    //         //         content : "/TS-dishcmtDetail.html",//弹出层页面
-    //         //         area: ['500px', '200px'],
-    //         //         success : function(layero, index){
-    //         //             var body = layui.layer.getChildFrame('body', index);
-    //         //             body.find("#dishid").text(data.dishid);
-    //         //         }});
-    //         // }
-    //
-    //     });
-    //     // table.reload('idTest', {
-    //     //     method: 'POST',
-    //     //     url: '/dish/getDishesByCanteen', // 设置新的URL
-    //     //     where: {"canteenid": dyncanteenid},
-    //     //     page: {
-    //     //         curr: 1 // 重新从第1页开始
-    //     //     }
-    //     // });
-    //     //触发事件
-    //     // var active = {
-    //     //     search:function(){
-    //     //         var name=$("#searchDish").val();
-    //     //         table.reload('idTest',{
-    //     //             method: 'POST'
-    //     //             , where: {"dishname":name},page: {
-    //     //                 curr: 1 //重新从第 1 页开始
-    //     //             }
-    //     //         })
-    //     //     }
-    //     // };
-    //
-    //     // $('#searchDish .layui-btn').on('click', function() {
-    //     //     var type = $(this).data('type');
-    //     //     active[type] ? active[type].call(this) : '';
-    //     // });
-    //
-    // });
-    // layui.use('table', function() {
-    //     var table = layui.table;
-    //     var dyncanteenid = parseInt($("#canteenid").text());
-    //
-    //     table.render({
-    //         elem: '#tableContainer', // 表格容器的id
-    //         url: '/dish/getDishesByCanteen', // 数据接口
-    //         where: {
-    //             canteenid: dyncanteenid
-    //         },
-    //         page: true,
-    //         cols: [[ // 表头
-    //             {type:'checkbox'},
-    //             {field:'dishid', sort: true, title: '编号'},
-    //             {field:'dishname', title: '姓名'},
-    //             {field:'price', title: '价格'},
-    //             {field:'promoteprice', title: '促销价格'},
-    //             {field:'dishstyle', title: '菜系'},
-    //             {field:'canteenid', title: '所属食堂ID'},
-    //             {field:'description', title: '简介'},
-    //             {field:'imagefilename', title: '图片文件名'},
-    //             {field:'ifrecommend', title: '是否推荐'},
-    //             {fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}
-    //         ]],
-    //         done: function() {
-    //             table.reload('idTest', {
-    //                 method: 'POST',
-    //                 url: '/dish/getDishesByCanteen',
-    //                 where: {
-    //                     canteenid: dyncanteenid
-    //                 },
-    //                 page: {
-    //                     curr: 1
-    //                 }
-    //             });
-    //         }
-    //     });
-    // });
+        var canteenId =parent.param1;
         // 渲染表格
         layui.use('table', function(){
         var table = layui.table;
-        var dyncanteenid = parseInt($("#canteenid").text());
+        // var dyncanteenid = parseInt($("#canteenid").text());
             console.log("111");
-        table.render({
-
-            elem: '#idTest',
-        url: '/dish/getDishesByCanteen',
-        where: {canteenid: dyncanteenid},
-        page: true,
-        id: 'idTest',
-        cols: [[
-    {type: 'checkbox'},
-    {field: 'dishid', sort: true, title: '编号'},
-    {field: 'dishname', title: '姓名'},
-    {field: 'price', title: '价格'},
-    {field: 'promoteprice', title: '促销价格'},
-    {field: 'dishstyle', title: '菜系'},
-    {field: 'canteenid', title: '所属食堂ID'},
-    {field: 'description', title: '简介'},
-    {field: 'imagefilename', title: '图片文件名'},
-    {field: 'ifrecommend', title: '是否推荐'},
-    {fixed: 'right', width:220, align:'left', toolbar: '#barDemo'}
-        ]]
-    });
-
-        // 监听工具条点击事件
-        table.on('tool(demo)', function(obj){
-        var data = obj.data;
-        if(obj.event === 'edit'){
-        // 编辑操作
-    } else if(obj.event === 'delete'){
-        // 删除操作
-    }
-    });
-    });
-
-
-    layui.table.reload('idTest', {
-        where: {canteenid: 444},
-        page: {curr: 1}
-    });
+            var canteenid = parseInt(canteenId);
+        layui.table.reload('idTest', {
+            url:'/dish/getDishesByCanteen',
+            where: {canteenid: canteenid},
+            page:true
+        });
+        });
 </script>
 </body>
 </html>
